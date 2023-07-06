@@ -30,7 +30,7 @@ extension PrePurchaseViewController: MenuBuilderDataSourceDelegate {
                 
             case .pageVenue:
                 switch action {
-                case .returnPressed(let value):
+                case .returnPressed(let value), .valueChanged(let value):
                     selectedVenueIdentifier = value
                 default:
                     break
@@ -42,7 +42,7 @@ extension PrePurchaseViewController: MenuBuilderDataSourceDelegate {
                 
             case .pageAttraction:
                 switch action {
-                case .returnPressed(let value):
+                case .returnPressed(let value), .valueChanged(let value):
                     selectedAttractionIdentifier = value
                 default:
                     break

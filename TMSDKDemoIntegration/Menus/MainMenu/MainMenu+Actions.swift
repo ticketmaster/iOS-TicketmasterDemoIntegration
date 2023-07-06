@@ -24,7 +24,7 @@ extension MainMenuViewController: MenuBuilderDataSourceDelegate {
             
             case .apiKeyTextField:
                 switch action {
-                case .valueChanged(let value), .returnPressed(let value):
+                case .returnPressed(let value), .valueChanged(let value):
                     let oldConfig = ConfigurationManager.shared.currentConfiguration
                     if let apiKey = value, apiKey.count > 0 {
                         let newConfig = Configuration(apiKey: apiKey,

@@ -27,7 +27,7 @@ extension TicketsViewController: MenuBuilderDataSourceDelegate {
                 
             case .displayOrder:
                 switch action {
-                case .valueChanged(let value), .returnPressed(let value):
+                case .returnPressed(let value), .valueChanged(let value):
                     displayIdentifier = value
                 default:
                     break

@@ -53,7 +53,7 @@ extension DiscoveryViewController: MenuBuilderDataSourceDelegate {
                 
             case .searchEvent:
                 switch action {
-                case .returnPressed(let value):
+                case .returnPressed(let value), .valueChanged(let value):
                     guard let value = value, value.count > 0 else { return }
                     discoveryHelper.eventSearch(value, onNavigationController: navigationController!)
                 default:
@@ -61,7 +61,7 @@ extension DiscoveryViewController: MenuBuilderDataSourceDelegate {
                 }
             case .searchVenue:
                 switch action {
-                case .returnPressed(let value):
+                case .returnPressed(let value), .valueChanged(let value):
                     guard let value = value, value.count > 0 else { return }
                     discoveryHelper.venueSearch(value, onNavigationController: navigationController!)
                 default:
@@ -69,7 +69,7 @@ extension DiscoveryViewController: MenuBuilderDataSourceDelegate {
                 }
             case .searchAttraction:
                 switch action {
-                case .returnPressed(let value):
+                case .returnPressed(let value), .valueChanged(let value):
                     guard let value = value, value.count > 0 else { return }
                     discoveryHelper.attractionSearch(value, onNavigationController: navigationController!)
                 default:
@@ -77,7 +77,7 @@ extension DiscoveryViewController: MenuBuilderDataSourceDelegate {
                 }
             case .searchClassification:
                 switch action {
-                case .returnPressed(let value):
+                case .returnPressed(let value), .valueChanged(let value):
                     guard let value = value, value.count > 0 else { return }
                     discoveryHelper.classificationSearch(value, onNavigationController: navigationController!)
                 default:
@@ -86,7 +86,7 @@ extension DiscoveryViewController: MenuBuilderDataSourceDelegate {
                 
             case .detailsEvent:
                 switch action {
-                case .returnPressed(let value):
+                case .returnPressed(let value), .valueChanged(let value):
                     guard let value = value, value.count > 0 else { return }
                     discoveryHelper.eventDetails(value, type: selectedIdentifierType, onNavigationController: navigationController!)
                 default:
@@ -94,7 +94,7 @@ extension DiscoveryViewController: MenuBuilderDataSourceDelegate {
                 }
             case .detailsVenue:
                 switch action {
-                case .returnPressed(let value):
+                case .returnPressed(let value), .valueChanged(let value):
                     guard let value = value, value.count > 0 else { return }
                     discoveryHelper.venueDetails(value, type: selectedIdentifierType, onNavigationController: navigationController!)
                 default:
@@ -102,7 +102,7 @@ extension DiscoveryViewController: MenuBuilderDataSourceDelegate {
                 }
             case .detailsAttraction:
                 switch action {
-                case .returnPressed(let value):
+                case .returnPressed(let value), .valueChanged(let value):
                     guard let value = value, value.count > 0 else { return }
                     discoveryHelper.attractionDetails(value, type: selectedIdentifierType, onNavigationController: navigationController!)
                 default:
@@ -110,7 +110,7 @@ extension DiscoveryViewController: MenuBuilderDataSourceDelegate {
                 }
             case .detailsClassification:
                 switch action {
-                case .returnPressed(let value):
+                case .returnPressed(let value), .valueChanged(let value):
                     guard let value = value, value.count > 0 else { return }
                     discoveryHelper.classificationDetails(value, type: selectedIdentifierType, onNavigationController: navigationController!)
                 default:
