@@ -19,6 +19,7 @@ class TicketsHelper: NSObject {
         // make sure to configure Authentication first
         ConfigurationManager.shared.configureAuthenticationIfNeeded { success in
             if success {
+                // then configure Tickets
                 self.configureTickets(configuration: configuration, completion: completion)
             } else {
                 completion(false)

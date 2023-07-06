@@ -7,6 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		795D32B72A565EA7001D0466 /* PrePurchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D32AD2A565EA7001D0466 /* PrePurchaseViewController.swift */; };
+		795D32BB2A565EA7001D0466 /* PrePurchaseVC+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D32B12A565EA7001D0466 /* PrePurchaseVC+Actions.swift */; };
+		795D32BC2A565EA7001D0466 /* PrePurchaseVC+BuildMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D32B22A565EA7001D0466 /* PrePurchaseVC+BuildMenu.swift */; };
+		795D32C12A565ECD001D0466 /* PrePurchaseHelper+AnalyticsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D32C02A565ECD001D0466 /* PrePurchaseHelper+AnalyticsDelegate.swift */; };
+		795D32C32A566010001D0466 /* PrePurchaseHelper+LocationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D32C22A566010001D0466 /* PrePurchaseHelper+LocationDelegate.swift */; };
+		795D32C52A5660B4001D0466 /* PrePurchaseHelper+NavigationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D32C42A5660B4001D0466 /* PrePurchaseHelper+NavigationDelegate.swift */; };
+		795D32C72A56615F001D0466 /* PrePurchaseHelper+Present.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D32C62A56615F001D0466 /* PrePurchaseHelper+Present.swift */; };
+		795D32CD2A5664D5001D0466 /* PurchaseVC+BuildMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D32C82A5664D5001D0466 /* PurchaseVC+BuildMenu.swift */; };
+		795D32CF2A5664D5001D0466 /* PurchaseVC+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D32CA2A5664D5001D0466 /* PurchaseVC+Actions.swift */; };
+		795D32D02A5664D5001D0466 /* PurchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D32CB2A5664D5001D0466 /* PurchaseViewController.swift */; };
+		795D32D12A5664D5001D0466 /* PurchaseVC+Present.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D32CC2A5664D5001D0466 /* PurchaseVC+Present.swift */; };
+		795D32D62A566554001D0466 /* EventConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D32D32A566554001D0466 /* EventConfiguration.swift */; };
+		795D32D72A566554001D0466 /* EventConfigurationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D32D42A566554001D0466 /* EventConfigurationManager.swift */; };
+		795D32D82A566554001D0466 /* Events.plist in Resources */ = {isa = PBXBuildFile; fileRef = 795D32D52A566554001D0466 /* Events.plist */; };
+		795D32DA2A5667DD001D0466 /* PurchaseHelper+Present.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D32D92A5667DD001D0466 /* PurchaseHelper+Present.swift */; };
+		795D32DC2A566ACC001D0466 /* PurchaseHelper+SharingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D32DB2A566ACC001D0466 /* PurchaseHelper+SharingDelegate.swift */; };
+		795D32DE2A566B11001D0466 /* PurchaseHelper+NavigationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D32DD2A566B11001D0466 /* PurchaseHelper+NavigationDelegate.swift */; };
+		795D32E02A566C21001D0466 /* PurchaseHelper+AnalyticsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D32DF2A566C21001D0466 /* PurchaseHelper+AnalyticsDelegate.swift */; };
 		797BC4C12A5623A40031E4EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797BC4C02A5623A40031E4EE /* AppDelegate.swift */; };
 		797BC4C32A5623A40031E4EE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797BC4C22A5623A40031E4EE /* SceneDelegate.swift */; };
 		797BC4C82A5623A40031E4EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 797BC4C62A5623A40031E4EE /* Main.storyboard */; };
@@ -72,6 +90,24 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		795D32AD2A565EA7001D0466 /* PrePurchaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrePurchaseViewController.swift; sourceTree = "<group>"; };
+		795D32B12A565EA7001D0466 /* PrePurchaseVC+Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PrePurchaseVC+Actions.swift"; sourceTree = "<group>"; };
+		795D32B22A565EA7001D0466 /* PrePurchaseVC+BuildMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PrePurchaseVC+BuildMenu.swift"; sourceTree = "<group>"; };
+		795D32C02A565ECD001D0466 /* PrePurchaseHelper+AnalyticsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PrePurchaseHelper+AnalyticsDelegate.swift"; sourceTree = "<group>"; };
+		795D32C22A566010001D0466 /* PrePurchaseHelper+LocationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PrePurchaseHelper+LocationDelegate.swift"; sourceTree = "<group>"; };
+		795D32C42A5660B4001D0466 /* PrePurchaseHelper+NavigationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PrePurchaseHelper+NavigationDelegate.swift"; sourceTree = "<group>"; };
+		795D32C62A56615F001D0466 /* PrePurchaseHelper+Present.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PrePurchaseHelper+Present.swift"; sourceTree = "<group>"; };
+		795D32C82A5664D5001D0466 /* PurchaseVC+BuildMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PurchaseVC+BuildMenu.swift"; sourceTree = "<group>"; };
+		795D32CA2A5664D5001D0466 /* PurchaseVC+Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PurchaseVC+Actions.swift"; sourceTree = "<group>"; };
+		795D32CB2A5664D5001D0466 /* PurchaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseViewController.swift; sourceTree = "<group>"; };
+		795D32CC2A5664D5001D0466 /* PurchaseVC+Present.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PurchaseVC+Present.swift"; sourceTree = "<group>"; };
+		795D32D32A566554001D0466 /* EventConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventConfiguration.swift; sourceTree = "<group>"; };
+		795D32D42A566554001D0466 /* EventConfigurationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventConfigurationManager.swift; sourceTree = "<group>"; };
+		795D32D52A566554001D0466 /* Events.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Events.plist; sourceTree = "<group>"; };
+		795D32D92A5667DD001D0466 /* PurchaseHelper+Present.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PurchaseHelper+Present.swift"; sourceTree = "<group>"; };
+		795D32DB2A566ACC001D0466 /* PurchaseHelper+SharingDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PurchaseHelper+SharingDelegate.swift"; sourceTree = "<group>"; };
+		795D32DD2A566B11001D0466 /* PurchaseHelper+NavigationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PurchaseHelper+NavigationDelegate.swift"; sourceTree = "<group>"; };
+		795D32DF2A566C21001D0466 /* PurchaseHelper+AnalyticsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PurchaseHelper+AnalyticsDelegate.swift"; sourceTree = "<group>"; };
 		797BC4BD2A5623A40031E4EE /* TMSDKDemoIntegration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMSDKDemoIntegration.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		797BC4C02A5623A40031E4EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		797BC4C22A5623A40031E4EE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -149,6 +185,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		795D32D22A566537001D0466 /* EventConfiguration */ = {
+			isa = PBXGroup;
+			children = (
+				795D32D42A566554001D0466 /* EventConfigurationManager.swift */,
+				795D32D32A566554001D0466 /* EventConfiguration.swift */,
+				795D32D52A566554001D0466 /* Events.plist */,
+			);
+			path = EventConfiguration;
+			sourceTree = "<group>";
+		};
 		797BC4B42A5623A40031E4EE = {
 			isa = PBXGroup;
 			children = (
@@ -238,6 +284,10 @@
 			isa = PBXGroup;
 			children = (
 				79E8C0692A5636170054B340 /* PrePurchaseHelper.swift */,
+				795D32C42A5660B4001D0466 /* PrePurchaseHelper+NavigationDelegate.swift */,
+				795D32C22A566010001D0466 /* PrePurchaseHelper+LocationDelegate.swift */,
+				795D32C02A565ECD001D0466 /* PrePurchaseHelper+AnalyticsDelegate.swift */,
+				795D32C62A56615F001D0466 /* PrePurchaseHelper+Present.swift */,
 			);
 			path = PrePurchase;
 			sourceTree = "<group>";
@@ -246,6 +296,10 @@
 			isa = PBXGroup;
 			children = (
 				79E8C06B2A5636D40054B340 /* PurchaseHelper.swift */,
+				795D32D92A5667DD001D0466 /* PurchaseHelper+Present.swift */,
+				795D32DD2A566B11001D0466 /* PurchaseHelper+NavigationDelegate.swift */,
+				795D32DF2A566C21001D0466 /* PurchaseHelper+AnalyticsDelegate.swift */,
+				795D32DB2A566ACC001D0466 /* PurchaseHelper+SharingDelegate.swift */,
 			);
 			path = Purchase;
 			sourceTree = "<group>";
@@ -295,6 +349,9 @@
 		79E8C0042A56277A0054B340 /* PrePurchase */ = {
 			isa = PBXGroup;
 			children = (
+				795D32AD2A565EA7001D0466 /* PrePurchaseViewController.swift */,
+				795D32B22A565EA7001D0466 /* PrePurchaseVC+BuildMenu.swift */,
+				795D32B12A565EA7001D0466 /* PrePurchaseVC+Actions.swift */,
 			);
 			path = PrePurchase;
 			sourceTree = "<group>";
@@ -302,6 +359,11 @@
 		79E8C0052A5627840054B340 /* Purchase */ = {
 			isa = PBXGroup;
 			children = (
+				795D32D22A566537001D0466 /* EventConfiguration */,
+				795D32CB2A5664D5001D0466 /* PurchaseViewController.swift */,
+				795D32C82A5664D5001D0466 /* PurchaseVC+BuildMenu.swift */,
+				795D32CA2A5664D5001D0466 /* PurchaseVC+Actions.swift */,
+				795D32CC2A5664D5001D0466 /* PurchaseVC+Present.swift */,
 			);
 			path = Purchase;
 			sourceTree = "<group>";
@@ -440,6 +502,7 @@
 				797BC4CA2A5623A60031E4EE /* Assets.xcassets in Resources */,
 				79E8C0282A56290F0054B340 /* MenuSegmentedControlTableViewCell.xib in Resources */,
 				79E8C02B2A56290F0054B340 /* MenuTitleTableViewCell.xib in Resources */,
+				795D32D82A566554001D0466 /* Events.plist in Resources */,
 				797BC4C82A5623A40031E4EE /* Main.storyboard in Resources */,
 				79E8C02F2A56290F0054B340 /* MenuStepperWithTitleTableViewCell.xib in Resources */,
 				79E8C0232A56290F0054B340 /* MenuButtonTableViewCell.xib in Resources */,
@@ -466,21 +529,33 @@
 				79E8C00A2A5627DE0054B340 /* BrandedNavigationController.swift in Sources */,
 				79E8C0392A56291F0054B340 /* MenuBuilderCellInfo.swift in Sources */,
 				79E8C0242A56290F0054B340 /* MenuTitleTableViewCell.swift in Sources */,
+				795D32BB2A565EA7001D0466 /* PrePurchaseVC+Actions.swift in Sources */,
 				79E8C03D2A56291F0054B340 /* MenuBuilderDataSource+BuildCells.swift in Sources */,
 				79E8C08E2A5656BF0054B340 /* DiscoveryVC+BuildMenu.swift in Sources */,
+				795D32B72A565EA7001D0466 /* PrePurchaseViewController.swift in Sources */,
 				79E8C0722A563C790054B340 /* TicketsHelper+AnalyticsDelegate.swift in Sources */,
 				79E8C03E2A56291F0054B340 /* MenuBuilderTableViewCell.swift in Sources */,
 				79E8C03A2A56291F0054B340 /* MenuBuilderDataSource+Action.swift in Sources */,
 				79E8C0272A56290F0054B340 /* MenuButtonTableViewCell.swift in Sources */,
+				795D32DC2A566ACC001D0466 /* PurchaseHelper+SharingDelegate.swift in Sources */,
 				79E8C07E2A5650A70054B340 /* UserDefaultsManager.swift in Sources */,
 				79E8C0622A562D720054B340 /* Configuration.swift in Sources */,
 				79E8C02C2A56290F0054B340 /* MenuStepperWithTitleTableViewCell.swift in Sources */,
+				795D32D72A566554001D0466 /* EventConfigurationManager.swift in Sources */,
 				79E8C06E2A56391A0054B340 /* TicketsHelper.swift in Sources */,
+				795D32C32A566010001D0466 /* PrePurchaseHelper+LocationDelegate.swift in Sources */,
+				795D32DE2A566B11001D0466 /* PurchaseHelper+NavigationDelegate.swift in Sources */,
 				79E8C0302A56290F0054B340 /* MenuBlankTableViewCell.swift in Sources */,
 				79E8C0782A563D310054B340 /* TicketsHelper+CustomModules.swift in Sources */,
 				79E8C06A2A5636170054B340 /* PrePurchaseHelper.swift in Sources */,
+				795D32CD2A5664D5001D0466 /* PurchaseVC+BuildMenu.swift in Sources */,
 				79E8C03B2A56291F0054B340 /* MenuBuilderDataSource+Update.swift in Sources */,
+				795D32C52A5660B4001D0466 /* PrePurchaseHelper+NavigationDelegate.swift in Sources */,
+				795D32D62A566554001D0466 /* EventConfiguration.swift in Sources */,
+				795D32D02A5664D5001D0466 /* PurchaseViewController.swift in Sources */,
 				79E8C0312A56290F0054B340 /* MenuSegmentedControlTableViewCell.swift in Sources */,
+				795D32DA2A5667DD001D0466 /* PurchaseHelper+Present.swift in Sources */,
+				795D32CF2A5664D5001D0466 /* PurchaseVC+Actions.swift in Sources */,
 				79E8C0262A56290F0054B340 /* MenuTextFieldWithTitleTableViewCell.swift in Sources */,
 				79E8C07C2A5648090054B340 /* MainMenu+Actions.swift in Sources */,
 				79E8C08B2A5656BF0054B340 /* DiscoveryViewController.swift in Sources */,
@@ -489,16 +564,21 @@
 				79E8C07A2A5640150054B340 /* MainMenu+BuildMenu.swift in Sources */,
 				79E8C06C2A5636D40054B340 /* PurchaseHelper.swift in Sources */,
 				79E8C08D2A5656BF0054B340 /* DictionaryExplorerTextView.swift in Sources */,
+				795D32D12A5664D5001D0466 /* PurchaseVC+Present.swift in Sources */,
+				795D32E02A566C21001D0466 /* PurchaseHelper+AnalyticsDelegate.swift in Sources */,
+				795D32C72A56615F001D0466 /* PrePurchaseHelper+Present.swift in Sources */,
 				79E8C0902A56584C0054B340 /* DiscoveryHelper+APICalls.swift in Sources */,
 				79E8C08A2A5656BF0054B340 /* SearchResultsTableViewController.swift in Sources */,
 				79E8C0422A562AC20054B340 /* MainMenuViewController.swift in Sources */,
 				79E8C08C2A5656BF0054B340 /* DiscoveryVC+Actions.swift in Sources */,
 				79E8C0602A562D2E0054B340 /* ConfigurationManager.swift in Sources */,
+				795D32C12A565ECD001D0466 /* PrePurchaseHelper+AnalyticsDelegate.swift in Sources */,
 				79E8C0662A56334B0054B340 /* AuthenticationHelper+AuthDelegate.swift in Sources */,
 				797BC4C12A5623A40031E4EE /* AppDelegate.swift in Sources */,
 				79E8C0742A563CAA0054B340 /* TicketsHelper+ModuleDelegate.swift in Sources */,
 				797BC4C32A5623A40031E4EE /* SceneDelegate.swift in Sources */,
 				79E8C03C2A56291F0054B340 /* MenuBuilderDataSource.swift in Sources */,
+				795D32BC2A565EA7001D0466 /* PrePurchaseVC+BuildMenu.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -655,6 +735,7 @@
 				INFOPLIST_FILE = TMSDKDemoIntegration/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "TM SDK Demo";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Help us find Events near you!";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -682,6 +763,7 @@
 				INFOPLIST_FILE = TMSDKDemoIntegration/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "TM SDK Demo";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Help us find Events near you!";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

@@ -93,40 +93,52 @@ extension MainMenuViewController: MenuBuilderDataSourceDelegate {
                 }
                 
             case .discoveryAPIMenu:
-                verifyClientConfig(completion: { success in
+                verifyClientConfig { success in
                     if success {
-                        ConfigurationManager.shared.configureDiscoveryAPI { success in
+                        ConfigurationManager.shared.configureDiscoveryAPIIfNeeded { success in
                             if success {
                                 let vc = DiscoveryViewController(style: .grouped)
                                 self.navigationController?.pushViewController(vc, animated: true)
                             }
                         }
                     }
-                })
+                }
                 
             case .prePurchaseMenu:
-                verifyClientConfig(completion: { success in
-//                    let vc = PrePurchaseViewController(style: .grouped)
-//                    navigationController?.pushViewController(vc, animated: true)
-                })
+                verifyClientConfig { success in
+                    if success {
+                        ConfigurationManager.shared.configurePrePurchaseIfNeeded { success in
+                            if success {
+                                let vc = PrePurchaseViewController(style: .grouped)
+                                self.navigationController?.pushViewController(vc, animated: true)
+                            }
+                        }
+                    }
+                }
                 
             case .purchaseMenu:
-                verifyClientConfig(completion: { success in
-//                    let vc = PurchaseViewController(style: .grouped)
-//                    navigationController?.pushViewController(vc, animated: true)
-                })
+                verifyClientConfig { success in
+                    if success {
+                        ConfigurationManager.shared.configurePurchaseIfNeeded { success in
+                            if success {
+                                let vc = PurchaseViewController(style: .grouped)
+                                self.navigationController?.pushViewController(vc, animated: true)
+                            }
+                        }
+                    }
+                }
                 
             case .ticketsMenu:
-                verifyClientConfig(completion: { success in
+                verifyClientConfig { success in
 //                    let vc = TicketsViewController(style: .grouped)
 //                    navigationController?.pushViewController(vc, animated: true)
-                })
+                }
 
             case .authenticationMenu:
-                verifyClientConfig(completion: { success in
+                verifyClientConfig { success in
 //                    let vc = AuthenticationViewController(style: .grouped)
 //                    navigationController?.pushViewController(vc, animated: true)
-                })
+                }
                 
             case .currentUserText:
                 // ignore

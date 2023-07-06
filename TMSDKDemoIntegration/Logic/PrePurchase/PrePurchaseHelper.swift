@@ -6,10 +6,22 @@
 //
 
 import Foundation
-import TicketmasterPrePurchase // for TMPrePurchase
+import CoreLocation
+import TicketmasterFoundation // for MarketLocation
+import TicketmasterPrePurchase // for TMPrePurchase and TMPrePurchaseViewController
 
 /// a class to wrap helpful methods
 class PrePurchaseHelper: NSObject {
+    
+    var homepageMarketLocation: MarketLocation = MarketLocation.California_LosAngeles()
+    
+    lazy var clLocationManager: CLLocationManager = {
+        let result = CLLocationManager()
+        result.delegate = self
+        return result
+    }()
+    
+    weak var locationRequestingViewController: TMPrePurchaseViewController?
     
     func configure(configuration: Configuration, completion: @escaping (_ success: Bool) -> Void) {
         guard configuration.apiKey != "<your apiKey>" else {

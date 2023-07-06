@@ -33,6 +33,12 @@ class UserDefaultsManager: UserDefaultsStringEnum<UserDefaultsManager.Settings> 
         
         case discoveryLanguageString
         case discoveryIdentifierString
+        
+        case prePurchaseVenueString
+        case prePurchaseAttractionString
+        case prePurchaseCustomString
+        
+        case purchaseCustomEventIDString
     }
 }
 

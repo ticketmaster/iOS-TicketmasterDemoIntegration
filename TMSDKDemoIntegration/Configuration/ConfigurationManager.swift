@@ -67,7 +67,7 @@ extension ConfigurationManager {
         }
     }
     
-    func configureAuthentication(completion: @escaping (_ success: Bool) -> Void) {
+    private func configureAuthentication(completion: @escaping (_ success: Bool) -> Void) {
         let authHelper = AuthenticationHelper()
         authHelper.configure(configuration: currentConfiguration) { success in
             if success {
@@ -92,7 +92,7 @@ extension ConfigurationManager {
         }
     }
     
-    func configureDiscoveryAPI(completion: @escaping (_ success: Bool) -> Void) {
+    private func configureDiscoveryAPI(completion: @escaping (_ success: Bool) -> Void) {
         let discoHelper = DiscoveryHelper()
         discoHelper.configure(configuration: currentConfiguration) { success in
             if success {
@@ -117,7 +117,7 @@ extension ConfigurationManager {
         }
     }
     
-    func configurePrePurchase(completion: @escaping (_ success: Bool) -> Void) {
+    private func configurePrePurchase(completion: @escaping (_ success: Bool) -> Void) {
         let prepHelper = PrePurchaseHelper()
         prepHelper.configure(configuration: currentConfiguration) { success in
             if success {
@@ -142,15 +142,23 @@ extension ConfigurationManager {
         }
     }
     
-    func configurePurchase(completion: @escaping (_ success: Bool) -> Void) {
-        let purchHelper = PurchaseHelper()
-        purchHelper.configure(configuration: currentConfiguration) { success in
+    private func configurePurchase(completion: @escaping (_ success: Bool) -> Void) {
+        // always configure Authentication first
+        configureAuthenticationIfNeeded { success in
             if success {
-                self.purchaseHelper = purchHelper
+                // then  configure Purchase
+                let purchHelper = PurchaseHelper()
+                purchHelper.configure(configuration: self.currentConfiguration) { success in
+                    if success {
+                        self.purchaseHelper = purchHelper
+                    } else {
+                        self.purchaseHelper = nil
+                    }
+                    completion(success)
+                }
             } else {
-                self.purchaseHelper = nil
+                completion(false)
             }
-            completion(success)
         }
     }
 }
@@ -167,15 +175,22 @@ extension ConfigurationManager {
         }
     }
     
-    func configureTickets(completion: @escaping (_ success: Bool) -> Void) {
-        let tickHelper = TicketsHelper()
-        tickHelper.configure(configuration: currentConfiguration) { success in
+    private func configureTickets(completion: @escaping (_ success: Bool) -> Void) {
+        // always configure Authentication first
+        configureAuthenticationIfNeeded { success in
             if success {
-                self.ticketsHelper = tickHelper
+                let tickHelper = TicketsHelper()
+                tickHelper.configure(configuration: self.currentConfiguration) { success in
+                    if success {
+                        self.ticketsHelper = tickHelper
+                    } else {
+                        self.ticketsHelper = nil
+                    }
+                    completion(success)
+                }
             } else {
-                self.ticketsHelper = nil
+                completion(false)
             }
-            completion(success)
         }
     }
 }

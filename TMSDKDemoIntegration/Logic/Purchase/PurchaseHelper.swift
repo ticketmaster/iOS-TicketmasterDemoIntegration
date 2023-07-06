@@ -6,10 +6,24 @@
 //
 
 import Foundation
+import UIKit
 import TicketmasterPurchase // for TMPurchase
 
 /// a class to wrap helpful methods
 class PurchaseHelper: NSObject {
+    
+    /// show Apple's Rate My App after a successful purchase?
+    var rateMyAppAfterPurchase: Bool = false
+    
+    // TODO: persist this favoritesStore somewhere, so the user's favorites are remembered
+    /// storage of user's favorited Event IDs
+    var eventFavoritesStore: [String] = []
+
+    /// the resulting Order from a purchase (if any)
+    var purchasedOrder: TMPurchaseOrder?
+    
+    /// which ViewController is presenting the Purchase SDK
+    var presentingViewController: UIViewController?
     
     func configure(configuration: Configuration, completion: @escaping (_ success: Bool) -> Void) {
         guard configuration.apiKey != "<your apiKey>" else {
@@ -19,14 +33,15 @@ class PurchaseHelper: NSObject {
         // make sure to configure Authentication first
         ConfigurationManager.shared.configureAuthenticationIfNeeded { success in
             if success {
-                self.configureTickets(configuration: configuration, completion: completion)
+                // then configure Purchase
+                self.configurePurchase(configuration: configuration, completion: completion)
             } else {
                 completion(false)
             }
         }
     }
     
-    private func configureTickets(configuration: Configuration, completion: @escaping (_ success: Bool) -> Void) {
+    private func configurePurchase(configuration: Configuration, completion: @escaping (_ success: Bool) -> Void) {
         print("Purchase Configuring...")
         
         TMPurchase.shared.apiKey = configuration.apiKey
