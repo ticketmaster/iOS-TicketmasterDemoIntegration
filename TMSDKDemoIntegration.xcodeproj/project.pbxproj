@@ -34,6 +34,7 @@
 		797BC4C82A5623A40031E4EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 797BC4C62A5623A40031E4EE /* Main.storyboard */; };
 		797BC4CA2A5623A60031E4EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 797BC4C92A5623A60031E4EE /* Assets.xcassets */; };
 		797BC4CD2A5623A60031E4EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 797BC4CB2A5623A60031E4EE /* LaunchScreen.storyboard */; };
+		79BC55E72A57225E00E082E1 /* PurchaseHelper+WebsiteConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BC55E62A57225E00E082E1 /* PurchaseHelper+WebsiteConfig.swift */; };
 		79E8C00A2A5627DE0054B340 /* BrandedNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E8C0082A5627DE0054B340 /* BrandedNavigationController.swift */; };
 		79E8C0202A56290F0054B340 /* MenuTextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79E8C00E2A56290F0054B340 /* MenuTextFieldTableViewCell.xib */; };
 		79E8C0212A56290F0054B340 /* MenuTextFieldWithTitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79E8C00F2A56290F0054B340 /* MenuTextFieldWithTitleTableViewCell.xib */; };
@@ -124,6 +125,7 @@
 		797BC4C92A5623A60031E4EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		797BC4CC2A5623A60031E4EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		797BC4CE2A5623A60031E4EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		79BC55E62A57225E00E082E1 /* PurchaseHelper+WebsiteConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PurchaseHelper+WebsiteConfig.swift"; sourceTree = "<group>"; };
 		79E8C0082A5627DE0054B340 /* BrandedNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandedNavigationController.swift; sourceTree = "<group>"; };
 		79E8C00E2A56290F0054B340 /* MenuTextFieldTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuTextFieldTableViewCell.xib; sourceTree = "<group>"; };
 		79E8C00F2A56290F0054B340 /* MenuTextFieldWithTitleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuTextFieldWithTitleTableViewCell.xib; sourceTree = "<group>"; };
@@ -317,6 +319,7 @@
 			isa = PBXGroup;
 			children = (
 				79E8C06B2A5636D40054B340 /* PurchaseHelper.swift */,
+				79BC55E62A57225E00E082E1 /* PurchaseHelper+WebsiteConfig.swift */,
 				795D32D92A5667DD001D0466 /* PurchaseHelper+Present.swift */,
 				795D32DD2A566B11001D0466 /* PurchaseHelper+NavigationDelegate.swift */,
 				795D32DF2A566C21001D0466 /* PurchaseHelper+AnalyticsDelegate.swift */,
@@ -578,6 +581,7 @@
 				795D32C52A5660B4001D0466 /* PrePurchaseHelper+NavigationDelegate.swift in Sources */,
 				795D32D62A566554001D0466 /* EventConfiguration.swift in Sources */,
 				795D32D02A5664D5001D0466 /* PurchaseViewController.swift in Sources */,
+				79BC55E72A57225E00E082E1 /* PurchaseHelper+WebsiteConfig.swift in Sources */,
 				79E8C0312A56290F0054B340 /* MenuSegmentedControlTableViewCell.swift in Sources */,
 				795D32DA2A5667DD001D0466 /* PurchaseHelper+Present.swift in Sources */,
 				795D32CF2A5664D5001D0466 /* PurchaseVC+Actions.swift in Sources */,

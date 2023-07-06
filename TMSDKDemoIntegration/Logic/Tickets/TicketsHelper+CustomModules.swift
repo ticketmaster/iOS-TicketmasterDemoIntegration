@@ -15,27 +15,13 @@ extension TicketsHelper {
         print(" - Adding Custom Modules")
         var output: [TMTicketsModule] = []
         
-        // build a custom rideshare module
-        // Ticket SDK is not sure exactly how you want to handle a "rideshare",
-        //  so Tickets will call back into handleModuleActionButton()
+        // build a custom parking module
+        // Tickets SDK knows how to handle opening a webpage,
+        //  so handleModuleActionButton() will not be called
         if let module = parkingModule(event: event) {
             output.append(module)
         }
-        
-        // build a custom venue parking module
-        // Ticket SDK is not sure exactly how you want to handle a "rideshare",
-        //  so Tickets will call back into handleModuleActionButton()
-        if let module = rideshareModule(event: event) {
-            output.append(module)
-        }
-        
-        // build a custom rideshare module
-        // Tickets SDK knows how to handle opening a webpage,
-        //  so handleModuleActionButton() will not be called
-        if let module = seatingChartModule(event: event) {
-            output.append(module)
-        }
-        
+                
         // build a custom seating chart module
         // Tickets SDK knows how to handle opening a webpage,
         //  so handleModuleActionButton() will not be called
@@ -79,60 +65,35 @@ extension TicketsHelper {
         
         // define map region and zoom (span)
         let mapRegion = MKCoordinateRegion(
-            center: CLLocationCoordinate2D(latitude: 34.0734, longitude: -118.2402),
-            span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
+            center: CLLocationCoordinate2D(latitude: 39.74885, longitude: -105.00761),
+            span: MKCoordinateSpan(latitudeDelta: 0.015, longitudeDelta: 0.015))
 
         // define map point of interest
         let mapAnnotation = TMTicketsModuleHeaderView.MapAnnotation(
-            coordinate: CLLocationCoordinate2D(latitude: 34.0735, longitude: -118.2456),
-            title: "Lot 1")
+            coordinate: CLLocationCoordinate2D(latitude: 39.74648, longitude: -105.00930),
+            title: "Camry Lot South")
 
         // build a UIView with a text, gradient, and image
         let headerView = TMTicketsModuleHeaderView.build()
-        headerView.configure(topLabelText: "Parking: Lot 1",
+        headerView.configure(topLabelText: "Parking: Camry Lot South",
                              mapCoordinateRegion: mapRegion,
                              mapAnnotation: mapAnnotation)
 
         // build header with HeaderView (a UIView)
         let header = TMTicketsModule.HeaderDisplay(view: headerView)
-
-        // build buttons
-        let button1 = TMTicketsModule.ActionButton(title: "Parking Directions")
-
-        // build module with header and buttons
-        return TMTicketsModule(identifier: "com.myDemoApp.parking",
-                                     headerDisplay: header,
-                                     actionButtons: [button1])
-    }
- 
-    func rideshareModule(event: TMPurchasedEvent) -> TMTicketsModule? {
-        // only allow rideshare to specific venues?
-        //guard event.info.venue?.identifier == "123456" else { return nil }
         
-        // build action button that call back into this class
-        let rideshareActionButton = TMTicketsModule.ActionButton(
-            title: "Rideshare", // what user will see, you should localize this text
-            callbackValue: "rideShare") // what code will return in handleModuleActionButton(), unlocalized
-        
-        // Tickets SDK has no idea which "rideshare" you could mean, so handleModuleActionButton() will be called
-        
-        // build action button that opens a webpage
+        // build button that opens a webpage
         let parkingWebpageSettings = TMTicketsModule.WebpageSettings(
             pageTitle: "Parking",
             urlRequest: URLRequest(url: URL(string: "https://www.ballarena.com/plan-your-visit/parking-directions/")!))
         let parkingActionButton = TMTicketsModule.ActionButton(
-            title: "Parking",
+            title: "Parking Directions",
             webpageSettings: parkingWebpageSettings)
         
-        // modules can have:
-        // 1. header only (no buttons)
-        // 2. buttons only (no header)
-        // 3. both header and buttons
-        
-        // build module
-        return TMTicketsModule(identifier: "com.myDemoApp.rideshare", // a name unique to your app
-                               headerDisplay: nil, // this module has buttons only (no header)
-                               actionButtons: [rideshareActionButton, parkingActionButton]) // you can show 0 to 3 buttons
+        // build module with header and buttons
+        return TMTicketsModule(identifier: "com.myDemoApp.parking",
+                                     headerDisplay: header,
+                                     actionButtons: [parkingActionButton])
     }
     
     func seatingChartModule(event: TMPurchasedEvent) -> TMTicketsModule? {

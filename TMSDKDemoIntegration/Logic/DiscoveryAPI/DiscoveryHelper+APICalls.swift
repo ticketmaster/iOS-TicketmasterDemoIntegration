@@ -18,6 +18,7 @@ extension DiscoveryHelper {
     func eventSearch(_ text: String, onNavigationController navigationController: UINavigationController) {
         var criteria = DiscoveryEventSearchCriteria()
         criteria.keywordsFilter = [text]
+        
         discoveryService?.eventSearch(criteria) { [weak self] response in
             DispatchQueue.main.async {
                 guard let strongSelf = self else { return }
@@ -40,6 +41,7 @@ extension DiscoveryHelper {
     func venueSearch(_ text: String, onNavigationController navigationController: UINavigationController) {
         var criteria = DiscoveryVenueSearchCriteria()
         criteria.keywordsFilter = [text]
+        
         discoveryService?.venueSearch(criteria) { [weak self] response in
             DispatchQueue.main.async {
                 guard let strongSelf = self else { return }
@@ -62,6 +64,7 @@ extension DiscoveryHelper {
     func attractionSearch(_ text: String, onNavigationController navigationController: UINavigationController) {
         var criteria = DiscoveryAttractionSearchCriteria()
         criteria.keywordsFilter = [text]
+        
         discoveryService?.attractionSearch(criteria) { [weak self] response in
             DispatchQueue.main.async {
                 guard let strongSelf = self else { return }
@@ -84,6 +87,7 @@ extension DiscoveryHelper {
     func classificationSearch(_ text: String, onNavigationController navigationController: UINavigationController) {
         var criteria = DiscoveryClassificationSearchCriteria()
         criteria.keywordsFilter = [text]
+        
         discoveryService?.classificationSearch(criteria) { [weak self] response in
             DispatchQueue.main.async {
                 guard let strongSelf = self else { return }

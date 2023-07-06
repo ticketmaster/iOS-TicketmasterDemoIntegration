@@ -14,12 +14,13 @@ import TicketmasterPurchase
 extension PurchaseHelper {
     
     func presentPurchase(eventID: String, onViewController viewController: UIViewController) {
-        let configuration = TMPurchaseWebsiteConfiguration(eventID: eventID)
+        // build purchase website configure (aka club-site configuration)
+        let configuration = buildPurchaseWebsiteConfiguration(eventID: eventID)
         presentPurchase(configuration: configuration, onViewController: viewController)
     }
     
     func presentPurchase(configuration: TMPurchaseWebsiteConfiguration, onViewController viewController: UIViewController) {
-        let purchaseNavController = purchaseNavigationController(configuration: configuration)
+        let purchaseNavController = TMPurchaseNavigationController(configuration: configuration)
                 
         // this OPTIONAL delegate is useful for custom UI navigation:
         //  * custom ADP/VDP pages
@@ -48,9 +49,5 @@ extension PurchaseHelper {
         // present configured TMPurchaseNavigationController
         viewController.present(purchaseNavController, animated: true, completion: nil)
         // note: look inside PurchaseSDKWrapper.purchaseNavigationController(eventID:) for an example of how to  customize the configuration
-    }
-    
-    private func purchaseNavigationController(configuration: TMPurchaseWebsiteConfiguration) -> TMPurchaseNavigationController {
-        return TMPurchaseNavigationController(configuration: configuration)
     }
 }
