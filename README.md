@@ -21,3 +21,5 @@ This is an example integration of the Ticketmaster Ignite SDK, Retail, Tickets, 
 2. Update **Configuration.swift** with your own API key, available from [https://developer.ticketmaster.com/explore/](https://developer.ticketmaster.com/explore/)
 3. Update **TMSDKDemoIntegration** target's _Signing & Capabilities_ with your own Apple Developer certificate from [https://developer.apple.com/](https://developer.apple.com/)
 4. Build and Run **TMSDKDemoIntegration** target
+
+ <img src="Screenshots/Project.jpg" alt="Project Contents" />

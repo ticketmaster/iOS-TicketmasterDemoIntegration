@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		792846102A57599000383C42 /* DiscoveryHelper+Configure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7928460F2A57599000383C42 /* DiscoveryHelper+Configure.swift */; };
+		792846122A5759DE00383C42 /* PrePurchaseHelper+Configure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792846112A5759DE00383C42 /* PrePurchaseHelper+Configure.swift */; };
+		792846152A575A1F00383C42 /* PurchaseHelper+Configure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792846142A575A1F00383C42 /* PurchaseHelper+Configure.swift */; };
+		792846172A575A6600383C42 /* TicketsHelper+Configure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792846162A575A6600383C42 /* TicketsHelper+Configure.swift */; };
+		792846192A575A9100383C42 /* AuthenticationHelper+Configure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792846182A575A9100383C42 /* AuthenticationHelper+Configure.swift */; };
 		795D32B72A565EA7001D0466 /* PrePurchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D32AD2A565EA7001D0466 /* PrePurchaseViewController.swift */; };
 		795D32BB2A565EA7001D0466 /* PrePurchaseVC+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D32B12A565EA7001D0466 /* PrePurchaseVC+Actions.swift */; };
 		795D32BC2A565EA7001D0466 /* PrePurchaseVC+BuildMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D32B22A565EA7001D0466 /* PrePurchaseVC+BuildMenu.swift */; };
@@ -102,6 +107,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7928460F2A57599000383C42 /* DiscoveryHelper+Configure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiscoveryHelper+Configure.swift"; sourceTree = "<group>"; };
+		792846112A5759DE00383C42 /* PrePurchaseHelper+Configure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PrePurchaseHelper+Configure.swift"; sourceTree = "<group>"; };
+		792846142A575A1F00383C42 /* PurchaseHelper+Configure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PurchaseHelper+Configure.swift"; sourceTree = "<group>"; };
+		792846162A575A6600383C42 /* TicketsHelper+Configure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TicketsHelper+Configure.swift"; sourceTree = "<group>"; };
+		792846182A575A9100383C42 /* AuthenticationHelper+Configure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthenticationHelper+Configure.swift"; sourceTree = "<group>"; };
 		795D32AD2A565EA7001D0466 /* PrePurchaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrePurchaseViewController.swift; sourceTree = "<group>"; };
 		795D32B12A565EA7001D0466 /* PrePurchaseVC+Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PrePurchaseVC+Actions.swift"; sourceTree = "<group>"; };
 		795D32B22A565EA7001D0466 /* PrePurchaseVC+BuildMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PrePurchaseVC+BuildMenu.swift"; sourceTree = "<group>"; };
@@ -273,8 +283,8 @@
 		79E8BFFA2A56262A0054B340 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
-				79E8C05F2A562D2E0054B340 /* ConfigurationManager.swift */,
 				79E8C0612A562D720054B340 /* Configuration.swift */,
+				79E8C05F2A562D2E0054B340 /* ConfigurationManager.swift */,
 				79E8C07D2A5650A70054B340 /* UserDefaultsManager.swift */,
 			);
 			path = Configuration;
@@ -311,6 +321,7 @@
 			isa = PBXGroup;
 			children = (
 				79E8C0672A5634130054B340 /* DiscoveryHelper.swift */,
+				7928460F2A57599000383C42 /* DiscoveryHelper+Configure.swift */,
 				795D32EA2A567499001D0466 /* DiscoveryHelper+Present.swift */,
 				79E8C08F2A56584C0054B340 /* DiscoveryHelper+APICalls.swift */,
 			);
@@ -321,6 +332,7 @@
 			isa = PBXGroup;
 			children = (
 				79E8C0692A5636170054B340 /* PrePurchaseHelper.swift */,
+				792846112A5759DE00383C42 /* PrePurchaseHelper+Configure.swift */,
 				795D32C62A56615F001D0466 /* PrePurchaseHelper+Present.swift */,
 				795D32C42A5660B4001D0466 /* PrePurchaseHelper+NavigationDelegate.swift */,
 				795D32C02A565ECD001D0466 /* PrePurchaseHelper+AnalyticsDelegate.swift */,
@@ -334,6 +346,7 @@
 			isa = PBXGroup;
 			children = (
 				79E8C06B2A5636D40054B340 /* PurchaseHelper.swift */,
+				792846142A575A1F00383C42 /* PurchaseHelper+Configure.swift */,
 				79BC55E62A57225E00E082E1 /* PurchaseHelper+WebsiteConfig.swift */,
 				795D32D92A5667DD001D0466 /* PurchaseHelper+Present.swift */,
 				795D32DD2A566B11001D0466 /* PurchaseHelper+NavigationDelegate.swift */,
@@ -347,6 +360,7 @@
 			isa = PBXGroup;
 			children = (
 				79E8C0632A5631B70054B340 /* AuthenticationHelper.swift */,
+				792846182A575A9100383C42 /* AuthenticationHelper+Configure.swift */,
 				79BC55FF2A57457000E082E1 /* AuthenticationHelper+Present.swift */,
 				79E8C0652A56334B0054B340 /* AuthenticationHelper+AuthDelegate.swift */,
 			);
@@ -357,6 +371,7 @@
 			isa = PBXGroup;
 			children = (
 				79E8C06D2A56391A0054B340 /* TicketsHelper.swift */,
+				792846162A575A6600383C42 /* TicketsHelper+Configure.swift */,
 				795D32E72A567273001D0466 /* TicketsHelper+Present.swift */,
 				79E8C06F2A563C380054B340 /* TicketsHelper+OrderDelegate.swift */,
 				79E8C0712A563C790054B340 /* TicketsHelper+AnalyticsDelegate.swift */,
@@ -574,8 +589,10 @@
 				79E8C0892A5656BF0054B340 /* DictionaryExplorerViewController.swift in Sources */,
 				79E8C00A2A5627DE0054B340 /* BrandedNavigationController.swift in Sources */,
 				79E8C0392A56291F0054B340 /* MenuBuilderCellInfo.swift in Sources */,
+				792846192A575A9100383C42 /* AuthenticationHelper+Configure.swift in Sources */,
 				79E8C0242A56290F0054B340 /* MenuTitleTableViewCell.swift in Sources */,
 				795D32BB2A565EA7001D0466 /* PrePurchaseVC+Actions.swift in Sources */,
+				792846122A5759DE00383C42 /* PrePurchaseHelper+Configure.swift in Sources */,
 				795D32E62A5670A9001D0466 /* TicketsVC+Actions.swift in Sources */,
 				79E8C03D2A56291F0054B340 /* MenuBuilderDataSource+BuildCells.swift in Sources */,
 				79E8C08E2A5656BF0054B340 /* DiscoveryVC+BuildMenu.swift in Sources */,
@@ -605,6 +622,7 @@
 				795D32CD2A5664D5001D0466 /* PurchaseVC+BuildMenu.swift in Sources */,
 				79E8C03B2A56291F0054B340 /* MenuBuilderDataSource+Update.swift in Sources */,
 				795D32C52A5660B4001D0466 /* PrePurchaseHelper+NavigationDelegate.swift in Sources */,
+				792846152A575A1F00383C42 /* PurchaseHelper+Configure.swift in Sources */,
 				795D32D62A566554001D0466 /* EventConfiguration.swift in Sources */,
 				795D32D02A5664D5001D0466 /* PurchaseViewController.swift in Sources */,
 				79BC55E72A57225E00E082E1 /* PurchaseHelper+WebsiteConfig.swift in Sources */,
@@ -619,7 +637,9 @@
 				79E8C0682A5634130054B340 /* DiscoveryHelper.swift in Sources */,
 				79E8C07A2A5640150054B340 /* MainMenu+BuildMenu.swift in Sources */,
 				79E8C06C2A5636D40054B340 /* PurchaseHelper.swift in Sources */,
+				792846172A575A6600383C42 /* TicketsHelper+Configure.swift in Sources */,
 				79E8C08D2A5656BF0054B340 /* DictionaryExplorerTextView.swift in Sources */,
+				792846102A57599000383C42 /* DiscoveryHelper+Configure.swift in Sources */,
 				795D32E42A566F8C001D0466 /* TicketsVC+BuildMenu.swift in Sources */,
 				795D32E02A566C21001D0466 /* PurchaseHelper+AnalyticsDelegate.swift in Sources */,
 				795D32C72A56615F001D0466 /* PrePurchaseHelper+Present.swift in Sources */,
