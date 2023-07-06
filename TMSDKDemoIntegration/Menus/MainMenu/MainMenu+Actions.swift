@@ -130,8 +130,14 @@ extension MainMenuViewController: MenuBuilderDataSourceDelegate {
                 
             case .ticketsMenu:
                 verifyClientConfig { success in
-//                    let vc = TicketsViewController(style: .grouped)
-//                    navigationController?.pushViewController(vc, animated: true)
+                    if success {
+                        ConfigurationManager.shared.configureTicketsIfNeeded { success in
+                            if success {
+                                let vc = TicketsViewController(style: .grouped)
+                                self.navigationController?.pushViewController(vc, animated: true)
+                            }
+                        }
+                    }
                 }
 
             case .authenticationMenu:

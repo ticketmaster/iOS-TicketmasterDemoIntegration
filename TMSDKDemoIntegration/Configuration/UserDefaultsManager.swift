@@ -39,6 +39,8 @@ class UserDefaultsManager: UserDefaultsStringEnum<UserDefaultsManager.Settings> 
         case prePurchaseCustomString
         
         case purchaseCustomEventIDString
+        
+        case ticketsDisplayID
     }
 }
 

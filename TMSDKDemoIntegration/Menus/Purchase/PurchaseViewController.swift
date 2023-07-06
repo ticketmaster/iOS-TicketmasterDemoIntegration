@@ -6,15 +6,12 @@
 //
 
 import UIKit
-import TicketmasterDiscoveryAPI
 
 class PurchaseViewController: UITableViewController {
 
     var menuDataSource = MenuBuilderDataSource()
     var didBuildMenu: Bool = false
         
-    public var dismissUponCompletion: Bool = true
-    
     var customEventIdentifier: String? {
         get {
             return UserDefaultsManager.shared.string(.purchaseCustomEventIDString)
@@ -39,5 +36,4 @@ class PurchaseViewController: UITableViewController {
         
         buildRefreshMenu()
     }
-
 }

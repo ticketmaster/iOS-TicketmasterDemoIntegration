@@ -12,25 +12,27 @@ import TicketmasterDiscoveryAPI
 
 // MARK: Service Calls -
 extension DiscoveryHelper {
-        
+    
     // MARK: EVA Search
     
     func eventSearch(_ text: String, onNavigationController navigationController: UINavigationController) {
         var criteria = DiscoveryEventSearchCriteria()
         criteria.keywordsFilter = [text]
-        discoveryService?.eventSearch(criteria) { response in
-            switch response {
-            case .success(let results):
-                DispatchQueue.main.async {
-                    let searchResultsVC = DiscoveryHelper.searchResultsTableViewController()
+        discoveryService?.eventSearch(criteria) { [weak self] response in
+            DispatchQueue.main.async {
+                guard let strongSelf = self else { return }
+                
+                switch response {
+                case .success(let results):
+                    let searchResultsVC = strongSelf.searchResultsTableViewController()
                     searchResultsVC.title = "Event Search"
                     searchResultsVC.discoveryResponse = .eventSearch(results: results, criteria: criteria)
                     navigationController.pushViewController(searchResultsVC, animated: true)
+                    
+                case .failure(let error):
+                    print("Error: \(error.localizedDescription)")
+                    strongSelf.present(title: "Event Search", error: error, onNavigationController: navigationController)
                 }
-                
-            case .failure(let error):
-                print("Error: \(error.localizedDescription)")
-                DiscoveryHelper.present(title: "Event Search", error: error, onNavigationController: navigationController)
             }
         }
     }
@@ -38,19 +40,21 @@ extension DiscoveryHelper {
     func venueSearch(_ text: String, onNavigationController navigationController: UINavigationController) {
         var criteria = DiscoveryVenueSearchCriteria()
         criteria.keywordsFilter = [text]
-        discoveryService?.venueSearch(criteria) { response in
-            switch response {
-            case .success(let results):
-                DispatchQueue.main.async {
-                    let searchResultsVC = DiscoveryHelper.searchResultsTableViewController()
+        discoveryService?.venueSearch(criteria) { [weak self] response in
+            DispatchQueue.main.async {
+                guard let strongSelf = self else { return }
+
+                switch response {
+                case .success(let results):
+                    let searchResultsVC = strongSelf.searchResultsTableViewController()
                     searchResultsVC.title = "Venue Search"
                     searchResultsVC.discoveryResponse = .venueSearch(results: results, criteria: criteria)
                     navigationController.pushViewController(searchResultsVC, animated: true)
+                    
+                case .failure(let error):
+                    print("Error: \(error.localizedDescription)")
+                    strongSelf.present(title: "Venue Search", error: error, onNavigationController: navigationController)
                 }
-                
-            case .failure(let error):
-                print("Error: \(error.localizedDescription)")
-                DiscoveryHelper.present(title: "Venue Search", error: error, onNavigationController: navigationController)
             }
         }
     }
@@ -58,19 +62,21 @@ extension DiscoveryHelper {
     func attractionSearch(_ text: String, onNavigationController navigationController: UINavigationController) {
         var criteria = DiscoveryAttractionSearchCriteria()
         criteria.keywordsFilter = [text]
-        discoveryService?.attractionSearch(criteria) { response in
-            switch response {
-            case .success(let results):
-                DispatchQueue.main.async {
-                    let searchResultsVC = DiscoveryHelper.searchResultsTableViewController()
+        discoveryService?.attractionSearch(criteria) { [weak self] response in
+            DispatchQueue.main.async {
+                guard let strongSelf = self else { return }
+
+                switch response {
+                case .success(let results):
+                    let searchResultsVC = strongSelf.searchResultsTableViewController()
                     searchResultsVC.title = "Attraction Search"
                     searchResultsVC.discoveryResponse = .attractionSearch(results: results, criteria: criteria)
                     navigationController.pushViewController(searchResultsVC, animated: true)
+                    
+                case .failure(let error):
+                    print("Error: \(error.localizedDescription)")
+                    strongSelf.present(title: "Attraction Search", error: error, onNavigationController: navigationController)
                 }
-                
-            case .failure(let error):
-                print("Error: \(error.localizedDescription)")
-                DiscoveryHelper.present(title: "Attraction Search", error: error, onNavigationController: navigationController)
             }
         }
     }
@@ -78,19 +84,21 @@ extension DiscoveryHelper {
     func classificationSearch(_ text: String, onNavigationController navigationController: UINavigationController) {
         var criteria = DiscoveryClassificationSearchCriteria()
         criteria.keywordsFilter = [text]
-        discoveryService?.classificationSearch(criteria) { response in
-            switch response {
-            case .success(let results):
-                DispatchQueue.main.async {
-                    let searchResultsVC = DiscoveryHelper.searchResultsTableViewController()
+        discoveryService?.classificationSearch(criteria) { [weak self] response in
+            DispatchQueue.main.async {
+                guard let strongSelf = self else { return }
+                
+                switch response {
+                case .success(let results):
+                    let searchResultsVC = strongSelf.searchResultsTableViewController()
                     searchResultsVC.title = "Classification Search"
                     searchResultsVC.discoveryResponse = .classificationSearch(results: results, criteria: criteria)
                     navigationController.pushViewController(searchResultsVC, animated: true)
+                    
+                case .failure(let error):
+                    print("Error: \(error.localizedDescription)")
+                    strongSelf.present(title: "Classification Search", error: error, onNavigationController: navigationController)
                 }
-                
-            case .failure(let error):
-                print("Error: \(error.localizedDescription)")
-                DiscoveryHelper.present(title: "Classification Search", error: error, onNavigationController: navigationController)
             }
         }
     }
@@ -98,19 +106,21 @@ extension DiscoveryHelper {
     // MARK: EVA Details
     func eventDetails(_ text: String, type: DetailsIdentifierType, onNavigationController navigationController: UINavigationController) {
         
-        let finish = { (response: APIResponse<DiscoveryEvent>) in
-            switch response {
-            case .success(let results):
-                DispatchQueue.main.async {
-                    let dictionaryVC = DiscoveryHelper.dictionaryExplorerViewController()
+        let finish = { [weak self] (response: APIResponse<DiscoveryEvent>) in
+            DispatchQueue.main.async {
+                guard let strongSelf = self else { return }
+                
+                switch response {
+                case .success(let results):
+                    let dictionaryVC = strongSelf.dictionaryExplorerViewController()
                     dictionaryVC.title = "Event Details"
                     dictionaryVC.jsonDictionary = results.rawJSON
                     navigationController.pushViewController(dictionaryVC, animated: true)
+                    
+                case .failure(let error):
+                    print("Error: \(error.localizedDescription)")
+                    strongSelf.present(title: "Event Details", error: error, onNavigationController: navigationController)
                 }
-                
-            case .failure(let error):
-                print("Error: \(error.localizedDescription)")
-                DiscoveryHelper.present(title: "Event Details", error: error, onNavigationController: navigationController)
             }
         }
         
@@ -130,19 +140,21 @@ extension DiscoveryHelper {
     
     func venueDetails(_ text: String, type: DetailsIdentifierType, onNavigationController navigationController: UINavigationController) {
         
-        let finish = { (response: APIResponse<DiscoveryVenue>) in
-            switch response {
-            case .success(let results):
-                DispatchQueue.main.async {
-                    let dictionaryVC = DiscoveryHelper.dictionaryExplorerViewController()
+        let finish = { [weak self] (response: APIResponse<DiscoveryVenue>) in
+            DispatchQueue.main.async {
+                guard let strongSelf = self else { return }
+                
+                switch response {
+                case .success(let results):
+                    let dictionaryVC = strongSelf.dictionaryExplorerViewController()
                     dictionaryVC.title = "Venue Details"
                     dictionaryVC.jsonDictionary = results.rawJSON
                     navigationController.pushViewController(dictionaryVC, animated: true)
+                    
+                case .failure(let error):
+                    print("Error: \(error.localizedDescription)")
+                    strongSelf.present(title: "Venue Details", error: error, onNavigationController: navigationController)
                 }
-                
-            case .failure(let error):
-                print("Error: \(error.localizedDescription)")
-                DiscoveryHelper.present(title: "Venue Details", error: error, onNavigationController: navigationController)
             }
         }
         
@@ -162,19 +174,21 @@ extension DiscoveryHelper {
     
     func attractionDetails(_ text: String, type: DetailsIdentifierType, onNavigationController navigationController: UINavigationController) {
         
-        let finish = { (response: APIResponse<DiscoveryAttraction>) in
-            switch response {
-            case .success(let results):
-                DispatchQueue.main.async {
-                    let dictionaryVC = DiscoveryHelper.dictionaryExplorerViewController()
+        let finish = { [weak self] (response: APIResponse<DiscoveryAttraction>) in
+            DispatchQueue.main.async {
+                guard let strongSelf = self else { return }
+
+                switch response {
+                case .success(let results):
+                    let dictionaryVC = strongSelf.dictionaryExplorerViewController()
                     dictionaryVC.title = "Attraction Details"
                     dictionaryVC.jsonDictionary = results.rawJSON
                     navigationController.pushViewController(dictionaryVC, animated: true)
+                    
+                case .failure(let error):
+                    print("Error: \(error.localizedDescription)")
+                    strongSelf.present(title: "Attraction Details", error: error, onNavigationController: navigationController)
                 }
-                
-            case .failure(let error):
-                print("Error: \(error.localizedDescription)")
-                DiscoveryHelper.present(title: "Attraction Details", error: error, onNavigationController: navigationController)
             }
         }
         
@@ -194,19 +208,21 @@ extension DiscoveryHelper {
     
     func classificationDetails(_ text: String, type: DetailsIdentifierType, onNavigationController navigationController: UINavigationController) {
         
-        let finish = { (response: APIResponse<DiscoveryClassification>) in
-            switch response {
-            case .success(let results):
-                DispatchQueue.main.async {
-                    let dictionaryVC = DiscoveryHelper.dictionaryExplorerViewController()
+        let finish = { [weak self] (response: APIResponse<DiscoveryClassification>) in
+            DispatchQueue.main.async {
+                guard let strongSelf = self else { return }
+
+                switch response {
+                case .success(let results):
+                    let dictionaryVC = strongSelf.dictionaryExplorerViewController()
                     dictionaryVC.title = "Attraction Details"
                     dictionaryVC.jsonDictionary = results.rawJSON
                     navigationController.pushViewController(dictionaryVC, animated: true)
+                    
+                case .failure(let error):
+                    print("Error: \(error.localizedDescription)")
+                    strongSelf.present(title: "Classification Details", error: error, onNavigationController: navigationController)
                 }
-                
-            case .failure(let error):
-                print("Error: \(error.localizedDescription)")
-                DiscoveryHelper.present(title: "Classification Details", error: error, onNavigationController: navigationController)
             }
         }
         
@@ -221,70 +237,6 @@ extension DiscoveryHelper {
             let criteria = DiscoveryIdentifier(text)
             discoveryService?.classificationDetails(criteria) { response in
                 finish(response)
-            }
-        }
-    }
-    
-    
-    // MARK: Present Details
-    
-    private static func searchResultsTableViewController() -> SearchResultsTableViewController {
-        return SearchResultsTableViewController(style: .plain)
-    }
-    
-    private static func dictionaryExplorerViewController() -> DictionaryExplorerViewController {
-        return DictionaryExplorerViewController()
-    }
-    
-    // MARK: Present Errors
-    
-    private static func present(title: String, error: Error, onNavigationController navigationController: UINavigationController) {
-        if let connectionError = error as? ConnectionError {
-            let decodedErrorString: String
-            
-            switch connectionError {
-            case .unknown:
-                decodedErrorString = "Unknown Error: \(connectionError.localizedDescription)"
-            case .responseCode(let statusCode):
-                decodedErrorString = "HTTP Code: \(statusCode.rawValue)"
-            case .unknownResponse(let statusCode):
-                decodedErrorString = "Unknown HTTP Code: \(statusCode)"
-            case .server(let serverError):
-                decodedErrorString = "Server Error: \(serverError.localizedDescription)"
-            case .requestCanceled:
-                decodedErrorString = "Request Canceled"
-            case .malformedBody:
-                decodedErrorString = "Malformed Body"
-            case .badObjectSerialization:
-                decodedErrorString = "Bad Object Serialization"
-            case .badJSONFormat(let reason):
-                decodedErrorString = "Bad JSON Format: \(reason)"
-            case .badXMLFormat(let reason):
-                decodedErrorString = "Bad XML Format: \(reason)"
-            case .badURLFormat:
-                decodedErrorString = "Bad URL Format"
-            case .badCriteria:
-                decodedErrorString = "Bad Criteria"
-            case .badConfiguration(let reason):
-                decodedErrorString = "Bad Configuration: \(reason)"
-            @unknown default:
-                decodedErrorString = "@Unknown Default: \(connectionError.localizedDescription)"
-            }
-            
-            DispatchQueue.main.async {
-                let alert = UIAlertController(title: title, message: decodedErrorString, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                
-                navigationController.topViewController?.present(alert, animated: true, completion: nil)
-            }
-
-        } else {
-            
-            DispatchQueue.main.async {
-                let alert = UIAlertController(title: title, message: error.localizedDescription, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                
-                navigationController.topViewController?.present(alert, animated: true, completion: nil)
             }
         }
     }

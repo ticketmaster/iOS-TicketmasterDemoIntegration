@@ -17,7 +17,6 @@
 		795D32CD2A5664D5001D0466 /* PurchaseVC+BuildMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D32C82A5664D5001D0466 /* PurchaseVC+BuildMenu.swift */; };
 		795D32CF2A5664D5001D0466 /* PurchaseVC+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D32CA2A5664D5001D0466 /* PurchaseVC+Actions.swift */; };
 		795D32D02A5664D5001D0466 /* PurchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D32CB2A5664D5001D0466 /* PurchaseViewController.swift */; };
-		795D32D12A5664D5001D0466 /* PurchaseVC+Present.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D32CC2A5664D5001D0466 /* PurchaseVC+Present.swift */; };
 		795D32D62A566554001D0466 /* EventConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D32D32A566554001D0466 /* EventConfiguration.swift */; };
 		795D32D72A566554001D0466 /* EventConfigurationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D32D42A566554001D0466 /* EventConfigurationManager.swift */; };
 		795D32D82A566554001D0466 /* Events.plist in Resources */ = {isa = PBXBuildFile; fileRef = 795D32D52A566554001D0466 /* Events.plist */; };
@@ -25,6 +24,11 @@
 		795D32DC2A566ACC001D0466 /* PurchaseHelper+SharingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D32DB2A566ACC001D0466 /* PurchaseHelper+SharingDelegate.swift */; };
 		795D32DE2A566B11001D0466 /* PurchaseHelper+NavigationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D32DD2A566B11001D0466 /* PurchaseHelper+NavigationDelegate.swift */; };
 		795D32E02A566C21001D0466 /* PurchaseHelper+AnalyticsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D32DF2A566C21001D0466 /* PurchaseHelper+AnalyticsDelegate.swift */; };
+		795D32E22A566F51001D0466 /* TicketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D32E12A566F51001D0466 /* TicketsViewController.swift */; };
+		795D32E42A566F8C001D0466 /* TicketsVC+BuildMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D32E32A566F8C001D0466 /* TicketsVC+BuildMenu.swift */; };
+		795D32E62A5670A9001D0466 /* TicketsVC+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D32E52A5670A9001D0466 /* TicketsVC+Actions.swift */; };
+		795D32E82A567273001D0466 /* TicketsHelper+Present.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D32E72A567273001D0466 /* TicketsHelper+Present.swift */; };
+		795D32EB2A567499001D0466 /* DiscoveryHelper+Present.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D32EA2A567499001D0466 /* DiscoveryHelper+Present.swift */; };
 		797BC4C12A5623A40031E4EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797BC4C02A5623A40031E4EE /* AppDelegate.swift */; };
 		797BC4C32A5623A40031E4EE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797BC4C22A5623A40031E4EE /* SceneDelegate.swift */; };
 		797BC4C82A5623A40031E4EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 797BC4C62A5623A40031E4EE /* Main.storyboard */; };
@@ -100,7 +104,6 @@
 		795D32C82A5664D5001D0466 /* PurchaseVC+BuildMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PurchaseVC+BuildMenu.swift"; sourceTree = "<group>"; };
 		795D32CA2A5664D5001D0466 /* PurchaseVC+Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PurchaseVC+Actions.swift"; sourceTree = "<group>"; };
 		795D32CB2A5664D5001D0466 /* PurchaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseViewController.swift; sourceTree = "<group>"; };
-		795D32CC2A5664D5001D0466 /* PurchaseVC+Present.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PurchaseVC+Present.swift"; sourceTree = "<group>"; };
 		795D32D32A566554001D0466 /* EventConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventConfiguration.swift; sourceTree = "<group>"; };
 		795D32D42A566554001D0466 /* EventConfigurationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventConfigurationManager.swift; sourceTree = "<group>"; };
 		795D32D52A566554001D0466 /* Events.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Events.plist; sourceTree = "<group>"; };
@@ -108,6 +111,11 @@
 		795D32DB2A566ACC001D0466 /* PurchaseHelper+SharingDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PurchaseHelper+SharingDelegate.swift"; sourceTree = "<group>"; };
 		795D32DD2A566B11001D0466 /* PurchaseHelper+NavigationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PurchaseHelper+NavigationDelegate.swift"; sourceTree = "<group>"; };
 		795D32DF2A566C21001D0466 /* PurchaseHelper+AnalyticsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PurchaseHelper+AnalyticsDelegate.swift"; sourceTree = "<group>"; };
+		795D32E12A566F51001D0466 /* TicketsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsViewController.swift; sourceTree = "<group>"; };
+		795D32E32A566F8C001D0466 /* TicketsVC+BuildMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TicketsVC+BuildMenu.swift"; sourceTree = "<group>"; };
+		795D32E52A5670A9001D0466 /* TicketsVC+Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TicketsVC+Actions.swift"; sourceTree = "<group>"; };
+		795D32E72A567273001D0466 /* TicketsHelper+Present.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TicketsHelper+Present.swift"; sourceTree = "<group>"; };
+		795D32EA2A567499001D0466 /* DiscoveryHelper+Present.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiscoveryHelper+Present.swift"; sourceTree = "<group>"; };
 		797BC4BD2A5623A40031E4EE /* TMSDKDemoIntegration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMSDKDemoIntegration.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		797BC4C02A5623A40031E4EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		797BC4C22A5623A40031E4EE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -195,6 +203,16 @@
 			path = EventConfiguration;
 			sourceTree = "<group>";
 		};
+		795D32E92A56745E001D0466 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				79E8C0822A5656BE0054B340 /* SearchResultsTableViewController.swift */,
+				79E8C0812A5656BE0054B340 /* DictionaryExplorerViewController.swift */,
+				79E8C0852A5656BF0054B340 /* DictionaryExplorerTextView.swift */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
 		797BC4B42A5623A40031E4EE = {
 			isa = PBXGroup;
 			children = (
@@ -275,6 +293,7 @@
 			isa = PBXGroup;
 			children = (
 				79E8C0672A5634130054B340 /* DiscoveryHelper.swift */,
+				795D32EA2A567499001D0466 /* DiscoveryHelper+Present.swift */,
 				79E8C08F2A56584C0054B340 /* DiscoveryHelper+APICalls.swift */,
 			);
 			path = DiscoveryAPI;
@@ -284,10 +303,10 @@
 			isa = PBXGroup;
 			children = (
 				79E8C0692A5636170054B340 /* PrePurchaseHelper.swift */,
+				795D32C62A56615F001D0466 /* PrePurchaseHelper+Present.swift */,
 				795D32C42A5660B4001D0466 /* PrePurchaseHelper+NavigationDelegate.swift */,
 				795D32C22A566010001D0466 /* PrePurchaseHelper+LocationDelegate.swift */,
 				795D32C02A565ECD001D0466 /* PrePurchaseHelper+AnalyticsDelegate.swift */,
-				795D32C62A56615F001D0466 /* PrePurchaseHelper+Present.swift */,
 			);
 			path = PrePurchase;
 			sourceTree = "<group>";
@@ -317,6 +336,7 @@
 			isa = PBXGroup;
 			children = (
 				79E8C06D2A56391A0054B340 /* TicketsHelper.swift */,
+				795D32E72A567273001D0466 /* TicketsHelper+Present.swift */,
 				79E8C06F2A563C380054B340 /* TicketsHelper+OrderDelegate.swift */,
 				79E8C0712A563C790054B340 /* TicketsHelper+AnalyticsDelegate.swift */,
 				79E8C0732A563CAA0054B340 /* TicketsHelper+ModuleDelegate.swift */,
@@ -336,12 +356,10 @@
 		79E8C0032A5627450054B340 /* DiscoveryAPI */ = {
 			isa = PBXGroup;
 			children = (
+				795D32E92A56745E001D0466 /* Details */,
 				79E8C0832A5656BE0054B340 /* DiscoveryViewController.swift */,
 				79E8C0862A5656BF0054B340 /* DiscoveryVC+BuildMenu.swift */,
 				79E8C0842A5656BE0054B340 /* DiscoveryVC+Actions.swift */,
-				79E8C0822A5656BE0054B340 /* SearchResultsTableViewController.swift */,
-				79E8C0812A5656BE0054B340 /* DictionaryExplorerViewController.swift */,
-				79E8C0852A5656BF0054B340 /* DictionaryExplorerTextView.swift */,
 			);
 			path = DiscoveryAPI;
 			sourceTree = "<group>";
@@ -363,7 +381,6 @@
 				795D32CB2A5664D5001D0466 /* PurchaseViewController.swift */,
 				795D32C82A5664D5001D0466 /* PurchaseVC+BuildMenu.swift */,
 				795D32CA2A5664D5001D0466 /* PurchaseVC+Actions.swift */,
-				795D32CC2A5664D5001D0466 /* PurchaseVC+Present.swift */,
 			);
 			path = Purchase;
 			sourceTree = "<group>";
@@ -371,6 +388,9 @@
 		79E8C0062A56278C0054B340 /* Tickets */ = {
 			isa = PBXGroup;
 			children = (
+				795D32E12A566F51001D0466 /* TicketsViewController.swift */,
+				795D32E32A566F8C001D0466 /* TicketsVC+BuildMenu.swift */,
+				795D32E52A5670A9001D0466 /* TicketsVC+Actions.swift */,
 			);
 			path = Tickets;
 			sourceTree = "<group>";
@@ -530,6 +550,7 @@
 				79E8C0392A56291F0054B340 /* MenuBuilderCellInfo.swift in Sources */,
 				79E8C0242A56290F0054B340 /* MenuTitleTableViewCell.swift in Sources */,
 				795D32BB2A565EA7001D0466 /* PrePurchaseVC+Actions.swift in Sources */,
+				795D32E62A5670A9001D0466 /* TicketsVC+Actions.swift in Sources */,
 				79E8C03D2A56291F0054B340 /* MenuBuilderDataSource+BuildCells.swift in Sources */,
 				79E8C08E2A5656BF0054B340 /* DiscoveryVC+BuildMenu.swift in Sources */,
 				795D32B72A565EA7001D0466 /* PrePurchaseViewController.swift in Sources */,
@@ -546,8 +567,10 @@
 				795D32C32A566010001D0466 /* PrePurchaseHelper+LocationDelegate.swift in Sources */,
 				795D32DE2A566B11001D0466 /* PurchaseHelper+NavigationDelegate.swift in Sources */,
 				79E8C0302A56290F0054B340 /* MenuBlankTableViewCell.swift in Sources */,
+				795D32EB2A567499001D0466 /* DiscoveryHelper+Present.swift in Sources */,
 				79E8C0782A563D310054B340 /* TicketsHelper+CustomModules.swift in Sources */,
 				79E8C06A2A5636170054B340 /* PrePurchaseHelper.swift in Sources */,
+				795D32E22A566F51001D0466 /* TicketsViewController.swift in Sources */,
 				795D32CD2A5664D5001D0466 /* PurchaseVC+BuildMenu.swift in Sources */,
 				79E8C03B2A56291F0054B340 /* MenuBuilderDataSource+Update.swift in Sources */,
 				795D32C52A5660B4001D0466 /* PrePurchaseHelper+NavigationDelegate.swift in Sources */,
@@ -564,7 +587,7 @@
 				79E8C07A2A5640150054B340 /* MainMenu+BuildMenu.swift in Sources */,
 				79E8C06C2A5636D40054B340 /* PurchaseHelper.swift in Sources */,
 				79E8C08D2A5656BF0054B340 /* DictionaryExplorerTextView.swift in Sources */,
-				795D32D12A5664D5001D0466 /* PurchaseVC+Present.swift in Sources */,
+				795D32E42A566F8C001D0466 /* TicketsVC+BuildMenu.swift in Sources */,
 				795D32E02A566C21001D0466 /* PurchaseHelper+AnalyticsDelegate.swift in Sources */,
 				795D32C72A56615F001D0466 /* PrePurchaseHelper+Present.swift in Sources */,
 				79E8C0902A56584C0054B340 /* DiscoveryHelper+APICalls.swift in Sources */,
@@ -573,6 +596,7 @@
 				79E8C08C2A5656BF0054B340 /* DiscoveryVC+Actions.swift in Sources */,
 				79E8C0602A562D2E0054B340 /* ConfigurationManager.swift in Sources */,
 				795D32C12A565ECD001D0466 /* PrePurchaseHelper+AnalyticsDelegate.swift in Sources */,
+				795D32E82A567273001D0466 /* TicketsHelper+Present.swift in Sources */,
 				79E8C0662A56334B0054B340 /* AuthenticationHelper+AuthDelegate.swift in Sources */,
 				797BC4C12A5623A40031E4EE /* AppDelegate.swift in Sources */,
 				79E8C0742A563CAA0054B340 /* TicketsHelper+ModuleDelegate.swift in Sources */,
