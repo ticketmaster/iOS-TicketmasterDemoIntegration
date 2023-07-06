@@ -199,6 +199,9 @@ extension ConfigurationManager {
 // MARK: other
 extension ConfigurationManager {
     
+    // do NOT change this value here! change it in Configuration.swift
+    static let badAPIKey = "<your apiKey>"
+    
     func printVersions() {
         print("==========================================")
         print("TMFoundation      : v\(TMFoundation.shared.version)")
@@ -211,3 +214,4 @@ extension ConfigurationManager {
         print("==========================================")
     }
 }
+

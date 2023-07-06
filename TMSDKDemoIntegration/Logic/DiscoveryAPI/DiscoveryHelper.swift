@@ -16,7 +16,7 @@ class DiscoveryHelper: NSObject {
     private(set) var discoveryService: DiscoveryService?
     
     func configure(configuration: Configuration, completion: @escaping (_ success: Bool) -> Void) {
-        guard configuration.apiKey != "<your apiKey>" else {
+        guard configuration.apiKey != ConfigurationManager.badAPIKey else {
             fatalError("Set your apiKey in Configuration.swift")
         }
         

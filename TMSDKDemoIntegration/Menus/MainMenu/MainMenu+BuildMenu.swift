@@ -41,7 +41,7 @@ extension MainMenuViewController {
         }
         
         let apiKey = ConfigurationManager.shared.currentConfiguration.apiKey
-        if apiKey != "<your apiKey>" {
+        if apiKey != ConfigurationManager.badAPIKey {
             menuDataSource.updateCell(value: apiKey, forUniqueIdentifier: CellIdentifier.apiKeyTextField.rawValue)
             
             ConfigurationManager.shared.configureAuthenticationIfNeeded { success in

@@ -35,7 +35,7 @@ extension MainMenuViewController: MenuBuilderDataSourceDelegate {
                                                       retailMarketDomain: oldConfig.retailMarketDomain)
                         ConfigurationManager.shared.currentConfiguration = newConfig
                     } else {
-                        let newConfig = Configuration(apiKey: "<your apiKey>",
+                        let newConfig = Configuration(apiKey: ConfigurationManager.badAPIKey,
                                                       region: oldConfig.region,
                                                       displayName: oldConfig.displayName,
                                                       backgroundColor: oldConfig.backgroundColor,

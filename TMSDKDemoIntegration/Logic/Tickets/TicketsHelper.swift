@@ -16,7 +16,7 @@ class TicketsHelper: NSObject {
     weak var ticketsVC: TMTicketsViewController?
     
     func configure(configuration: Configuration, completion: @escaping (_ success: Bool) -> Void) {
-        guard configuration.apiKey != "<your apiKey>" else {
+        guard configuration.apiKey != ConfigurationManager.badAPIKey else {
             fatalError("Set your apiKey in Configuration.swift")
         }
         
