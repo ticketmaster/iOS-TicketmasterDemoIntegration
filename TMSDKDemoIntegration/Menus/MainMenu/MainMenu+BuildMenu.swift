@@ -40,7 +40,10 @@ extension MainMenuViewController {
             didBuildMenu = true
         }
         
-        if ConfigurationManager.shared.currentConfiguration.apiKey != "<your apiKey>" {
+        let apiKey = ConfigurationManager.shared.currentConfiguration.apiKey
+        if apiKey != "<your apiKey>" {
+            menuDataSource.updateCell(value: apiKey, forUniqueIdentifier: CellIdentifier.apiKeyTextField.rawValue)
+            
             ConfigurationManager.shared.configureAuthenticationIfNeeded { success in
                 if success {
                     if TMAuthentication.shared.hasToken() {
@@ -86,9 +89,6 @@ extension MainMenuViewController {
         var cellInfoArray: [MenuBuilderCellInfo] = []
         var cellInfo: MenuBuilderCellInfo
         
-        var apiKey: String? = ConfigurationManager.shared.currentConfiguration.apiKey
-        if apiKey == "<your apiKey>" { apiKey = nil }
-
         cellInfo = MenuBuilderCellInfo(cellType: .title,
                                        uniqueIdentifier: CellIdentifier.apiKeyText.rawValue,
                                        titleText: "Developer API Key:")
@@ -96,7 +96,6 @@ extension MainMenuViewController {
 
         cellInfo = MenuBuilderCellInfo(cellType: .textField,
                                        uniqueIdentifier: CellIdentifier.apiKeyTextField.rawValue,
-                                       valueText: apiKey,
                                        placeholderText: "Enter your Developer API Key")
         cellInfoArray.append(cellInfo)
         
