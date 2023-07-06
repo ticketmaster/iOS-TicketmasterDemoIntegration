@@ -116,6 +116,7 @@
 		795D32E52A5670A9001D0466 /* TicketsVC+Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TicketsVC+Actions.swift"; sourceTree = "<group>"; };
 		795D32E72A567273001D0466 /* TicketsHelper+Present.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TicketsHelper+Present.swift"; sourceTree = "<group>"; };
 		795D32EA2A567499001D0466 /* DiscoveryHelper+Present.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiscoveryHelper+Present.swift"; sourceTree = "<group>"; };
+		795D32F22A56781C001D0466 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		797BC4BD2A5623A40031E4EE /* TMSDKDemoIntegration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMSDKDemoIntegration.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		797BC4C02A5623A40031E4EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		797BC4C22A5623A40031E4EE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -248,6 +249,7 @@
 		79E8BFF92A5626160054B340 /* Documentation */ = {
 			isa = PBXGroup;
 			children = (
+				795D32F22A56781C001D0466 /* README.md */,
 			);
 			path = Documentation;
 			sourceTree = "<group>";
