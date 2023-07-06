@@ -12,6 +12,8 @@ import TicketmasterPurchase // for TMPurchase
 /// a class to wrap helpful methods
 class PurchaseHelper: NSObject {
     
+    weak var purchaseMenuVC: PurchaseViewController?
+
     /// show Apple's Rate My App after a successful purchase?
     var rateMyAppAfterPurchase: Bool = false
     

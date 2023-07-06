@@ -12,8 +12,6 @@ extension PurchaseViewController {
     
     enum CellIdentifier: String {
         case purchaseOpenEvent
-
-        case purchaseConfiguration
         
         case purchaseSampleEvent
     }
@@ -29,7 +27,6 @@ extension PurchaseViewController {
         menuDataSource.configure(tableView: tableView)
         menuDataSource.cellInfoSectionArray = [
             buildSectionOpen(),
-            buildSectionSettings(),
             buildSectionSample(),
             MenuBuilderDataSource.buildSectionBlanksForKeyboard()
         ]
@@ -50,19 +47,6 @@ extension PurchaseViewController {
         cellInfoArray.append(cellInfo)
 
         return MenuBuilderSectionInfo(title: "Open EDP", cellInfoRowArray: cellInfoArray)
-    }
-    
-    private func buildSectionSettings() -> MenuBuilderSectionInfo {
-        var cellInfoArray: [MenuBuilderCellInfo] = []
-        var cellInfo: MenuBuilderCellInfo
-        
-        cellInfo = MenuBuilderCellInfo(cellType: .title,
-                                       uniqueIdentifier: CellIdentifier.purchaseConfiguration.rawValue,
-                                       accessoryType: .disclosureIndicator,
-                                       titleText: "Custom Purchase Configuration")
-        cellInfoArray.append(cellInfo)
-        
-        return MenuBuilderSectionInfo(title: "Settings", cellInfoRowArray: cellInfoArray)
     }
     
     private func buildSectionSample() -> MenuBuilderSectionInfo {

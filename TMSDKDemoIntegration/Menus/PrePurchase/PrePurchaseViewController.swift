@@ -41,19 +41,6 @@ class PrePurchaseViewController: UITableViewController {
         }
     }
     
-    var selectedCustomPath: String? {
-        get {
-            return UserDefaultsManager.shared.string(.prePurchaseCustomString)
-        }
-        set {
-            if let value = newValue {
-                return UserDefaultsManager.shared.set(value, forKey: .prePurchaseCustomString)
-            } else {
-                UserDefaultsManager.shared.remove(.prePurchaseCustomString)
-            }
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         

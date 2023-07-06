@@ -10,14 +10,23 @@ import UIKit
 import TicketmasterFoundation
 import TicketmasterPrePurchase
 
+/// Protocol for communicating navigations happening in PrePurchase pages
 extension PrePurchaseHelper: TMPrePurchaseNavigationDelegate {
     
-    func prePurchaseWebViewIsOnFirstPage(_ status: Bool) {
-        print("isOnFirstPage: \(status ? "true" : "false")")
-    }
-    
+    /// PrePurchase needs to open an EDP (Event Details Page) to possibly make a purchase.
+    ///
+    /// A typical implementation of this function would use TicketmasterPurchase SDK to display an Event Details Page.
+    ///
+    /// - Parameters:
+    ///   - eventIdentifier: Event identifier
     func prePurchaseViewController(_ viewController: TMPrePurchaseViewController, navigateToEventDetailsPageWithIdentifier eventIdentifier: String) {
-        print("OPEN EDP: \(eventIdentifier)")
-        // TODO: open EDP in purchase
+        print("navigateToEventDetailsPageWithIdentifier: \(eventIdentifier)")
+        // REQUIRED:
+        // PrePurchase is asking us to present the Purchase SDK for this event
+        ConfigurationManager.shared.configurePurchaseIfNeeded { success in
+            if success {
+                ConfigurationManager.shared.purchaseHelper?.presentPurchase(eventID: eventIdentifier, onViewController: viewController)
+            }
+        }
     }
 }

@@ -35,6 +35,13 @@
 		797BC4CA2A5623A60031E4EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 797BC4C92A5623A60031E4EE /* Assets.xcassets */; };
 		797BC4CD2A5623A60031E4EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 797BC4CB2A5623A60031E4EE /* LaunchScreen.storyboard */; };
 		79BC55E72A57225E00E082E1 /* PurchaseHelper+WebsiteConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BC55E62A57225E00E082E1 /* PurchaseHelper+WebsiteConfig.swift */; };
+		79BC55F62A57318000E082E1 /* PrePurchaseHelper+Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BC55F52A57318000E082E1 /* PrePurchaseHelper+Location.swift */; };
+		79BC55F82A5736EA00E082E1 /* TicketsHelper+PrePurchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BC55F72A5736EA00E082E1 /* TicketsHelper+PrePurchase.swift */; };
+		79BC55FA2A573D0300E082E1 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BC55F92A573D0300E082E1 /* AuthenticationViewController.swift */; };
+		79BC55FC2A573FF500E082E1 /* AuthenticationVC+BuildMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BC55FB2A573FF500E082E1 /* AuthenticationVC+BuildMenu.swift */; };
+		79BC55FE2A5741D100E082E1 /* AuthenticationVC+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BC55FD2A5741D100E082E1 /* AuthenticationVC+Actions.swift */; };
+		79BC56002A57457000E082E1 /* AuthenticationHelper+Present.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BC55FF2A57457000E082E1 /* AuthenticationHelper+Present.swift */; };
+		79BC56022A574BCE00E082E1 /* AuthenticationVC+Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BC56012A574BCE00E082E1 /* AuthenticationVC+Notifications.swift */; };
 		79E8C00A2A5627DE0054B340 /* BrandedNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E8C0082A5627DE0054B340 /* BrandedNavigationController.swift */; };
 		79E8C0202A56290F0054B340 /* MenuTextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79E8C00E2A56290F0054B340 /* MenuTextFieldTableViewCell.xib */; };
 		79E8C0212A56290F0054B340 /* MenuTextFieldWithTitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79E8C00F2A56290F0054B340 /* MenuTextFieldWithTitleTableViewCell.xib */; };
@@ -126,6 +133,13 @@
 		797BC4CC2A5623A60031E4EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		797BC4CE2A5623A60031E4EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		79BC55E62A57225E00E082E1 /* PurchaseHelper+WebsiteConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PurchaseHelper+WebsiteConfig.swift"; sourceTree = "<group>"; };
+		79BC55F52A57318000E082E1 /* PrePurchaseHelper+Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PrePurchaseHelper+Location.swift"; sourceTree = "<group>"; };
+		79BC55F72A5736EA00E082E1 /* TicketsHelper+PrePurchase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TicketsHelper+PrePurchase.swift"; sourceTree = "<group>"; };
+		79BC55F92A573D0300E082E1 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
+		79BC55FB2A573FF500E082E1 /* AuthenticationVC+BuildMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthenticationVC+BuildMenu.swift"; sourceTree = "<group>"; };
+		79BC55FD2A5741D100E082E1 /* AuthenticationVC+Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthenticationVC+Actions.swift"; sourceTree = "<group>"; };
+		79BC55FF2A57457000E082E1 /* AuthenticationHelper+Present.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthenticationHelper+Present.swift"; sourceTree = "<group>"; };
+		79BC56012A574BCE00E082E1 /* AuthenticationVC+Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthenticationVC+Notifications.swift"; sourceTree = "<group>"; };
 		79E8C0082A5627DE0054B340 /* BrandedNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandedNavigationController.swift; sourceTree = "<group>"; };
 		79E8C00E2A56290F0054B340 /* MenuTextFieldTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuTextFieldTableViewCell.xib; sourceTree = "<group>"; };
 		79E8C00F2A56290F0054B340 /* MenuTextFieldWithTitleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuTextFieldWithTitleTableViewCell.xib; sourceTree = "<group>"; };
@@ -309,8 +323,9 @@
 				79E8C0692A5636170054B340 /* PrePurchaseHelper.swift */,
 				795D32C62A56615F001D0466 /* PrePurchaseHelper+Present.swift */,
 				795D32C42A5660B4001D0466 /* PrePurchaseHelper+NavigationDelegate.swift */,
-				795D32C22A566010001D0466 /* PrePurchaseHelper+LocationDelegate.swift */,
 				795D32C02A565ECD001D0466 /* PrePurchaseHelper+AnalyticsDelegate.swift */,
+				795D32C22A566010001D0466 /* PrePurchaseHelper+LocationDelegate.swift */,
+				79BC55F52A57318000E082E1 /* PrePurchaseHelper+Location.swift */,
 			);
 			path = PrePurchase;
 			sourceTree = "<group>";
@@ -332,6 +347,7 @@
 			isa = PBXGroup;
 			children = (
 				79E8C0632A5631B70054B340 /* AuthenticationHelper.swift */,
+				79BC55FF2A57457000E082E1 /* AuthenticationHelper+Present.swift */,
 				79E8C0652A56334B0054B340 /* AuthenticationHelper+AuthDelegate.swift */,
 			);
 			path = Authentication;
@@ -347,6 +363,7 @@
 				79E8C0732A563CAA0054B340 /* TicketsHelper+ModuleDelegate.swift */,
 				79E8C0752A563CE00054B340 /* TicketsHelper+PrebuiltModules.swift */,
 				79E8C0772A563D310054B340 /* TicketsHelper+CustomModules.swift */,
+				79BC55F72A5736EA00E082E1 /* TicketsHelper+PrePurchase.swift */,
 			);
 			path = Tickets;
 			sourceTree = "<group>";
@@ -354,6 +371,10 @@
 		79E8C0022A56273E0054B340 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				79BC55F92A573D0300E082E1 /* AuthenticationViewController.swift */,
+				79BC55FB2A573FF500E082E1 /* AuthenticationVC+BuildMenu.swift */,
+				79BC55FD2A5741D100E082E1 /* AuthenticationVC+Actions.swift */,
+				79BC56012A574BCE00E082E1 /* AuthenticationVC+Notifications.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -558,6 +579,7 @@
 				795D32E62A5670A9001D0466 /* TicketsVC+Actions.swift in Sources */,
 				79E8C03D2A56291F0054B340 /* MenuBuilderDataSource+BuildCells.swift in Sources */,
 				79E8C08E2A5656BF0054B340 /* DiscoveryVC+BuildMenu.swift in Sources */,
+				79BC55FC2A573FF500E082E1 /* AuthenticationVC+BuildMenu.swift in Sources */,
 				795D32B72A565EA7001D0466 /* PrePurchaseViewController.swift in Sources */,
 				79E8C0722A563C790054B340 /* TicketsHelper+AnalyticsDelegate.swift in Sources */,
 				79E8C03E2A56291F0054B340 /* MenuBuilderTableViewCell.swift in Sources */,
@@ -572,10 +594,14 @@
 				795D32C32A566010001D0466 /* PrePurchaseHelper+LocationDelegate.swift in Sources */,
 				795D32DE2A566B11001D0466 /* PurchaseHelper+NavigationDelegate.swift in Sources */,
 				79E8C0302A56290F0054B340 /* MenuBlankTableViewCell.swift in Sources */,
+				79BC56022A574BCE00E082E1 /* AuthenticationVC+Notifications.swift in Sources */,
 				795D32EB2A567499001D0466 /* DiscoveryHelper+Present.swift in Sources */,
 				79E8C0782A563D310054B340 /* TicketsHelper+CustomModules.swift in Sources */,
 				79E8C06A2A5636170054B340 /* PrePurchaseHelper.swift in Sources */,
 				795D32E22A566F51001D0466 /* TicketsViewController.swift in Sources */,
+				79BC55FA2A573D0300E082E1 /* AuthenticationViewController.swift in Sources */,
+				79BC55FE2A5741D100E082E1 /* AuthenticationVC+Actions.swift in Sources */,
+				79BC55F62A57318000E082E1 /* PrePurchaseHelper+Location.swift in Sources */,
 				795D32CD2A5664D5001D0466 /* PurchaseVC+BuildMenu.swift in Sources */,
 				79E8C03B2A56291F0054B340 /* MenuBuilderDataSource+Update.swift in Sources */,
 				795D32C52A5660B4001D0466 /* PrePurchaseHelper+NavigationDelegate.swift in Sources */,
@@ -583,6 +609,7 @@
 				795D32D02A5664D5001D0466 /* PurchaseViewController.swift in Sources */,
 				79BC55E72A57225E00E082E1 /* PurchaseHelper+WebsiteConfig.swift in Sources */,
 				79E8C0312A56290F0054B340 /* MenuSegmentedControlTableViewCell.swift in Sources */,
+				79BC56002A57457000E082E1 /* AuthenticationHelper+Present.swift in Sources */,
 				795D32DA2A5667DD001D0466 /* PurchaseHelper+Present.swift in Sources */,
 				795D32CF2A5664D5001D0466 /* PurchaseVC+Actions.swift in Sources */,
 				79E8C0262A56290F0054B340 /* MenuTextFieldWithTitleTableViewCell.swift in Sources */,
@@ -609,6 +636,7 @@
 				797BC4C32A5623A40031E4EE /* SceneDelegate.swift in Sources */,
 				79E8C03C2A56291F0054B340 /* MenuBuilderDataSource.swift in Sources */,
 				795D32BC2A565EA7001D0466 /* PrePurchaseVC+BuildMenu.swift in Sources */,
+				79BC55F82A5736EA00E082E1 /* TicketsHelper+PrePurchase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

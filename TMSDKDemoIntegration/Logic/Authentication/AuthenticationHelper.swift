@@ -11,6 +11,8 @@ import TicketmasterAuthentication // for TMAuthentication
 /// a class to wrap helpful methods
 class AuthenticationHelper: NSObject {
     
+    weak var authenticationMenuVC: AuthenticationViewController?
+    
     func configure(configuration: Configuration, completion: @escaping (_ success: Bool) -> Void) {
         guard configuration.apiKey != "<your apiKey>" else {
             fatalError("Set your apiKey in Configuration.swift")

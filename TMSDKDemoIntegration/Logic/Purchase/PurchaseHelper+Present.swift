@@ -23,9 +23,7 @@ extension PurchaseHelper {
         let purchaseNavController = TMPurchaseNavigationController(configuration: configuration)
                 
         // this OPTIONAL delegate is useful for custom UI navigation:
-        //  * custom ADP/VDP pages
-        //  * custom Purchase presentation logic
-        //  * present Presence SDK Orders page after a completed purchase
+        //  * present Tickets page after a completed purchase
         //  * prompt "Rate my App" (a happy user is more likely to give your App a good rating on the AppStore!)
         purchaseNavController.navigationDelegate = self
          
@@ -48,6 +46,5 @@ extension PurchaseHelper {
         
         // present configured TMPurchaseNavigationController
         viewController.present(purchaseNavController, animated: true, completion: nil)
-        // note: look inside PurchaseSDKWrapper.purchaseNavigationController(eventID:) for an example of how to  customize the configuration
     }
 }

@@ -11,6 +11,10 @@ import TicketmasterTickets // for TMTickets
 /// a class to wrap helpful methods
 class TicketsHelper: NSObject {
     
+    weak var ticketsMenuVC: TicketsViewController?
+    
+    weak var ticketsVC: TMTicketsViewController?
+    
     func configure(configuration: Configuration, completion: @escaping (_ success: Bool) -> Void) {
         guard configuration.apiKey != "<your apiKey>" else {
             fatalError("Set your apiKey in Configuration.swift")

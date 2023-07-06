@@ -29,9 +29,6 @@ extension PurchaseViewController: MenuBuilderDataSourceDelegate {
                 if let eventID = customEventIdentifier {
                     purchaseHelper.presentPurchase(eventID: eventID, onViewController: self)
                 }
-            
-            case .purchaseConfiguration:
-                break
                 
             case .purchaseSampleEvent:
                 if let text = cell.cellInfo.titleText,

@@ -63,7 +63,7 @@ extension TicketsHelper: TMTicketsAnalyticsDelegate {
         case .module(let event, let identifier):
             print(" - module: \(identifier) event: \(event.info.identifier)")
         case .moduleButton(let event, let module, let button):
-            print(" - module: \(module.identifier) button: \(button.title)(\(button.callbackValue) event: \(event.info.identifier)")
+            print(" - module: \(module.identifier) button: \(button.title)(\(button.callbackValue)) event: \(event.info.identifier)")
         case .empty:
             print(" - empty")
         @unknown default:

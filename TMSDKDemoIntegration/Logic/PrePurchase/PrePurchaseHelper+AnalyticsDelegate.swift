@@ -10,13 +10,20 @@ import UIKit
 import TicketmasterFoundation
 import TicketmasterPrePurchase
 
+/// Protocol for communicating analytics-related information
 extension PrePurchaseHelper: TMPrePurchaseAnalyticsDelegate {
     
-    func prePurchaseViewController(_ viewController: TMPrePurchaseViewController, didShare pageTitle: String, and pageURL: URL, to activityType: UIActivity.ActivityType) {
+    /// User has just shared a Attraction Details Page (ADP) or Venue Details Page (VDP)
+    func prePurchaseViewController(_ viewController: TMPrePurchaseViewController,
+                                   didShare pageTitle: String,
+                                   and pageURL: URL,
+                                   to activityType: UIActivity.ActivityType) {
         print("prePurchaseViewController:didSharePageTitle: \(pageTitle)")
     }
     
-    func prePurchaseViewController(_ viewController: TMPrePurchaseViewController, didFirePageView pageView: UALPageView) {
+    /// Communicates a page view, with some info about the page
+    func prePurchaseViewController(_ viewController: TMPrePurchaseViewController,
+                                   didFirePageView pageView: UALPageView) {
         print("prePurchaseViewController:didFirePageView: \(pageView.name)")
     }
 }

@@ -98,6 +98,8 @@ extension MainMenuViewController: MenuBuilderDataSourceDelegate {
                         ConfigurationManager.shared.configureDiscoveryAPIIfNeeded { success in
                             if success {
                                 let vc = DiscoveryViewController(style: .grouped)
+                                // weak store vc
+                                ConfigurationManager.shared.discoveryHelper?.discoveryMenuVC = vc
                                 self.navigationController?.pushViewController(vc, animated: true)
                             }
                         }
@@ -110,6 +112,8 @@ extension MainMenuViewController: MenuBuilderDataSourceDelegate {
                         ConfigurationManager.shared.configurePrePurchaseIfNeeded { success in
                             if success {
                                 let vc = PrePurchaseViewController(style: .grouped)
+                                // weak store vc
+                                ConfigurationManager.shared.prePurchaseHelper?.prePurchaseMenuVC = vc
                                 self.navigationController?.pushViewController(vc, animated: true)
                             }
                         }
@@ -122,6 +126,8 @@ extension MainMenuViewController: MenuBuilderDataSourceDelegate {
                         ConfigurationManager.shared.configurePurchaseIfNeeded { success in
                             if success {
                                 let vc = PurchaseViewController(style: .grouped)
+                                // weak store vc
+                                ConfigurationManager.shared.purchaseHelper?.purchaseMenuVC = vc
                                 self.navigationController?.pushViewController(vc, animated: true)
                             }
                         }
@@ -134,6 +140,8 @@ extension MainMenuViewController: MenuBuilderDataSourceDelegate {
                         ConfigurationManager.shared.configureTicketsIfNeeded { success in
                             if success {
                                 let vc = TicketsViewController(style: .grouped)
+                                // weak store vc
+                                ConfigurationManager.shared.ticketsHelper?.ticketsMenuVC = vc
                                 self.navigationController?.pushViewController(vc, animated: true)
                             }
                         }
@@ -142,8 +150,12 @@ extension MainMenuViewController: MenuBuilderDataSourceDelegate {
 
             case .authenticationMenu:
                 verifyClientConfig { success in
-//                    let vc = AuthenticationViewController(style: .grouped)
-//                    navigationController?.pushViewController(vc, animated: true)
+                    if success {
+                        let vc = AuthenticationViewController(style: .grouped)
+                        // weak store vc
+                        ConfigurationManager.shared.authenticationHelper?.authenticationMenuVC = vc
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    }
                 }
                 
             case .currentUserText:

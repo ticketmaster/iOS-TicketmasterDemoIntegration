@@ -13,6 +13,8 @@ import TicketmasterPrePurchase // for TMPrePurchase and TMPrePurchaseViewControl
 /// a class to wrap helpful methods
 class PrePurchaseHelper: NSObject {
     
+    weak var prePurchaseMenuVC: PrePurchaseViewController?
+
     var homepageMarketLocation: MarketLocation = MarketLocation.California_LosAngeles()
     
     lazy var clLocationManager: CLLocationManager = {

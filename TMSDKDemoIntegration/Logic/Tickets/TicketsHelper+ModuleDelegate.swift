@@ -47,23 +47,28 @@ extension TicketsHelper: TMTicketsModuleDelegate {
         
         // these are just examples, they are not required
         if module.identifier == TMTicketsPrebuiltModule.ModuleName.venueConcessions.rawValue {
-            if button.callbackValue == TMTicketsPrebuiltModule.ButtonCallbackName.order.rawValue {
-                completion(nil) // dismiss My Tickets view in Tickets SDK
-                print("handleModuleActionButton: Present Venue Concessions: Order")
-                // TODO: present VenueNext SDK Order (or other Concession UI)
-            } else if button.callbackValue == TMTicketsPrebuiltModule.ButtonCallbackName.wallet.rawValue {
-                print("handleModuleActionButton: Present Venue Concessions: Wallet")
-                completion(nil) // dismiss My Tickets view in Tickets SDK
-                // TODO: present VenueNext SDK Wallet (or other Concession UI)
+            completion(nil) // dismiss Tickets view
+            // give a brief moment for the Tickets view to dismiss before presenting anything
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                if button.callbackValue == TMTicketsPrebuiltModule.ButtonCallbackName.order.rawValue {
+                    print("handleModuleActionButton: Present Venue Concessions: Order")
+                    // TODO: present VenueNext SDK Order (or other Concession UI)
+                    let concessionsVC = UIViewController()
+                    self.ticketsVC?.navigationController?.pushViewController(concessionsVC, animated: true)
+
+                } else if button.callbackValue == TMTicketsPrebuiltModule.ButtonCallbackName.wallet.rawValue {
+                    print("handleModuleActionButton: Present Venue Concessions: Wallet")
+                    // TODO: present VenueNext SDK Wallet (or other Concession UI)
+                    let concessionsVC = UIViewController()
+                    self.ticketsVC?.navigationController?.pushViewController(concessionsVC, animated: true)
+                }
             }
             
-        } else if module.identifier == "com.myDemoApp.rideshareParking" {
-            if button.callbackValue == "rideShare" {
-                print("handleModuleActionButton: Present RideShare")
-                completion(nil) // dismiss My Tickets view in PSDK
-                // TODO: present information about ride sharing
-                // ideally, this is a deep link to the Uber or Lyft app
-                // if the app is not available, then it opens the Uber or Lyft webpage
+        } else if module.identifier == "com.myDemoApp.upcomingEvents" {
+            completion(nil) // dismiss Tickets view
+            // give a brief moment for the Tickets view to dismiss before presenting anything
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.handleModuleMoreTickets(event: event, module: module, button: button)
             }
         }
     }

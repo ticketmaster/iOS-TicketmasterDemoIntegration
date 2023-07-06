@@ -15,7 +15,6 @@ extension PrePurchaseViewController {
         case pageSearch
         case pageVenue
         case pageAttraction
-        case pageCustom
     }
         
     func buildRefreshMenu() {
@@ -27,8 +26,6 @@ extension PrePurchaseViewController {
                                       forUniqueIdentifier: CellIdentifier.pageVenue.rawValue)
             menuDataSource.updateCell(value: selectedAttractionIdentifier,
                                       forUniqueIdentifier: CellIdentifier.pageAttraction.rawValue)
-            menuDataSource.updateCell(value: selectedCustomPath,
-                                      forUniqueIdentifier: CellIdentifier.pageCustom.rawValue)
         }
     }
     
@@ -74,13 +71,6 @@ extension PrePurchaseViewController {
                                        placeholderText: "Attraction Identifier")
         cellInfoArray.append(cellInfo)
         
-        cellInfo = MenuBuilderCellInfo(cellType: .textFieldWithTitle,
-                                       uniqueIdentifier: CellIdentifier.pageCustom.rawValue,
-                                       accessoryType: .disclosureIndicator,
-                                       titleText: "Custom Path Page",
-                                       valueText: selectedCustomPath,
-                                       placeholderText: "Custom Path")
-        cellInfoArray.append(cellInfo)
         
         return MenuBuilderSectionInfo(title: "PrePurchase", cellInfoRowArray: cellInfoArray)
     }

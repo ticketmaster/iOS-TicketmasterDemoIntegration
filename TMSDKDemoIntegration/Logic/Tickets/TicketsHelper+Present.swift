@@ -12,9 +12,15 @@ import TicketmasterTickets
 extension TicketsHelper {
     
     func pushTickets(orderOrEventID: String? = nil, onViewController viewController: UIViewController) {
-        let ticketsVC = TMTicketsViewController()
-        viewController.navigationController?.pushViewController(ticketsVC, animated: true)
+        let newTicketsVC = TMTicketsViewController()
         
+        // do not add logout button to the navbar
+        newTicketsVC.addLogoutButton = false
+        
+        // weak store vc
+        ticketsVC = newTicketsVC
+        
+        viewController.navigationController?.pushViewController(newTicketsVC, animated: true)
         if let orderOrEventID = orderOrEventID {
             // since we are animating the VC onto the stack, give it a moment to finish animating
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
@@ -24,8 +30,15 @@ extension TicketsHelper {
     }
 
     func presentTickets(orderOrEventID: String? = nil, onViewController viewController: UIViewController) {
-        let ticketsVC = TMTicketsViewController()
-        viewController.navigationController?.present(ticketsVC, animated: true, completion: {
+        let newTicketsVC = TMTicketsViewController()
+        
+        // do not add logout button to the header
+        newTicketsVC.addLogoutButton = false
+
+        // weak store vc
+        ticketsVC = newTicketsVC
+        
+        viewController.navigationController?.present(newTicketsVC, animated: true, completion: {
             if let orderOrEventID = orderOrEventID {
                 TMTickets.shared.display(orderOrEventId: orderOrEventID)
             }

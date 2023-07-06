@@ -37,22 +37,26 @@ extension PurchaseHelper: TMPurchaseNavigationDelegate {
         // log to some analytics
         print("TMPurchaseNavigationDelegate: PurchaseNavController was dismissed (user either completed or canceled purchase flow)")
 
-        /// You may want to show the user their Orders page (part of the Presence SDK) upon a completed purchase.
+        /// You may want to show the user their Orders page (part of the Tickets framework) upon a completed purchase.
         /// If so, let check if `purchaseOrder` was set via `TMPurchaseUserAnalyticsDelegate.didMakePurchaseForEvent`
         
         // did the user make a purchase?
         if let order = purchasedOrder {
             // yes, let's display the user's Orders on the presentingViewController (the same ViewController that presented Purchase)
             if let vc = presentingViewController {
-                // do we know exactly which Order?
-                if let orderID = order.identifier {
-                    // yes, jump to that exact Order (open the Tickets: Tickets Listing page)
-                    print("Show Tickets page for Order: \(orderID)")
-                    ConfigurationManager.shared.ticketsHelper?.pushTickets(orderOrEventID: orderID, onViewController: vc)
-                } else {
-                    // no, but we know if there is Purchase (open the Tickets: Events Listing page)
-                    print("Show Events page")
-                    ConfigurationManager.shared.ticketsHelper?.pushTickets(onViewController: vc)
+                ConfigurationManager.shared.configureTicketsIfNeeded { success in
+                    if success {
+                        // do we know exactly which Order?
+                        if let orderID = order.identifier {
+                            // yes, jump to that exact Order (open the Tickets: Tickets Listing page)
+                            print("Show Tickets page for Order: \(orderID)")
+                            ConfigurationManager.shared.ticketsHelper?.pushTickets(orderOrEventID: orderID, onViewController: vc)
+                        } else {
+                            // no, but we know if there is Purchase (open the Tickets: Events Listing page)
+                            print("Show Events page")
+                            ConfigurationManager.shared.ticketsHelper?.pushTickets(onViewController: vc)
+                        }
+                    }
                 }
             }
             

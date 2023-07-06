@@ -11,6 +11,8 @@ import TicketmasterDiscoveryAPI // for DiscoveryService and TMDiscoveryAPI
 /// a class to wrap helpful methods
 class DiscoveryHelper: NSObject {
 
+    weak var discoveryMenuVC: DiscoveryViewController?
+
     private(set) var discoveryService: DiscoveryService?
     
     func configure(configuration: Configuration, completion: @escaping (_ success: Bool) -> Void) {

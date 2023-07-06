@@ -39,7 +39,7 @@ extension PrePurchaseViewController: MenuBuilderDataSourceDelegate {
                     prePurchaseHelper.presentPrePurchase(page: .venue(identifier: venueID),
                                                          onViewController: self)
                 }
-
+                
             case .pageAttraction:
                 switch action {
                 case .returnPressed(let value):
@@ -49,18 +49,6 @@ extension PrePurchaseViewController: MenuBuilderDataSourceDelegate {
                 }
                 if let attractionID = selectedAttractionIdentifier, attractionID.count > 0 {
                     prePurchaseHelper.presentPrePurchase(page: .attraction(identifier: attractionID),
-                                                         onViewController: self)
-                }
-
-            case .pageCustom:
-                switch action {
-                case .returnPressed(let value):
-                    selectedCustomPath = value
-                default:
-                    break
-                }
-                if let customPath = selectedCustomPath, customPath.count > 0 {
-                    prePurchaseHelper.presentPrePurchase(page: .custom(path: customPath),
                                                          onViewController: self)
                 }
             }

@@ -40,22 +40,26 @@ extension MainMenuViewController {
             didBuildMenu = true
         }
         
-        if TMAuthentication.shared.hasToken() {
-            TMAuthentication.shared.memberInfo { memberInfo in
-                self.menuDataSource.updateCell(title: memberInfo.email ?? memberInfo.localID ?? memberInfo.globalID ?? "<nil>",
-                                               forUniqueIdentifier: CellIdentifier.currentUserText.rawValue)
-            } failure: { oldMemberInfo, error, backend in
-                if let memberInfo = oldMemberInfo {
-                    self.menuDataSource.updateCell(title: memberInfo.email ?? memberInfo.localID ?? memberInfo.globalID ?? "<nil>",
-                                                   forUniqueIdentifier: CellIdentifier.currentUserText.rawValue)
+        ConfigurationManager.shared.configureAuthenticationIfNeeded { success in
+            if success {
+                if TMAuthentication.shared.hasToken() {
+                    TMAuthentication.shared.memberInfo { memberInfo in
+                        self.menuDataSource.updateCell(title: "Current User: \(memberInfo.email ?? memberInfo.localID ?? memberInfo.globalID ?? "<nil>")",
+                                                       forUniqueIdentifier: CellIdentifier.currentUserText.rawValue)
+                    } failure: { oldMemberInfo, error, backend in
+                        if let memberInfo = oldMemberInfo {
+                            self.menuDataSource.updateCell(title: "Current User: \(memberInfo.email ?? memberInfo.localID ?? memberInfo.globalID ?? "<nil>")",
+                                                           forUniqueIdentifier: CellIdentifier.currentUserText.rawValue)
+                        } else {
+                            self.menuDataSource.updateCell(title: "Current User: <\(error.localizedDescription)>",
+                                                           forUniqueIdentifier: CellIdentifier.currentUserText.rawValue)
+                        }
+                    }
                 } else {
-                    self.menuDataSource.updateCell(title: "Current User: <\(error.localizedDescription)>",
+                    self.menuDataSource.updateCell(title: "Current User: <logged out>",
                                                    forUniqueIdentifier: CellIdentifier.currentUserText.rawValue)
                 }
             }
-        } else {
-            menuDataSource.updateCell(title: "Current User: <logged out>",
-                                      forUniqueIdentifier: CellIdentifier.currentUserText.rawValue)
         }
     }
     
