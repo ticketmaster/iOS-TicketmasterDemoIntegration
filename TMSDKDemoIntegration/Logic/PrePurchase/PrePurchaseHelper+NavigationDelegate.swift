@@ -23,10 +23,6 @@ extension PrePurchaseHelper: TMPrePurchaseNavigationDelegate {
         print("navigateToEventDetailsPageWithIdentifier: \(eventIdentifier)")
         // REQUIRED:
         // PrePurchase is asking us to present the Purchase SDK for this event
-        ConfigurationManager.shared.configurePurchaseIfNeeded { success in
-            if success {
-                ConfigurationManager.shared.purchaseHelper?.presentPurchase(eventID: eventIdentifier, onViewController: viewController)
-            }
-        }
+        presentPurchase(forEventID: eventIdentifier, onViewController: viewController)
     }
 }

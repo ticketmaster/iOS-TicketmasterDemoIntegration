@@ -15,7 +15,7 @@ extension TicketsHelper {
         let newTicketsVC = TMTicketsViewController()
         
         // do not add logout button to the navbar
-        newTicketsVC.addLogoutButton = false
+        newTicketsVC.addLogoutButton = true
         
         // weak store vc
         ticketsVC = newTicketsVC
@@ -33,7 +33,7 @@ extension TicketsHelper {
         let newTicketsVC = TMTicketsViewController()
         
         // do not add logout button to the header
-        newTicketsVC.addLogoutButton = false
+        newTicketsVC.addLogoutButton = true
 
         // weak store vc
         ticketsVC = newTicketsVC

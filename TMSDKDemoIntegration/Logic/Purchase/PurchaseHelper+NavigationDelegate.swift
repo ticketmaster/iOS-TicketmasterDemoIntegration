@@ -40,35 +40,19 @@ extension PurchaseHelper: TMPurchaseNavigationDelegate {
         /// You may want to show the user their Orders page (part of the Tickets framework) upon a completed purchase.
         /// If so, let check if `purchaseOrder` was set via `TMPurchaseUserAnalyticsDelegate.didMakePurchaseForEvent`
         
+        let someOrder: TMPurchaseOrder? = TMPurchaseOrder(identifier: "4500")
+        
         // did the user make a purchase?
-        if let order = purchasedOrder {
-            // yes, let's display the user's Orders on the presentingViewController (the same ViewController that presented Purchase)
-            if let vc = presentingViewController {
-                ConfigurationManager.shared.configureTicketsIfNeeded { success in
-                    if success {
-                        // do we know exactly which Order?
-                        if let orderID = order.identifier {
-                            // yes, jump to that exact Order (open the Tickets: Tickets Listing page)
-                            print("Show Tickets page for Order: \(orderID)")
-                            ConfigurationManager.shared.ticketsHelper?.pushTickets(orderOrEventID: orderID, onViewController: vc)
-                        } else {
-                            // no, but we know if there is Purchase (open the Tickets: Events Listing page)
-                            print("Show Events page")
-                            ConfigurationManager.shared.ticketsHelper?.pushTickets(onViewController: vc)
-                        }
-                    }
-                }
-            }
-            
-            /// Since the user just completed a purchase, this may be a good place to prompt the user to "Rate Your App".
-            /// A happy user is more likely to give your App a good rating on the AppStore!
-            if rateMyAppAfterPurchase {
-                // give Tickets SDK a chance to render the user's tickets
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
-                    print("Rate My App")
-                    SKStoreReviewController.requestReviewInCurrentScene()
-                })
-            }
+        if let order = someOrder { //purchasedOrder {
+            // yes, let's display the user's Orders
+            presentTickets(forOrder: order)
+
+            // Since the user just completed a purchase, this may be a good place to prompt the user to "Rate Your App".
+            // A happy user is more likely to give your App a good rating on the AppStore!
+            // give Tickets SDK a chance to render the user's tickets
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
+                self.rateMyAppIfEnabled()
+            })
         }
     }
     
@@ -87,6 +71,16 @@ extension PurchaseHelper: TMPurchaseNavigationDelegate {
 }
 
 
+
+extension PurchaseHelper {
+    
+    func rateMyAppIfEnabled() {
+        if rateMyAppAfterPurchase {
+            print("Rate My App")
+            SKStoreReviewController.requestReviewInCurrentScene()
+        }
+    }
+}
 
 extension SKStoreReviewController {
     

@@ -8,6 +8,7 @@
 
 import UIKit
 import TicketmasterFoundation
+import TicketmasterPrePurchase
 
 class DictionaryExplorerViewController: UIViewController {
     
@@ -20,6 +21,11 @@ class DictionaryExplorerViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         var buttonItems: [UIBarButtonItem] = []
+        
+        let goButton = UIBarButtonItem(barButtonSystemItem: .play,
+                                       target: self,
+                                       action: #selector(goButtonTapped))
+        buttonItems.append(goButton)
         
         let clearButton = UIBarButtonItem(barButtonSystemItem: .refresh,
                                           target: self,
@@ -50,5 +56,41 @@ class DictionaryExplorerViewController: UIViewController {
     
     @objc func clearButtonTapped(_ sender: Any) {
         dictionaryTextView.closeAllOpenPaths()
+    }
+    
+    @objc func goButtonTapped(_ sender: Any) {
+        guard let identifier = jsonDictionary?.stringNonEmpty("id") else { return }
+        
+        guard let type = jsonDictionary?.stringNonEmpty("type") else { return }
+        
+        var prePurchasePage: TMPrePurchaseViewController.PrePurchasePage?
+        var purchaseEventID: String?
+                
+        switch type {
+        case "event":
+            purchaseEventID = identifier
+        case "venue":
+            prePurchasePage = .venue(identifier: identifier)
+        case "attraction":
+            prePurchasePage = .attraction(identifier: identifier)
+        default:
+            // some unknown type, maybe classification?
+            break
+        }
+        
+        if let eventID = purchaseEventID {
+            ConfigurationManager.shared.configurePurchaseIfNeeded { success in
+                if success {
+                    ConfigurationManager.shared.purchaseHelper?.presentPurchase(eventID: eventID, onViewController: self)
+                }
+            }
+            
+        } else if let page = prePurchasePage {
+            ConfigurationManager.shared.configurePrePurchaseIfNeeded { success in
+                if success {
+                    ConfigurationManager.shared.prePurchaseHelper?.presentPrePurchase(page: page, onViewController: self)
+                }
+            }
+        }
     }
 }

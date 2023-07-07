@@ -219,7 +219,7 @@ extension DiscoveryHelper {
                 switch response {
                 case .success(let results):
                     let dictionaryVC = strongSelf.dictionaryExplorerViewController()
-                    dictionaryVC.title = "Attraction Details"
+                    dictionaryVC.title = "Classification Details"
                     dictionaryVC.jsonDictionary = results.rawJSON
                     navigationController.pushViewController(dictionaryVC, animated: true)
                     
