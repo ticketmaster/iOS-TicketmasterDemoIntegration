@@ -21,7 +21,7 @@ extension TicketsHelper {
         // this creates an infinite loop, which is not recommended
         //
         // so we'll break the loop by dismissing everything on top of Tickets at step #3
-        // see PurchaseHelper+NavigationDeleh
+        // see PurchaseHelper+Tickets.swift
 
         // give the dismiss animation a moment to process
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
