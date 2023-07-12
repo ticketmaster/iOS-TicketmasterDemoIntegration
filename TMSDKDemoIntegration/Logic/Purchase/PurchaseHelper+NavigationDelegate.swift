@@ -40,10 +40,8 @@ extension PurchaseHelper: TMPurchaseNavigationDelegate {
         /// You may want to show the user their Orders page (part of the Tickets framework) upon a completed purchase.
         /// If so, let check if `purchaseOrder` was set via `TMPurchaseUserAnalyticsDelegate.didMakePurchaseForEvent`
         
-        let someOrder: TMPurchaseOrder? = TMPurchaseOrder(identifier: "4500")
-        
         // did the user make a purchase?
-        if let order = someOrder { //purchasedOrder {
+        if let order = purchasedOrder {
             // yes, let's display the user's Orders
             presentTickets(forOrder: order)
 
