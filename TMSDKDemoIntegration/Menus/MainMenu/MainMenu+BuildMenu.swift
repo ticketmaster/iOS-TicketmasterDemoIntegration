@@ -117,7 +117,7 @@ extension MainMenuViewController {
                                        titleText: "Retail Market Domain:")
         cellInfoArray.append(cellInfo)
 
-        let markets: [MarketDomain] = MarketDomain.allCases
+        let markets: [MarketDomain] = [.US, .CA] // MarketDomain.allCases
         let currentMarket = ConfigurationManager.shared.currentConfiguration.retailMarketDomain
         cellInfo = MenuBuilderCellInfo(cellType: .segmentedControl,
                                        uniqueIdentifier: CellIdentifier.marketDomainSegmentedControl.rawValue,
