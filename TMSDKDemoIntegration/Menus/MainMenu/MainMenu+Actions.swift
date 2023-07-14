@@ -97,7 +97,7 @@ extension MainMenuViewController: MenuBuilderDataSourceDelegate {
                     if success {
                         ConfigurationManager.shared.configureDiscoveryAPIIfNeeded { success in
                             if success {
-                                let vc = DiscoveryViewController(style: .grouped)
+                                let vc = DiscoveryViewController(style: .insetGrouped)
                                 // weak store vc
                                 ConfigurationManager.shared.discoveryHelper?.discoveryMenuVC = vc
                                 self.navigationController?.pushViewController(vc, animated: true)
@@ -111,7 +111,7 @@ extension MainMenuViewController: MenuBuilderDataSourceDelegate {
                     if success {
                         ConfigurationManager.shared.configurePrePurchaseIfNeeded { success in
                             if success {
-                                let vc = PrePurchaseViewController(style: .grouped)
+                                let vc = PrePurchaseViewController(style: .insetGrouped)
                                 // weak store vc
                                 ConfigurationManager.shared.prePurchaseHelper?.prePurchaseMenuVC = vc
                                 self.navigationController?.pushViewController(vc, animated: true)
@@ -125,7 +125,7 @@ extension MainMenuViewController: MenuBuilderDataSourceDelegate {
                     if success {
                         ConfigurationManager.shared.configurePurchaseIfNeeded { success in
                             if success {
-                                let vc = PurchaseViewController(style: .grouped)
+                                let vc = PurchaseViewController(style: .insetGrouped)
                                 // weak store vc
                                 ConfigurationManager.shared.purchaseHelper?.purchaseMenuVC = vc
                                 self.navigationController?.pushViewController(vc, animated: true)
@@ -139,7 +139,7 @@ extension MainMenuViewController: MenuBuilderDataSourceDelegate {
                     if success {
                         ConfigurationManager.shared.configureTicketsIfNeeded { success in
                             if success {
-                                let vc = TicketsViewController(style: .grouped)
+                                let vc = TicketsViewController(style: .insetGrouped)
                                 // weak store vc
                                 ConfigurationManager.shared.ticketsHelper?.ticketsMenuVC = vc
                                 self.navigationController?.pushViewController(vc, animated: true)
@@ -151,7 +151,7 @@ extension MainMenuViewController: MenuBuilderDataSourceDelegate {
             case .authenticationMenu:
                 verifyClientConfig { success in
                     if success {
-                        let vc = AuthenticationViewController(style: .grouped)
+                        let vc = AuthenticationViewController(style: .insetGrouped)
                         // weak store vc
                         ConfigurationManager.shared.authenticationHelper?.authenticationMenuVC = vc
                         self.navigationController?.pushViewController(vc, animated: true)

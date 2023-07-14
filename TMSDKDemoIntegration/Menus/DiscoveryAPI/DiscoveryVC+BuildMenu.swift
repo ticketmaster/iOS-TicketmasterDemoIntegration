@@ -87,21 +87,25 @@ extension DiscoveryViewController {
         
         cellInfo = MenuBuilderCellInfo(cellType: .textField,
                                        uniqueIdentifier: CellIdentifier.searchEvent.rawValue,
+                                       accessoryType: .disclosureIndicator,
                                        placeholderText: "Event Search String")
         cellInfoArray.append(cellInfo)
 
         cellInfo = MenuBuilderCellInfo(cellType: .textField,
                                        uniqueIdentifier: CellIdentifier.searchVenue.rawValue,
+                                       accessoryType: .disclosureIndicator,
                                        placeholderText: "Venue Search String")
         cellInfoArray.append(cellInfo)
 
         cellInfo = MenuBuilderCellInfo(cellType: .textField,
                                        uniqueIdentifier: CellIdentifier.searchAttraction.rawValue,
+                                       accessoryType: .disclosureIndicator,
                                        placeholderText: "Attraction Search String")
         cellInfoArray.append(cellInfo)
 
         cellInfo = MenuBuilderCellInfo(cellType: .textField,
                                        uniqueIdentifier: CellIdentifier.searchClassification.rawValue,
+                                       accessoryType: .disclosureIndicator,
                                        placeholderText: "Classification Search String")
         cellInfoArray.append(cellInfo)
 
@@ -114,21 +118,25 @@ extension DiscoveryViewController {
 
         cellInfo = MenuBuilderCellInfo(cellType: .textField,
                                        uniqueIdentifier: CellIdentifier.detailsEvent.rawValue,
+                                       accessoryType: .disclosureIndicator,
                                        placeholderText: "Event Identifier")
         cellInfoArray.append(cellInfo)
 
         cellInfo = MenuBuilderCellInfo(cellType: .textField,
                                        uniqueIdentifier: CellIdentifier.detailsVenue.rawValue,
+                                       accessoryType: .disclosureIndicator,
                                        placeholderText: "Venue Identifier")
         cellInfoArray.append(cellInfo)
 
         cellInfo = MenuBuilderCellInfo(cellType: .textField,
                                        uniqueIdentifier: CellIdentifier.detailsAttraction.rawValue,
+                                       accessoryType: .disclosureIndicator,
                                        placeholderText: "Attraction Identifier")
         cellInfoArray.append(cellInfo)
 
         cellInfo = MenuBuilderCellInfo(cellType: .textField,
                                        uniqueIdentifier: CellIdentifier.detailsClassification.rawValue,
+                                       accessoryType: .disclosureIndicator,
                                        placeholderText: "Classification Identifier")
         cellInfoArray.append(cellInfo)
 
