@@ -24,8 +24,11 @@ extension PurchaseHelper {
                         print("Show Tickets page for Order: \(orderID)")
                         // are we already presenting the Ticket VC?
                         if let existingVC = ticketsHelper.ticketsVC {
-                            // yes, dismiss back to it, then display the new tickets
+                            // yes, dismiss back to it
                             existingVC.dismissViewControllersOnTopOfSelf(animated: true) {
+                                // refresh the contents
+                                existingVC.reload()
+                                // then display the new order
                                 TMTickets.shared.display(orderOrEventId: orderID)
                             }
                         } else {
@@ -38,7 +41,10 @@ extension PurchaseHelper {
                         // are we already presenting the Ticket VC?
                         if let existingVC = ConfigurationManager.shared.ticketsHelper?.ticketsVC {
                             // yes, dismiss back to it
-                            existingVC.dismissViewControllersOnTopOfSelf(animated: true, completion: nil)
+                            existingVC.dismissViewControllersOnTopOfSelf(animated: true, completion: {
+                                // refresh the contents
+                                existingVC.reload()
+                            })
                         } else {
                             // no, present it
                             ticketsHelper.pushTickets(onViewController: vc)
