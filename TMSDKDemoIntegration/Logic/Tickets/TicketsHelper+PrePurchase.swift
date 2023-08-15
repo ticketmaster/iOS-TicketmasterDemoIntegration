@@ -48,10 +48,10 @@ extension TicketsHelper {
                 print("handleModuleActionButton: Present More Concerts")
                 // if the Tickets are from Archtics, the identifier may not be a HOST identifer
                 // so we may have to hard-code the Venue ID
-                //                    let venueID = event.info.venue?.identifier ?? "246112"
-                let venueID = "246112" // Colorado Ball Arena
-                //                    let venueName = event.info.venue?.name
-                let venueName = "Ball Arena" // Colorado Ball Arena
+                let venueID = event.info.venue?.identifier ?? "246112"
+                //let venueID = "246112" // Colorado Ball Arena
+                let venueName = event.info.venue?.name ?? "Ball Arena"
+                //let venueName = "Ball Arena" // Colorado Ball Arena
                 
                 // load Venue Details page
                 ConfigurationManager.shared.configurePrePurchaseIfNeeded { success in
