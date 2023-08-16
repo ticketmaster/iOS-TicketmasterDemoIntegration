@@ -49,6 +49,7 @@
 		79BC55FE2A5741D100E082E1 /* AuthenticationVC+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BC55FD2A5741D100E082E1 /* AuthenticationVC+Actions.swift */; };
 		79BC56002A57457000E082E1 /* AuthenticationHelper+Present.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BC55FF2A57457000E082E1 /* AuthenticationHelper+Present.swift */; };
 		79BC56022A574BCE00E082E1 /* AuthenticationVC+Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BC56012A574BCE00E082E1 /* AuthenticationVC+Notifications.swift */; };
+		79CD14A72A8D4CFA00542D92 /* EmbeddedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CD14A62A8D4CFA00542D92 /* EmbeddedViewController.swift */; };
 		79E8C00A2A5627DE0054B340 /* BrandedNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E8C0082A5627DE0054B340 /* BrandedNavigationController.swift */; };
 		79E8C0202A56290F0054B340 /* MenuTextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79E8C00E2A56290F0054B340 /* MenuTextFieldTableViewCell.xib */; };
 		79E8C0212A56290F0054B340 /* MenuTextFieldWithTitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79E8C00F2A56290F0054B340 /* MenuTextFieldWithTitleTableViewCell.xib */; };
@@ -154,6 +155,7 @@
 		79BC55FD2A5741D100E082E1 /* AuthenticationVC+Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthenticationVC+Actions.swift"; sourceTree = "<group>"; };
 		79BC55FF2A57457000E082E1 /* AuthenticationHelper+Present.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthenticationHelper+Present.swift"; sourceTree = "<group>"; };
 		79BC56012A574BCE00E082E1 /* AuthenticationVC+Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthenticationVC+Notifications.swift"; sourceTree = "<group>"; };
+		79CD14A62A8D4CFA00542D92 /* EmbeddedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmbeddedViewController.swift; sourceTree = "<group>"; };
 		79E8C0082A5627DE0054B340 /* BrandedNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandedNavigationController.swift; sourceTree = "<group>"; };
 		79E8C00E2A56290F0054B340 /* MenuTextFieldTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuTextFieldTableViewCell.xib; sourceTree = "<group>"; };
 		79E8C00F2A56290F0054B340 /* MenuTextFieldWithTitleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuTextFieldWithTitleTableViewCell.xib; sourceTree = "<group>"; };
@@ -385,6 +387,7 @@
 				79E8C0752A563CE00054B340 /* TicketsHelper+PrebuiltModules.swift */,
 				79E8C0772A563D310054B340 /* TicketsHelper+CustomModules.swift */,
 				79BC55F72A5736EA00E082E1 /* TicketsHelper+PrePurchase.swift */,
+				79CD14A62A8D4CFA00542D92 /* EmbeddedViewController.swift */,
 			);
 			path = Tickets;
 			sourceTree = "<group>";
@@ -618,6 +621,7 @@
 				795D32C32A566010001D0466 /* PrePurchaseHelper+LocationDelegate.swift in Sources */,
 				795D32DE2A566B11001D0466 /* PurchaseHelper+NavigationDelegate.swift in Sources */,
 				79E8C0302A56290F0054B340 /* MenuBlankTableViewCell.swift in Sources */,
+				79CD14A72A8D4CFA00542D92 /* EmbeddedViewController.swift in Sources */,
 				79BC56022A574BCE00E082E1 /* AuthenticationVC+Notifications.swift in Sources */,
 				795D32EB2A567499001D0466 /* DiscoveryHelper+Present.swift in Sources */,
 				79E8C0782A563D310054B340 /* TicketsHelper+CustomModules.swift in Sources */,

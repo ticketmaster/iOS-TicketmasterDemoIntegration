@@ -12,7 +12,8 @@ extension TicketsViewController {
     enum CellIdentifier: String {
         case presentTicketsPush
         case presentTicketsModal
-        //case presentTicketsEmbedded
+        case presentTicketsEmbeddedPush
+        case presentTicketsEmbeddedModal
 
         case displayOrder
     }
@@ -42,20 +43,26 @@ extension TicketsViewController {
         cellInfo = MenuBuilderCellInfo(cellType: .title,
                                        uniqueIdentifier: CellIdentifier.presentTicketsPush.rawValue,
                                        accessoryType: .disclosureIndicator,
-                                       titleText: "Present Tickets (Push)")
+                                       titleText: "Push TicketsVC (on NavBar)")
         cellInfoArray.append(cellInfo)
         
         cellInfo = MenuBuilderCellInfo(cellType: .title,
                                        uniqueIdentifier: CellIdentifier.presentTicketsModal.rawValue,
                                        accessoryType: .disclosureIndicator,
-                                       titleText: "Present Tickets (Modal)")
+                                       titleText: "Present TicketsVC (Modal)")
         cellInfoArray.append(cellInfo)
         
-//        cellInfo = MenuBuilderCellInfo(cellType: .title,
-//                                       uniqueIdentifier: CellIdentifier.presentTicketsEmbedded.rawValue,
-//                                       accessoryType: .disclosureIndicator,
-//                                       titleText: "Present Tickets (Embedded)")
-//        cellInfoArray.append(cellInfo)
+        cellInfo = MenuBuilderCellInfo(cellType: .title,
+                                       uniqueIdentifier: CellIdentifier.presentTicketsEmbeddedPush.rawValue,
+                                       accessoryType: .disclosureIndicator,
+                                       titleText: "Push TicketsView (in EmbeddedVC)")
+        cellInfoArray.append(cellInfo)
+        
+        cellInfo = MenuBuilderCellInfo(cellType: .title,
+                                       uniqueIdentifier: CellIdentifier.presentTicketsEmbeddedModal.rawValue,
+                                       accessoryType: .disclosureIndicator,
+                                       titleText: "Present TicketsView (in EmbeddedVC)")
+        cellInfoArray.append(cellInfo)
 
         return MenuBuilderSectionInfo(title: "Tickets", cellInfoRowArray: cellInfoArray)
     }

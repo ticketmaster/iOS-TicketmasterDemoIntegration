@@ -25,6 +25,12 @@ extension TicketsViewController: MenuBuilderDataSourceDelegate {
             case .presentTicketsModal:
                 ticketsHelper.presentTickets(onViewController: self)
                 
+            case .presentTicketsEmbeddedPush:
+                ticketsHelper.pushEmbeddedTickets(onViewController: self)
+                
+            case .presentTicketsEmbeddedModal:
+                ticketsHelper.presentEmbeddedTickets(onViewController: self)
+                
             case .displayOrder:
                 switch action {
                 case .returnPressed(let value), .valueChanged(let value):

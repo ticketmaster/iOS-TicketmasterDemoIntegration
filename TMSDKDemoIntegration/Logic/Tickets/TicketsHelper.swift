@@ -15,4 +15,5 @@ class TicketsHelper: NSObject {
     
     weak var ticketsVC: TMTicketsViewController?
     
+    weak var embeddedVC: EmbeddedViewController?
 }
