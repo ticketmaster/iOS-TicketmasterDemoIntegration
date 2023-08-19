@@ -35,6 +35,16 @@ extension AuthenticationHelper {
         //                                               name: TMAuthentication.AuthNotification.loginCompleted,
         //                                               object: nil)
         
+        // this shortcuts the user having to login twice for Host and Archtics accounts
+        //
+        // Best for: Apps that only use a SINGLE API key
+        TMAuthentication.shared.useCombinedLogin = true
+
+        // user has to login to each account separately, but avoids bugs when using multiple API keys
+        //
+        // Best for: Apps that use MULTIPLE API keys (user can switch between team/venue API keys)
+        //TMAuthentication.shared.useCombinedLogin = false
+
         // build a combination of Settings and Branding
         let tmxServiceSettings = TMAuthentication.TMXSettings(apiKey: configuration.apiKey,
                                                               region: configuration.region)

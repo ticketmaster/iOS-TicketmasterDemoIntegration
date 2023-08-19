@@ -173,9 +173,9 @@ extension MainMenuViewController {
         cellInfo = MenuBuilderCellInfo(cellType: .title,
                                        uniqueIdentifier: CellIdentifier.authenticationMenu.rawValue,
                                        accessoryType: .disclosureIndicator,
-                                       titleText: "Authentication v\(TMTickets.shared.version)")
+                                       titleText: "Authentication v\(TMAuthentication.shared.version)")
         cellInfoArray.append(cellInfo)
-                
+        
         cellInfo = MenuBuilderCellInfo(cellType: .title,
                                        uniqueIdentifier: CellIdentifier.currentUserText.rawValue,
                                        titleText: "Current User: <logged out>")
