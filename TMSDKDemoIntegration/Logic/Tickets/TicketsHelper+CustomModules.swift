@@ -8,6 +8,7 @@
 import Foundation
 import MapKit // for MKCoordinateRegion and CLLocationCoordinate2D
 import TicketmasterTickets // for TMPurchasedEvent, TMTicketsModule and TMTicketsModuleHeaderView
+import TicketmasterDiscoveryAPI // for DiscoveryEventSearchCriteria
 
 extension TicketsHelper {
     
@@ -52,6 +53,19 @@ extension TicketsHelper {
         
         return output
     }
+    
+    func addCustomAsyncModules(event: TMPurchasedEvent, completion: @escaping (_ modules: [TMTicketsModule]) -> Void) {
+        print(" - Adding Custom Modules (async)")
+        var output: [TMTicketsModule] = []
+        
+        nextHomeGameModule(event: event) { nextEventModule in
+            if let nextEventModule = nextEventModule {
+                output.append(nextEventModule)
+            }
+            
+            completion(output)
+        }
+    }
 }
 
 
@@ -67,18 +81,18 @@ extension TicketsHelper {
         let mapRegion = MKCoordinateRegion(
             center: CLLocationCoordinate2D(latitude: 39.74885, longitude: -105.00761),
             span: MKCoordinateSpan(latitudeDelta: 0.015, longitudeDelta: 0.015))
-
+        
         // define map point of interest
         let mapAnnotation = TMTicketsModuleHeaderView.MapAnnotation(
             coordinate: CLLocationCoordinate2D(latitude: 39.74648, longitude: -105.00930),
             title: "Camry Lot South")
-
+        
         // build a UIView with a text, gradient, and image
         let headerView = TMTicketsModuleHeaderView.build()
         headerView.configure(topLabelText: "Parking: Camry Lot South",
                              mapCoordinateRegion: mapRegion,
                              mapAnnotation: mapAnnotation)
-
+        
         // build header with HeaderView (a UIView)
         let header = TMTicketsModule.HeaderDisplay(view: headerView)
         
@@ -92,8 +106,8 @@ extension TicketsHelper {
         
         // build module with header and buttons
         return TMTicketsModule(identifier: "com.myDemoApp.parking",
-                                     headerDisplay: header,
-                                     actionButtons: [parkingActionButton])
+                               headerDisplay: header,
+                               actionButtons: [parkingActionButton])
     }
     
     func seatingChartModule(event: TMPurchasedEvent) -> TMTicketsModule? {
@@ -294,7 +308,7 @@ extension TicketsHelper {
         // build header display
         // any UIView will work here for headerView
         let headerDisplay = TMTicketsModule.HeaderDisplay(view: headerView)
-
+        
         // build action button that call back into this class
         let gamesActionButton = TMTicketsModule.ActionButton(
             title: "Games", // what user will see, you should localize this text
@@ -313,4 +327,78 @@ extension TicketsHelper {
                                headerDisplay: headerDisplay,
                                actionButtons: [gamesActionButton, concertsActionButton]) // you can show 0 to 3 buttons
     }
+    
+    func nextHomeGameModule(event: TMPurchasedEvent, completion: @escaping (_ module: TMTicketsModule?) -> Void) {
+        ConfigurationManager.shared.configureDiscoveryAPIIfNeeded { _ in
+            // have we configured the Discovery service?
+            guard let discoveryHelper = ConfigurationManager.shared.discoveryHelper else {
+                completion(nil)
+                return
+            }
+
+            // does this event have a host id?
+            guard let hostEventId = event.info.hostIdentifier else {
+                completion(nil)
+                return
+            }
+                        
+            // can we determine the next event?
+            discoveryHelper.lookupNextHostEvent(hostEventId: hostEventId) { event in
+                if let event = event {
+                    // load image for event (if possible)
+                    discoveryHelper.loadImageForEvent(discoveryEvent: event, completion: { image in
+                        // build module
+                        let module = self.nextHomeGameModule(discoveryEvent: event, image: image)
+                        completion(module)
+                    })
+                } else {
+                    completion(nil)
+                }
+            }
+        }
+    }
+    
+    func nextHomeGameModule(discoveryEvent: DiscoveryEvent, image: UIImage?) -> TMTicketsModule? {
+        // backgroundImage can be any size, but it will be aspectFilled to 24x15 (recommended: 480x300)
+        let backgroundImage = image ?? UIImage(imageLiteralResourceName: "BallArenaHockey")
+        
+        let eventName = discoveryEvent.name.replacingOccurrences(of: "vs.", with: "vs.\n")
+        
+        // build any UIView here:
+        //  actually, we have a handy method to build module UI easily, this includes:
+        //   * text
+        //   * images
+        //   * maps
+        //   * QR codes
+        //   * 2D barcodes
+        //   * videos
+        let headerView = TMTicketsModuleHeaderView.build()
+        headerView.configure(
+            topLabelText: "Next Home Game",
+            bottomLabelText: eventName,
+            gradientAlpha: 1.0, // add a gradient to make the text easier to read
+            backgroundImage: backgroundImage)
+        
+        // build header display
+        // any UIView will work here for headerView
+        let headerDisplay = TMTicketsModule.HeaderDisplay(view: headerView)
+        
+        // build action button that call back into this class
+        let gamesActionButton = TMTicketsModule.ActionButton(
+            title: "Get Tickets to next home game!", // what user will see, you should localize this text
+            callbackValue: discoveryEvent.eventIdentifier.rawValue) // what code will return in handleModuleActionButton(), unlocalized
+        
+        // modules can have:
+        // 1. header only (no buttons)
+        // 2. buttons only (no header)
+        // 3. both header and buttons
+        
+        // build module
+        return TMTicketsModule(identifier: "com.myDemoApp.nextHomeGame", // a name unique to your app
+                               headerDisplay: headerDisplay,
+                               actionButtons: [gamesActionButton]) // you can show 0 to 3 buttons
+    }
+    
+    
+    
 }

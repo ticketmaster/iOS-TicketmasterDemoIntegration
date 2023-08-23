@@ -244,4 +244,91 @@ extension DiscoveryHelper {
             }
         }
     }
+    
+    func lookupNextHostEvent(hostEventId: String, completion: @escaping (_ event: DiscoveryEvent?) -> Void) {
+        // look up host event details
+        discoveryService?.eventDetails(hostEventId) { [weak self] response1 in
+            switch response1 {
+            case .success(let discoveryEvent):
+                guard let homeTeam = discoveryEvent.attractionArray.first else {
+                    completion(nil)
+                    return
+                }
+                
+                guard let venue = discoveryEvent.venueArray.first else {
+                    completion(nil)
+                    return
+                }
+                
+                var critiera = DiscoveryEventSearchCriteria()
+                critiera.attractionIdentifiers = [homeTeam.attractionIdentifier]
+                critiera.venueIdentifiers = [venue.venueIdentifier]
+                critiera.sortMethod = .dateAscending
+                critiera.includeTBAEvents = false
+                critiera.includeTBDEvents = false
+                critiera.includeTestEvents = false
+                
+                self?.discoveryService?.eventSearch(critiera) { response2 in
+                    switch response2 {
+                    case .success(let eventsPage):
+                        for event in eventsPage.data {
+                            // is this the source event?
+                            if event.legacyEventIdentifier?.rawValue != hostEventId {
+                                // no, this is a different event
+                                
+                                // this may be a multiple day event
+                                for date in event.startDates {
+                                    // is that event later than now?
+                                    if date > Date() {
+                                        // yes! this event is in the future
+                                        completion(event)
+                                        return
+                                    } else {
+                                        // no, the day of this event has passed
+                                    }
+                                }
+                                // this event has no dates or has already passed
+                            }
+                        }
+                        completion(nil)
+                    case .failure:
+                        completion(nil)
+                    }
+                }
+            case .failure:
+                completion(nil)
+            }
+        }
+    }
+    
+    func loadImageForEvent(discoveryEvent: DiscoveryEvent, completion: @escaping (_ image: UIImage?) -> Void) {
+        // we want only 16x9 that is smaller than our screen
+        let filteredImageMetadataArray = discoveryEvent.imageMetadataArray.filter({ $0.ratio == .ratio16x9 && CGFloat($0.width) >= UIScreen.main.bounds.width })
+
+        guard var smallestImageMetadata = filteredImageMetadataArray.first else {
+            // no image
+            completion(nil)
+            return
+        }
+        
+        // we want the smallest image available
+        for imageMetaData in filteredImageMetadataArray {
+            if imageMetaData.width < smallestImageMetadata.width {
+                smallestImageMetadata = imageMetaData
+            }
+        }
+        
+        let urlRequest = URLRequest(url: smallestImageMetadata.url)
+        URLSession.shared.dataTask(with: urlRequest) { data, _, error in
+            DispatchQueue.main.async {
+                guard let data = data, error == nil else {
+                    completion(nil)
+                    return
+                }
+                // need to be on main thread
+                let image = UIImage(data: data)
+                completion(image)
+            }
+        }.resume()
+    }
 }

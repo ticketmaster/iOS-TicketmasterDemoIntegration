@@ -67,4 +67,16 @@ extension TicketsHelper {
             }
         }
     }
+    
+    func handleModuleBuyEvent(event: TMPurchasedEvent, module: TMTicketsModule, button: TMTicketsModule.ActionButton) {
+        ConfigurationManager.shared.configurePurchaseIfNeeded { success in
+            if success {
+                // present on whatever VC is on top
+                if let vc = UIApplication.shared.topViewController() {
+                    ConfigurationManager.shared.purchaseHelper?.presentPurchase(eventID: button.callbackValue,
+                                                                                onViewController: vc)
+                }
+            }
+        }
+    }
 }

@@ -27,8 +27,12 @@ extension TicketsHelper: TMTicketsModuleDelegate {
         // add custom modules (optional)
         modules.append(contentsOf: addCustomModules(event: event))
         
-        // return list of modules (in the order you want them displayed)
-        completion(modules)
+        addCustomAsyncModules(event: event) { asyncModules in
+            modules.append(contentsOf: asyncModules)
+            
+            // return list of modules (in the order you want them displayed)
+            completion(modules)
+        }
     }
     
     /**
@@ -69,6 +73,13 @@ extension TicketsHelper: TMTicketsModuleDelegate {
             // give a brief moment for the Tickets view to dismiss before presenting anything
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 self.handleModuleMoreTickets(event: event, module: module, button: button)
+            }
+            
+        } else if module.identifier == "com.myDemoApp.nextHomeGame" {
+            completion(nil) // dismiss Tickets view
+            // give a brief moment for the Tickets view to dismiss before presenting anything
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.handleModuleBuyEvent(event: event, module: module, button: button)
             }
         }
     }
