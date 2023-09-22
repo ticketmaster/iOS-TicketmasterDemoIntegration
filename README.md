@@ -6,6 +6,12 @@ This is an example integration of the Ticketmaster Ignite SDK, Retail, Tickets, 
 * Documentation: https://ignite.ticketmaster.com/
 * Frameworks: https://github.com/ticketmaster/iOS-TicketmasterSDK
 
+### Change Log
+
+* Tickets SDK: https://ignite.ticketmaster.com/docs/ios-tickets-change-log
+* Retail SDK: https://ignite.ticketmaster.com/docs/ios-retail-change-log
+* Authentication SDK: https://ignite.ticketmaster.com/docs/ios-authentication-change-log
+
 ## Demo App Screenshots
 
 <img src="Screenshots/MainMenu.jpg" alt="Main Menu" /> <img src="Screenshots/DiscoveryAPI.jpg" alt="DiscoveryAPI" /> 
