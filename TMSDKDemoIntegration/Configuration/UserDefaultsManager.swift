@@ -29,7 +29,6 @@ class UserDefaultsManager: UserDefaultsStringEnum<UserDefaultsManager.Settings> 
     enum Settings: String, CaseIterable {
         case configurationAPIKeyString
         case configurationRegionString
-        case configurationMarketString
         
         case discoveryLanguageString
         case discoveryIdentifierString

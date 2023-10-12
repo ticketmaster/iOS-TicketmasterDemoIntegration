@@ -69,29 +69,7 @@ extension MainMenuViewController: MenuBuilderDataSourceDelegate {
                 default:
                     break
                 }
-                
-            case .marketDomainText:
-                // ignore
-                break
-                
-            case .marketDomainSegmentedControl:
-                switch action {
-                case .valueChanged(let value):
-                    let oldConfig = ConfigurationManager.shared.currentConfiguration
-                    if let value = value,
-                       let market = MarketDomain(rawValue: value) {
-                        let newConfig = Configuration(apiKey: oldConfig.apiKey,
-                                                      region: oldConfig.region,
-                                                      displayName: oldConfig.displayName,
-                                                      backgroundColor: oldConfig.backgroundColor,
-                                                      textTheme: oldConfig.textTheme,
-                                                      retailMarketDomain: market)
-                        ConfigurationManager.shared.currentConfiguration = newConfig
-                    }
-                default:
-                    break
-                }
-                
+            
             case .discoveryAPIMenu:
                 verifyClientConfig { success in
                     if success {

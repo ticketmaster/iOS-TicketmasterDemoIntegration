@@ -68,21 +68,16 @@ extension Configuration {
         /// other text should be light (white) or dark (black)
         let textTheme: TMAuthentication.ColorTheme = .light
         
-        /// which TM Host country to use for Events, Purchase, etc.
-        let retailMarketDomain: MarketDomain = .US
-        
         return Configuration(apiKey: apiKey,
                              region: region,
                              displayName: displayName,
                              backgroundColor: backgroundColor,
-                             textTheme: textTheme,
-                             retailMarketDomain: retailMarketDomain)
+                             textTheme: textTheme)
     }
     
     func save() {
         UserDefaultsManager.shared.set(apiKey, forKey: .configurationAPIKeyString)
         UserDefaultsManager.shared.set(region.rawValue, forKey: .configurationRegionString)
-        UserDefaultsManager.shared.set(retailMarketDomain.stringValue, forKey: .configurationMarketString)
     }
     
     static func load() -> Configuration? {
@@ -91,15 +86,11 @@ extension Configuration {
         guard let regionString = UserDefaultsManager.shared.string(.configurationRegionString),
               let region = TMAuthentication.TMXDeploymentRegion(rawValue: regionString) else { return nil }
         
-        guard let marketString = UserDefaultsManager.shared.string(.configurationMarketString),
-              let market = MarketDomain(rawValue: marketString) else { return nil }
-        
         let oldConfig = Configuration.defaultConfiguration()
         return Configuration(apiKey: apiKey,
                              region: region,
                              displayName: oldConfig.displayName,
                              backgroundColor: oldConfig.backgroundColor,
-                             textTheme: oldConfig.textTheme,
-                             retailMarketDomain: market)
+                             textTheme: oldConfig.textTheme)
     }
 }

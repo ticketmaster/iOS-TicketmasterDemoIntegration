@@ -19,14 +19,19 @@ extension DiscoveryHelper {
         //  so no need to configure TicketmasterAuthentication first
 
         print("DiscoveryAPI Configuring...")
-        
-        TMDiscoveryAPI.shared.apiKey = configuration.apiKey
-        TMDiscoveryAPI.shared.marketDomain = configuration.retailMarketDomain
-        
-        discoveryService = TMDiscoveryAPI.shared.discoveryService
-        
-        print(" - DiscoveryAPI Configured")
 
-        completion(true)
+        // was:
+        //TMDiscoveryAPI.shared.apiKey = configuration.apiKey
+        //TMDiscoveryAPI.shared.marketDomain = configuration.retailMarketDomain
+
+        // now:
+        TMDiscoveryAPI.shared.configure(apiKey: configuration.apiKey,
+                                        region: configuration.region) { _ in
+            self.discoveryService = TMDiscoveryAPI.shared.discoveryService
+            
+            print(" - DiscoveryAPI Configured")
+
+            completion(true)
+        }
     }
 }

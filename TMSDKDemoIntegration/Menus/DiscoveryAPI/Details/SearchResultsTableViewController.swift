@@ -450,7 +450,10 @@ class SearchResultsTableViewController: UITableViewController {
     // MARK: Next Page Load
     
     func loadNextPage() {
-        let discoveryService = TMDiscoveryAPI.shared.discoveryService
+        guard let discoveryService = TMDiscoveryAPI.shared.discoveryService else {
+            print("Missing DiscoveryService, probably did not call TMDiscoveryAPI.shared.configure(...)")
+            return
+        }
         
         switch discoveryResponse {
         case .searchSuggest:

@@ -27,10 +27,7 @@ extension PurchaseHelper {
         // the following code is an example of how to build the TMPurchaseWebsiteConfiguration
         
         // TODO: feel free to modify the values here:
-        
-        /// geographical area the event is in (optional)
-        purchaseConfig.marketDomain = ConfigurationManager.shared.currentConfiguration.retailMarketDomain
-        
+                
         // BRANDING
         /// Discovery or Host Attraction/Attraction Identifier, used for branding
 //        purchaseConfig.attractionID = "805969" // Milwaukee Bucks (TM Artist Host ID)

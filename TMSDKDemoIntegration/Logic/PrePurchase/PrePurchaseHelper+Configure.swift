@@ -20,15 +20,21 @@ extension PrePurchaseHelper {
 
         print("PrePurchase Configuring...")
         
-        TMPrePurchase.shared.apiKey = configuration.apiKey
-        TMPrePurchase.shared.domain = configuration.retailMarketDomain
+        // was:
+        //TMPrePurchase.shared.apiKey = configuration.apiKey
+        //TMPrePurchase.shared.domain = configuration.retailMarketDomain
         
-        if let color = configuration.backgroundColor {
-            TMPrePurchase.shared.brandColor = color
-        }
-        
-        print(" - PrePurchase Configured")
+        // now:
+        TMPrePurchase.shared.configure(apiKey: configuration.apiKey,
+                                       region: configuration.region) { didSetMarketDomain in
+            
+            if let color = configuration.backgroundColor {
+                TMPrePurchase.shared.brandColor = color
+            }
+            
+            print(" - PrePurchase Configured")
 
-        completion(true)
+            completion(true)
+        }
     }
 }

@@ -29,17 +29,23 @@ extension PurchaseHelper {
     private func configurePurchase(configuration: Configuration, completion: @escaping (_ success: Bool) -> Void) {
         print("Purchase Configuring...")
         
-        TMPurchase.shared.apiKey = configuration.apiKey
+        // was:
+        //TMPurchase.shared.apiKey = configuration.apiKey
         
-        if let color = configuration.backgroundColor {
-            TMPurchase.shared.brandColor = color
+        // now:
+        TMPurchase.shared.configure(apiKey: configuration.apiKey,
+                                    region: configuration.region) { _ in
+            
+            if let color = configuration.backgroundColor {
+                TMPurchase.shared.brandColor = color
+            }
+            
+            /// Automatically dismiss `TMPurchaseNavigationController` upon completion of purchase operations (purchase, cancel, etc)
+            TMPurchase.shared.dismissUponCompletion = true
+            
+            print(" - Purchase Configured")
+            
+            completion(true)
         }
-        
-        /// Automatically dismiss `TMPurchaseNavigationController` upon completion of purchase operations (purchase, cancel, etc)
-        TMPurchase.shared.dismissUponCompletion = true
-        
-        print(" - Purchase Configured")
-        
-        completion(true)
     }
 }

@@ -21,8 +21,6 @@ extension MainMenuViewController {
         case apiKeyTextField
         case deploymentRegionText
         case deploymentRegionSegmentedControl
-        case marketDomainText
-        case marketDomainSegmentedControl
 
         case discoveryAPIMenu
         case prePurchaseMenu
@@ -110,19 +108,6 @@ extension MainMenuViewController {
                                        uniqueIdentifier: CellIdentifier.deploymentRegionSegmentedControl.rawValue,
                                        valueText: currentRegion.rawValue,
                                        valueArray: regions.map({ $0.rawValue }))
-        cellInfoArray.append(cellInfo)
-        
-        cellInfo = MenuBuilderCellInfo(cellType: .title,
-                                       uniqueIdentifier: CellIdentifier.marketDomainText.rawValue,
-                                       titleText: "Retail Market Domain:")
-        cellInfoArray.append(cellInfo)
-
-        let markets: [MarketDomain] = [.US, .CA] // MarketDomain.allCases
-        let currentMarket = ConfigurationManager.shared.currentConfiguration.retailMarketDomain
-        cellInfo = MenuBuilderCellInfo(cellType: .segmentedControl,
-                                       uniqueIdentifier: CellIdentifier.marketDomainSegmentedControl.rawValue,
-                                       valueText: currentMarket.stringValue.uppercased(),
-                                       valueArray: markets.map({ $0.stringValue.uppercased() }))
         cellInfoArray.append(cellInfo)
         
         return MenuBuilderSectionInfo(title: "Configuration", cellInfoRowArray: cellInfoArray)
