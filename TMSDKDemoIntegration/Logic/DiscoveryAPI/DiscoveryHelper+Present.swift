@@ -34,14 +34,16 @@ extension DiscoveryHelper {
             let decodedErrorString: String
             
             switch connectionError {
-            case .unknown:
-                decodedErrorString = "Unknown Error: \(connectionError.localizedDescription)"
-            case .responseCode(let statusCode):
-                decodedErrorString = "HTTP Code: \(statusCode.rawValue)"
-            case .unknownResponse(let statusCode):
-                decodedErrorString = "Unknown HTTP Code: \(statusCode)"
+            case .logicError:
+                decodedErrorString = "Logic Error"
+            case .missingData(let statusCode):
+                decodedErrorString = "Missing Data: HTTP Status Code: \(statusCode.rawValue)"
+            case .missingDataUnknown(let statusCode):
+                decodedErrorString = "Missing Data: Unknown Status Code: \(statusCode)"
             case .server(let serverError):
                 decodedErrorString = "Server Error: \(serverError.localizedDescription)"
+            case .malformedResponse:
+                decodedErrorString = "Malformed Response"
             case .requestCanceled:
                 decodedErrorString = "Request Canceled"
             case .malformedBody:
