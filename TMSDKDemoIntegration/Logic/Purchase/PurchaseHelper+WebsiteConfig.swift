@@ -27,36 +27,36 @@ extension PurchaseHelper {
         // the following code is an example of how to build the TMPurchaseWebsiteConfiguration
         
         // TODO: feel free to modify the values here:
-                
-        // BRANDING
-        /// Discovery or Host Attraction/Attraction Identifier, used for branding
+        
+        // MARK: BRANDING
+        // Discovery or Host Attraction/Attraction Identifier, used for branding
 //        purchaseConfig.attractionID = "805969" // Milwaukee Bucks (TM Artist Host ID)
-        /// brand name (a special branding id) used to style web page content
+        // brand name (a special branding id) used to style web page content
 //        purchaseConfig.brandName = "bucks" // Milwaukee Bucks
-        /// show special NFL branding on EDP
+        // show special NFL branding on EDP
 //        purchaseConfig.showNFLBranding = false
 
-        //  MARKETING
-        /// marketing campaign code used for tracking the success of a campaign
+        // MARK: MARKETING
+        // marketing campaign code used for tracking the success of a campaign
 //        purchaseConfig.cameFromCode = "june2021emailCampaign"
-        /// special "password" used to expose hidden ticket types on the EDP
+        // special "password" used to expose hidden ticket types on the EDP
 //        purchaseConfig.discreteID = "summerSale2021"
 
-        // OPTIONAL NAVBAR BUTTONS
-        /// show Event "Info" button in NavBar, enables presentADP and presentVDP User Navigation delegate methods
+        // MARK: OPTIONAL NAVBAR BUTTONS
+        // show Event "Info" button in NavBar, enables presentADP and presentVDP User Navigation delegate methods
         purchaseConfig.showInfoToolbarButton = true
-        /// show Event "Calendar" button in NavBar, button will only appear if Event has other performances at the same Venue
+        // show Event "Calendar" button in NavBar, button will only appear if Event has other performances at the same Venue
         purchaseConfig.showCalendarToolbarButton = true
-        /// show Event Social "Share" button in EDP NavBar enables Sharing delegate methods
+        // show Event Social "Share" button in EDP NavBar enables Sharing delegate methods
         purchaseConfig.showShareToolbarButton = true
                 
-        // RESALE LISTINGS
-        /// hide resale ticket offerings of EDP behind a toggle/button
+        // MARK: RESALE LISTINGS
+        // hide resale ticket offerings of EDP behind a toggle/button
         purchaseConfig.showResaleSoftLanding = false
-        /// show resale message banner at the top of EDP
+        // show resale message banner at the top of EDP
         purchaseConfig.showResaleMessageBanner = false
         
-        /// your own additional custom URL parameters to pass to the EDP, these string values will be URL-encoded by the Purchase SDK.
+        // your own additional custom URL parameters to pass to the EDP, these string values will be URL-encoded by the Purchase SDK.
         purchaseConfig.additionalURLParameters = ["myCustomParamKey": "myCustomParamValue"]
 
         return purchaseConfig

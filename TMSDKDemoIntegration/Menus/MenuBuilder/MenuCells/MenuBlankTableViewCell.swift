@@ -14,10 +14,12 @@ class MenuBlankTableViewCell: MenuBuilderTableViewCell {
     func configure(withCellInfo cellInfo: MenuBuilderCellInfo) {
         guard cellInfo.cellType == .blank else { return }
         self.cellInfo = cellInfo
-        self.accessoryType = cellInfo.accessoryType
+
+        tintColor = cellInfo.titleColor ?? .label
+        setupAccessoryType()
         
         if let color = cellInfo.backgroundColor {
-            contentView.backgroundColor = color
+            backgroundColor = color
         }
     }
 

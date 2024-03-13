@@ -23,8 +23,10 @@ class MenuSegmentedControlTableViewCell: MenuBuilderTableViewCell {
     func configure(withCellInfo cellInfo: MenuBuilderCellInfo) {
         guard cellInfo.cellType == .segmentedControl else { return }
         self.cellInfo = cellInfo
-        self.accessoryType = cellInfo.accessoryType
-
+        
+        tintColor = cellInfo.valueColor ?? .label
+        setupAccessoryType()
+        
         guard let valueArray = cellInfo.valueArray,
               let segmentTextArray = cellInfo.segmentTextArray ?? cellInfo.valueArray else {
             print("Please check the contents of segments for MenuSegmentedControlTableViewCell")
@@ -39,7 +41,7 @@ class MenuSegmentedControlTableViewCell: MenuBuilderTableViewCell {
         }
         
         valueSegmentedControl.tintColor = cellInfo.valueColor ?? contentView.tintColor
-        contentView.backgroundColor = cellInfo.backgroundColor
+        backgroundColor = cellInfo.backgroundColor
     }
     
     // MARK: Updates

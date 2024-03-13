@@ -28,8 +28,8 @@ extension PurchaseHelper: TMPurchaseNavigationDelegate {
     func purchaseNavigationControllerDidFinish(_ purchaseNavigationController: TMPurchaseNavigationController) {
         // Task: If your code does not present instances of `TMPurchaseNavigationController` in a standard way (i.e. your code implements custom presentation logic), add your custom dismissal logic to this method.
         
-        /// Instances of `TMPurchaseNavigationController` attempt to dismiss themselves automatically by default.
-        /// This behavior can be disabled by `TMPurchase.dismissUponCompletion`.
+        // Instances of `TMPurchaseNavigationController` attempt to dismiss themselves automatically by default.
+        // This behavior can be disabled by `TMPurchase.dismissUponCompletion`.
         
         // If your code does not present instances of `TMPurchaseNavigationController` in a standard way (i.e. your code implements custom presentation logic), add your custom dismissal logic here:
         //dismissPurchaseViaCustomCode()
@@ -37,8 +37,8 @@ extension PurchaseHelper: TMPurchaseNavigationDelegate {
         // log to some analytics
         print("TMPurchaseNavigationDelegate: PurchaseNavController was dismissed (user either completed or canceled purchase flow)")
 
-        /// You may want to show the user their Orders page (part of the Tickets framework) upon a completed purchase.
-        /// If so, let check if `purchaseOrder` was set via `TMPurchaseUserAnalyticsDelegate.didMakePurchaseForEvent`
+        // You may want to show the user their Orders page (part of the Tickets framework) upon a completed purchase.
+        // If so, let check if `purchaseOrder` was set via `TMPurchaseUserAnalyticsDelegate.didMakePurchaseForEvent`
         
         // did the user make a purchase?
         if let order = purchasedOrder {

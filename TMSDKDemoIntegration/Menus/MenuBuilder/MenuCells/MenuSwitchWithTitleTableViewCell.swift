@@ -23,14 +23,16 @@ class MenuSwitchWithTitleTableViewCell: MenuBuilderTableViewCell {
     func configure(withCellInfo cellInfo: MenuBuilderCellInfo) {
         guard cellInfo.cellType == .switchWithTitle else { return }
         self.cellInfo = cellInfo
-        self.accessoryType = cellInfo.accessoryType
-
+        
+        tintColor = cellInfo.titleColor ?? .label
+        setupAccessoryType()
+        
         titleLabel.text = cellInfo.titleText
         valueSwitch.isOn = cellInfo.switchIsOn
         
         titleLabel.textColor = cellInfo.titleColor ?? .label
         valueSwitch.onTintColor = cellInfo.valueColor
-        contentView.backgroundColor = cellInfo.backgroundColor
+        backgroundColor = cellInfo.backgroundColor
     }
     
     // MARK: Updates
@@ -48,5 +50,5 @@ class MenuSwitchWithTitleTableViewCell: MenuBuilderTableViewCell {
         cellInfo.switchIsOn = sender.isOn
         // notify delegate
         delegate?.switchChanged(self, value: sender.isOn)
-    }    
+    }
 }

@@ -14,7 +14,6 @@ import Foundation
 //  Created by Jonathan Backer on 11/9/22.
 //
 
-import Foundation
 import TicketmasterFoundation
 
 /// add items to the iOS public UserDefaults

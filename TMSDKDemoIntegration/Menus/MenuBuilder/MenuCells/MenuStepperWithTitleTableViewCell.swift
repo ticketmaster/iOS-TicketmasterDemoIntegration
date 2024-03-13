@@ -28,8 +28,10 @@ class MenuStepperWithTitleTableViewCell: MenuBuilderTableViewCell {
     func configure(withCellInfo cellInfo: MenuBuilderCellInfo) {
         guard cellInfo.cellType == .stepperWithTitle else { return }
         self.cellInfo = cellInfo
-        self.accessoryType = cellInfo.accessoryType
-
+        
+        tintColor = cellInfo.titleColor ?? .label
+        setupAccessoryType()
+        
         titleLabel.text = cellInfo.titleText
         
         if let valueArray = cellInfo.valueArray, cellInfo.stepperUsesValueArray {
@@ -45,7 +47,7 @@ class MenuStepperWithTitleTableViewCell: MenuBuilderTableViewCell {
         
         titleLabel.textColor = cellInfo.titleColor ?? .label
         valueStepper.tintColor = cellInfo.valueColor ?? contentView.tintColor
-        contentView.backgroundColor = cellInfo.backgroundColor
+        backgroundColor = cellInfo.backgroundColor
     }
     
     private func setupDefaultValues(string: String) {

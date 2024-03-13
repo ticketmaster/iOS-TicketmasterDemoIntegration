@@ -104,7 +104,7 @@ private extension DictionaryExplorerTextView {
                 append(string: "\(key): { \(subDict.keys.count) }", padding: padding, keyPath: keyPath)
             }
             
-        } else if let subArray = value as? Array<Any> {
+        } else if let subArray = value as? [Any] {
             if openKeyPaths.contains(keyPath) {
                 append(string: "\(key): [", padding: padding, keyPath: keyPath)
                 render(array: subArray, currentPath: keyPath)

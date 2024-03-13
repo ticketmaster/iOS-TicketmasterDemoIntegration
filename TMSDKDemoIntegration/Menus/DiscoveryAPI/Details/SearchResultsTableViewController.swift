@@ -471,7 +471,7 @@ class SearchResultsTableViewController: UITableViewController {
                         DispatchQueue.main.async {
                             self.additionalEventSearchPages.append(newResults)
                             self.tableView.reloadData()
-                        }                        
+                        }
                     case .failure(let error):
                         print("Event Search Error: \(error.localizedDescription)")
                     }

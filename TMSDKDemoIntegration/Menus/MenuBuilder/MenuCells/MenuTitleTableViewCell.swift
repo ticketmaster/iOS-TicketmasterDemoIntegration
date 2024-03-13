@@ -16,11 +16,13 @@ class MenuTitleTableViewCell: MenuBuilderTableViewCell {
     func configure(withCellInfo cellInfo: MenuBuilderCellInfo) {
         guard cellInfo.cellType == .title else { return }
         self.cellInfo = cellInfo
-        self.accessoryType = cellInfo.accessoryType
-
+        
+        tintColor = cellInfo.titleColor ?? .label
+        setupAccessoryType()
+        
         titleLabel.text = cellInfo.titleText
         titleLabel.textColor = cellInfo.titleColor ?? .label
-        contentView.backgroundColor = cellInfo.backgroundColor
+        backgroundColor = cellInfo.backgroundColor
     }
     
     // MARK: Updates

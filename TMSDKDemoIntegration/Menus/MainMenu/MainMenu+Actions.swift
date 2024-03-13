@@ -43,7 +43,7 @@ extension MainMenuViewController: MenuBuilderDataSourceDelegate {
                                                       retailMarketDomain: oldConfig.retailMarketDomain)
                         ConfigurationManager.shared.currentConfiguration = newConfig
                     }
-                    break
+                    
                 default:
                     break
                 }
@@ -148,7 +148,7 @@ extension MainMenuViewController: MenuBuilderDataSourceDelegate {
 
 extension MainMenuViewController {
     
-    func verifyClientConfig(completion: @escaping (_ success: Bool) ->  Void) {
+    func verifyClientConfig(completion: @escaping (_ success: Bool) -> Void) {
         ConfigurationManager.shared.configureAuthenticationIfNeeded(completion: { success in
             if success == false {
                 let vc = UIAlertController(title: "Error", message: "Enter a valid API Key", preferredStyle: .alert)

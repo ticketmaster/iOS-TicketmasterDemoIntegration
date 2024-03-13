@@ -85,4 +85,3 @@ extension AuthenticationHelper: TMAuthenticationDelegate {
         }
     }
 }
-

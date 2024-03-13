@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import TicketmasterFoundation
 
 class MenuDemoViewController: UITableViewController {
 
@@ -106,7 +105,7 @@ extension MenuDemoViewController {
         cellInfo = MenuBuilderCellInfo(cellType: .stepperWithTitle,
                                        uniqueIdentifier: CellIdentifier.stepperTitle.rawValue,
                                        titleText: "Stepper Title",
-                                       valueText:  "one",
+                                       valueText: "one",
                                        valueArray: ["zero", "one", "two"],
                                        stepperUsesValueArray: true)
         cellInfoArray.append(cellInfo)
@@ -124,7 +123,7 @@ extension MenuDemoViewController: MenuBuilderDataSourceDelegate {
     func menuBuilderDataSource(_: MenuBuilderDataSource, didAction action: MenuBuilderAction, forCell cell: MenuBuilderTableViewCell) {
         // try to determine which cell this is
         if let cellIdentifier = CellIdentifier(rawValue: cell.cellInfo.uniqueIdentifier) {
-            logMessage("\(cellIdentifier.rawValue): \(action.debugString)")
+            print("\(cellIdentifier.rawValue): \(action.debugString)")
             switch cellIdentifier {
             case .title:
                 break

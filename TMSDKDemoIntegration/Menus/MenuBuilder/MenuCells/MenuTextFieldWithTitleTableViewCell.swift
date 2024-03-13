@@ -26,8 +26,10 @@ class MenuTextFieldWithTitleTableViewCell: MenuBuilderTableViewCell {
     func configure(withCellInfo cellInfo: MenuBuilderCellInfo) {
         guard cellInfo.cellType == .textFieldWithTitle else { return }
         self.cellInfo = cellInfo
-        self.accessoryType = cellInfo.accessoryType
 
+        tintColor = cellInfo.titleColor ?? .label
+        setupAccessoryType()
+        
         titleLabel.text = cellInfo.titleText
         valueTextField.placeholder = cellInfo.placeholderText
         valueTextField.text = cellInfo.valueText
@@ -36,7 +38,7 @@ class MenuTextFieldWithTitleTableViewCell: MenuBuilderTableViewCell {
         
         titleLabel.textColor = cellInfo.titleColor ?? .label
         valueTextField.textColor = cellInfo.valueColor ?? .label
-        contentView.backgroundColor = cellInfo.backgroundColor
+        backgroundColor = cellInfo.backgroundColor
     }
     
     // MARK: Updates
@@ -72,9 +74,26 @@ extension MenuTextFieldWithTitleTableViewCell: UITextFieldDelegate {
         }
     }
     
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        if cellInfo.valueChangedWhileEditing {
+            // store value in the data model
+            cellInfo.valueText = textField.text
+            // notify delegate
+            delegate?.valueChanged(self, value: textField.text)
+        }
+    }
+    
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
         // store value in the data model
         cellInfo.valueText = nil
+
+        // let return true process first
+        DispatchQueue.main.async {
+            if self.cellInfo.valueChangedWhileEditing {
+                // notify delegate
+                self.delegate?.valueChanged(self, value: nil)
+            }
+        }
         
         return true
     }

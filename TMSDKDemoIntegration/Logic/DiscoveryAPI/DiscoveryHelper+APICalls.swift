@@ -271,24 +271,23 @@ extension DiscoveryHelper {
                 self?.discoveryService?.eventSearch(critiera) { response2 in
                     switch response2 {
                     case .success(let eventsPage):
-                        for event in eventsPage.data {
-                            // is this the source event?
-                            if event.legacyEventIdentifier?.rawValue != hostEventId {
-                                // no, this is a different event
-                                
-                                // this may be a multiple day event
-                                for date in event.startDates {
-                                    // is that event later than now?
-                                    if date > Date() {
-                                        // yes! this event is in the future
-                                        completion(event)
-                                        return
-                                    } else {
-                                        // no, the day of this event has passed
-                                    }
+                        // is this the source event?
+                        for event in eventsPage.data where event.legacyEventIdentifier?.rawValue != hostEventId {
+                            // no, this is a different event
+                            
+                            // this may be a multiple day event
+                            for date in event.startDates {
+                                // is that event later than now?
+                                if date > Date() {
+                                    // yes! this event is in the future
+                                    completion(event)
+                                    return
+                                } else {
+                                    // no, the day of this event has passed
                                 }
-                                // this event has no dates or has already passed
                             }
+                            // this event has no dates or has already passed
+                            
                         }
                         completion(nil)
                     case .failure:
@@ -312,10 +311,8 @@ extension DiscoveryHelper {
         }
         
         // we want the smallest image available
-        for imageMetaData in filteredImageMetadataArray {
-            if imageMetaData.width < smallestImageMetadata.width {
-                smallestImageMetadata = imageMetaData
-            }
+        for imageMetaData in filteredImageMetadataArray where imageMetaData.width < smallestImageMetadata.width {
+            smallestImageMetadata = imageMetaData
         }
         
         let urlRequest = URLRequest(url: smallestImageMetadata.url)

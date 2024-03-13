@@ -161,23 +161,19 @@ extension MenuBuilderDataSource {
     
     func cellInfo(forUniqueIdentifier uniqueIdentifier: String) -> MenuBuilderCellInfo? {
         for section in cellInfoSectionArray {
-            for cell in section.cellInfoRowArray {
-                if cell.uniqueIdentifier == uniqueIdentifier {
+            for cell in section.cellInfoRowArray where cell.uniqueIdentifier == uniqueIdentifier {
                     return cell
                 }
             }
-        }
         return nil
     }
     
     func cell(forUniqueIdentifier uniqueIdentifier: String) -> MenuBuilderTableViewCell? {
         if let cellArray = tableView?.visibleCells as? [MenuBuilderTableViewCell] {
-            for cell in cellArray {
-                if cell.cellInfo.uniqueIdentifier == uniqueIdentifier {
+            for cell in cellArray where cell.cellInfo.uniqueIdentifier == uniqueIdentifier {
                     return cell
                 }
             }
-        }
         return nil
     }
 }

@@ -29,7 +29,11 @@ class MenuBuilderSectionInfo {
 class MenuBuilderCellInfo {
     var cellType: MenuBuilderCellType
     var uniqueIdentifier: String
+    
     var sectionTitle: String?
+    var accessoryType: UITableViewCell.AccessoryType
+
+    var associatedItem: Any?
     
     var backgroundColor: UIColor?
     
@@ -47,6 +51,7 @@ class MenuBuilderCellInfo {
     var segmentTextArray: [String]?     // displayed in SegmentControl if different from valueArray
 
     /// for UITextField
+    var valueChangedWhileEditing: Bool = false
     var returnKeyType: UIReturnKeyType
 
     /// for UISwitch (true = on)
@@ -59,12 +64,11 @@ class MenuBuilderCellInfo {
     var stepperStepValue: Double = 1.0
     var stepperWraps: Bool = false
     
-    var accessoryType: UITableViewCell.AccessoryType
-    
     init(cellType: MenuBuilderCellType,
          uniqueIdentifier: String,
          sectionTitle: String? = nil,
          accessoryType: UITableViewCell.AccessoryType? = nil,
+         associatedItem: Any? = nil,
          backgroundColor: UIColor? = nil,
          titleText: String? = nil,
          titleColor: UIColor? = nil,
@@ -73,18 +77,20 @@ class MenuBuilderCellInfo {
          placeholderText: String? = nil,
          valueArray: [String]? = nil,
          segmentTextArray: [String]? = nil,
+         valueChangedWhileEditing: Bool = false,
          returnKeyType: UIReturnKeyType = .default,
          switchIsOn: Bool = false,
          stepperUsesValueArray: Bool = false,
          stepperMinValue: Double = 0.0,
          stepperMaxValue: Double = 0.9,
          stepperStepValue: Double = 1.0,
-         stepperWraps: Bool = false)
-    {
+         stepperWraps: Bool = false) {
         self.cellType = cellType
         self.uniqueIdentifier = uniqueIdentifier
         self.sectionTitle = sectionTitle
         self.accessoryType = accessoryType ?? .none
+        
+        self.associatedItem = associatedItem
         
         self.backgroundColor = backgroundColor
         self.titleText = titleText
@@ -96,6 +102,7 @@ class MenuBuilderCellInfo {
         self.valueArray = valueArray
         self.segmentTextArray = segmentTextArray
         
+        self.valueChangedWhileEditing = valueChangedWhileEditing
         self.returnKeyType = returnKeyType
         
         self.switchIsOn = switchIsOn

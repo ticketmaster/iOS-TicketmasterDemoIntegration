@@ -73,7 +73,7 @@ extension MainMenuViewController {
             buildSectionConfiguration(),
             buildSectionRetail(),
             buildSectionTickets(),
-            buildSectionAuthentication(),
+            buildSectionAuthentication()
         ]
         menuDataSource.delegate = self
         tableView.reloadData()

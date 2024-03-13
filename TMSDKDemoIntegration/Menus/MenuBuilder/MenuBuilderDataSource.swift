@@ -9,14 +9,14 @@
 import UIKit
 
 protocol MenuBuilderDataSourceDelegate: AnyObject {
-    func menuBuilderDataSource(_ :MenuBuilderDataSource, didAction action: MenuBuilderAction, forCell cell: MenuBuilderTableViewCell)
+    func menuBuilderDataSource(_ dataSource: MenuBuilderDataSource, didAction action: MenuBuilderAction, forCell cell: MenuBuilderTableViewCell)
 }
 
 class MenuBuilderDataSource: NSObject {
 
     weak var delegate: MenuBuilderDataSourceDelegate?
     
-    weak var tableView: UITableView? = nil
+    weak var tableView: UITableView?
     
     var lastDismissKeyboardTime: Date = Date()
     
@@ -49,8 +49,9 @@ extension MenuBuilderDataSource: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
         dismissKeyboard()
-        let cell = tableView.cellForRow(at: indexPath) as! MenuBuilderTableViewCell
+        if let cell = tableView.cellForRow(at: indexPath) as? MenuBuilderTableViewCell {
         delegate?.menuBuilderDataSource(self, didAction: .backgroundTapped, forCell: cell)
+    }
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

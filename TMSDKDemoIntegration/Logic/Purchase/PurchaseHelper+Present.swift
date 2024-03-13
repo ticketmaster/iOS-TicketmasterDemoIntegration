@@ -22,20 +22,20 @@ extension PurchaseHelper {
     func presentPurchase(configuration: TMPurchaseWebsiteConfiguration, onViewController viewController: UIViewController) {
         let purchaseNavController = TMPurchaseNavigationController(configuration: configuration)
                 
-        // this OPTIONAL delegate is useful for custom UI navigation:
+        // MARK: this OPTIONAL delegate is useful for custom UI navigation:
         //  * present Tickets page after a completed purchase
         //  * prompt "Rate my App" (a happy user is more likely to give your App a good rating on the AppStore!)
         purchaseNavController.navigationDelegate = self
          
-        // this OPTIONAL delegate will only be called if showShareToolbarButton is enabled in `TMPurchaseWebsiteConfiguration`
+        // MARK: this OPTIONAL delegate will only be called if showShareToolbarButton is enabled in `TMPurchaseWebsiteConfiguration`
         purchaseNavController.sharingDelegate = self
                 
-        // this OPTIONAL delegate is useful for analytics about user actions within the Purchase SDK flow
+        // MARK: this OPTIONAL delegate is useful for analytics about user actions within the Purchase SDK flow
         purchaseNavController.userAnalyticsDelegate = self
         
-        // this OPTIONAL delegate is useful for tracking server/website performance
-        /// This is mainly used for Ticketmaster's own internal analytics and is not needed for most parter App integrations.
-        /// The typical user analytics that your App may want to report on can be found in the `userNavigationDelegate`, so there is no need to set it
+        // MARK: this OPTIONAL delegate is useful for tracking server/website performance
+        //  This is mainly used for Ticketmaster's own internal analytics and is not needed for most parter App integrations.
+        //  The typical user analytics that your App may want to report on can be found in the `userNavigationDelegate`, so there is no need to set it
         //purchaseNavController.webAnalyticsDelegate = self // see PurchaseSDKLogic+Delegate.swift
         
         // clear out any previously purchased order

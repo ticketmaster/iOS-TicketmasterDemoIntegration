@@ -22,12 +22,18 @@ class MenuButtonTableViewCell: MenuBuilderTableViewCell {
     func configure(withCellInfo cellInfo: MenuBuilderCellInfo) {
         guard cellInfo.cellType == .button else { return }
         self.cellInfo = cellInfo
-        self.accessoryType = cellInfo.accessoryType
 
-        titleButton.setTitle(cellInfo.titleText, for: .normal)
+        tintColor = cellInfo.valueColor ?? .label
+        setupAccessoryType()
+        
+        if let text = cellInfo.titleText {
+            titleButton.setTitle(text, for: .normal)
+        } else if let text = cellInfo.valueText {
+            titleButton.setTitle(text, for: .normal)
+        }
         titleButton.setTitleColor(cellInfo.titleColor, for: .normal)
         titleButton.tintColor = cellInfo.valueColor ?? contentView.tintColor
-        contentView.backgroundColor = cellInfo.backgroundColor
+        backgroundColor = cellInfo.backgroundColor
     }
     
     // MARK: Updates

@@ -23,14 +23,16 @@ class MenuButtonWithTitleTableViewCell: MenuBuilderTableViewCell {
     func configure(withCellInfo cellInfo: MenuBuilderCellInfo) {
         guard cellInfo.cellType == .buttonWithTitle else { return }
         self.cellInfo = cellInfo
-        self.accessoryType = cellInfo.accessoryType
 
+        tintColor = cellInfo.titleColor ?? .label
+        setupAccessoryType()
+        
         titleLabel.text = cellInfo.titleText
         valueButton.setTitle(cellInfo.valueText, for: .normal)
         
         titleLabel.textColor = cellInfo.titleColor ?? .label
         valueButton.tintColor = cellInfo.valueColor ?? contentView.tintColor
-        contentView.backgroundColor = cellInfo.backgroundColor
+        backgroundColor = cellInfo.backgroundColor
     }
 
     // MARK: Updates
