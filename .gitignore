@@ -59,3 +59,4 @@ playground.xcworkspace
 
 # Zip Files
 *.zip
+/TMSDKDemoIntegration/Frameworks

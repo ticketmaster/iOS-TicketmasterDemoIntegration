@@ -66,8 +66,8 @@ extension AuthenticationHelper {
     static let fakeError = NSError(domain: "AuthenticationHelper", code: -1)
     
     private func presentExternalLogin(onViewController viewController: UIViewController,
-                              success: @escaping (_ jwtToken: String) -> Void,
-                              failure: @escaping (_ error: Error) -> Void) {
+                                      success: @escaping (_ jwtToken: String) -> Void,
+                                      failure: @escaping (_ error: Error) -> Void) {
         
         processExternalLogin(onViewController: viewController) { uniqueUserId, email in
             // get a JWT token
@@ -86,16 +86,21 @@ extension AuthenticationHelper {
         
         // TODO: replace this code with your login system getUserInfo here
 
+        
         // FOR DEMO PURPOSES:
         // present a fake login UI using a UIAlertController
         let alert = UIAlertController(title: "Non-TM Login",
-                                      message: "Allow User Login?",
+                                      message: "Select Login:",
                                       preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { _ in
+        alert.addAction(UIAlertAction(title: "Jon Backer", style: .default, handler: { _ in
             // once login is completed, return uniqueUserId and email
             success(AuthenticationHelper.fakeUniqueID, AuthenticationHelper.fakeEmail)
         }))
-        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { _ in
+        alert.addAction(UIAlertAction(title: "Bill Smith", style: .default, handler: { _ in
+            // once login is completed, return uniqueUserId and email
+            success("someguynamedsmith", "bill.smith@email.com")
+        }))
+        alert.addAction(UIAlertAction(title: "None", style: .cancel, handler: { _ in
             // return error
             failure(AuthenticationHelper.fakeError)
         }))
@@ -140,7 +145,7 @@ extension AuthenticationHelper {
             // no need to show your login UI
             // go ahead and try to refresh the JWT
         }
-                
+        
         // TODO: decide how to send oldJwtToken
         // we could parse these fields out of the oldJwtToken directly,
         // or send oldJwtToken to the backend to parse out directly (recommended),
@@ -148,13 +153,31 @@ extension AuthenticationHelper {
         var body: [String: Any] = [:]
         body["old_jwt"] = oldJwtToken
         
+        // TODO: replace this logic with your real refreshLogic
         // FOR DEMO PURPOSES:
         body["id"] = AuthenticationHelper.fakeUniqueID
         body["email"] = AuthenticationHelper.fakeEmail
-
-        self.fetchJWTTokenFromNetwork(body: body,
-                                      success: success,
-                                      failure: failure)
+                
+        // FOR DEMO PURPOSES:
+        // present a UI asking for permission to fresh
+        let alert = UIAlertController(title: "Auth SDK",
+                                      message: "Asking for fresh jwt:",
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Allow", style: .default, handler: { _ in
+            self.fetchJWTTokenFromNetwork(body: body,
+                                          success: success,
+                                          failure: failure)
+        }))
+        alert.addAction(UIAlertAction(title: "Abort", style: .default, handler: { _ in
+            // once login is completed, return uniqueUserId and email
+            aborted()
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in
+            // return error
+            failure(AuthenticationHelper.fakeError)
+        }))
+        
+        self.authenticationMenuVC?.present(alert, animated: true)
     }
     
     private func fetchJWTTokenFromNetwork(body: [String: Any],
@@ -173,16 +196,20 @@ extension AuthenticationHelper {
             
             urlRequest.httpBody = Data(object: body, options: .sortedKeys)
             
+            print("\(url.absoluteString)")
             URLSession.shared.dataTask(with: urlRequest) { data, response, error in
                 // return response on main
                 DispatchQueue.main.async {
                     // parse JWT string out of data
                     if let data = data, let string = String(data: data, encoding: .utf8) {
+                        print(" - success: \(string)")
                         success(string)
                     } else if let error = error {
+                        print(" - error: \(error.localizedDescription)")
                         failure(error)
                     } else {
                         // unknown error
+                        print(" - error: <unknown>")
                         failure(AuthenticationHelper.fakeError)
                     }
                 }
@@ -214,4 +241,3 @@ extension AuthenticationHelper: TMAuthenticationExternalTokenProvider {
     }
     
 }
-

@@ -23,10 +23,11 @@ extension AuthenticationHelper {
         }
     }
     
-    func validToken(completion: @escaping (_ validToken: TMAuthToken?, _ error: Error?) -> Void) {
+    func validToken(forceRefresh: Bool, completion: @escaping (_ validToken: TMAuthToken?, _ error: Error?) -> Void) {
         // do not automatically login, we're just checking if we have a valid token
         TMAuthentication.shared.validToken(backend: nil,
-                                           showLoginIfNeeded: false) { authToken in
+                                           showLoginIfNeeded: false,
+                                           fetchRule: forceRefresh ? .forceFetch : .fetchIfEmptyOrOld) { authToken in
             completion(authToken, nil)
             
         } aborted: { oldAuthToken, backend in

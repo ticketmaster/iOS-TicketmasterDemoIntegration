@@ -16,6 +16,7 @@ extension AuthenticationViewController {
         case login
         case loginExternal
         case validToken
+        case forceRefresh
         case memberInfo
         case logout
     }
@@ -88,6 +89,12 @@ extension AuthenticationViewController {
                                        uniqueIdentifier: CellIdentifier.validToken.rawValue,
                                        accessoryType: .disclosureIndicator,
                                        titleText: "Valid Token")
+        cellInfoArray.append(cellInfo)
+        
+        cellInfo = MenuBuilderCellInfo(cellType: .title,
+                                       uniqueIdentifier: CellIdentifier.forceRefresh.rawValue,
+                                       accessoryType: .disclosureIndicator,
+                                       titleText: "Valid Token (forced Refresh)")
         cellInfoArray.append(cellInfo)
 
         cellInfo = MenuBuilderCellInfo(cellType: .title,

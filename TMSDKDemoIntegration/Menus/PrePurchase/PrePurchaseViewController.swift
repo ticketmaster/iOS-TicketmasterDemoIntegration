@@ -17,7 +17,7 @@ class PrePurchaseViewController: UITableViewController {
     
     var selectedVenueIdentifier: String? {
         get {
-            return UserDefaultsManager.shared.string(.prePurchaseVenueString) ?? "57843" // Fiserv Forum, Milwaukee, WI (TM Venue ID)
+            return UserDefaultsManager.shared.string(.prePurchaseVenueString) ?? "205115" // Salt River Fields, Scottsdale, AZ (TM Venue ID)
         }
         set {
             if let value = newValue {
@@ -30,7 +30,7 @@ class PrePurchaseViewController: UITableViewController {
     
     var selectedAttractionIdentifier: String? {
         get {
-            return UserDefaultsManager.shared.string(.prePurchaseAttractionString) ?? "805969" // Milwaukee Bucks (TM Artist ID)
+            return UserDefaultsManager.shared.string(.prePurchaseAttractionString) ?? "805895" // Arizona Diamondbacks (TM Artist ID)
         }
         set {
             if let value = newValue {

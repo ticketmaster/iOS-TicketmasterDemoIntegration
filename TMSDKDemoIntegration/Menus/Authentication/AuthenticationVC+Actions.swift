@@ -24,16 +24,26 @@ extension AuthenticationViewController: MenuBuilderDataSourceDelegate {
                 break
                 
             case .login:
+                // login using normal TM login
+                authenticationHelper.loginIfNeeded(onViewController: self)
+
+            case .loginExternal:
                 // login using external jwt token
                 authenticationHelper.loginWithExternalToken(onViewController: self)
                 
-            case .loginExternal:
-                break
-                
             case .validToken:
-                authenticationHelper.validToken { validToken, error in
+                authenticationHelper.validToken(forceRefresh: false) { validToken, error in
                     if let validToken = validToken {
-                        self.presentPopup(title: "Valid Token", message: "\(validToken.accessToken.prefix(20))...")
+                        self.presentPopup(title: "Valid Token", message: "...\(validToken.accessToken.suffix(20))")
+                    } else {
+                        self.presentPopup(title: "No Token", message: error?.localizedDescription ?? "<unknown error>")
+                    }
+                }
+                
+            case .forceRefresh:
+                authenticationHelper.validToken(forceRefresh: true) { validToken, error in
+                    if let validToken = validToken {
+                        self.presentPopup(title: "Valid Token", message: "...\(validToken.accessToken.suffix(20))")
                     } else {
                         self.presentPopup(title: "No Token", message: error?.localizedDescription ?? "<unknown error>")
                     }

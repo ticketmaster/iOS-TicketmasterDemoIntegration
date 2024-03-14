@@ -60,7 +60,7 @@ extension Configuration {
         let region: TMAuthentication.TMXDeploymentRegion = .US
         
         /// name of your App/Team/Artist/Venue
-        let displayName: String = "Your Team"
+        let displayName: String = "Arizona Diamondbacks"
         
         /// main branding color (optional)
         let backgroundColor: UIColor = UIColor(red: 35/255.0, green: 97/255.0, blue: 146/255.0, alpha: 1.0)
@@ -85,6 +85,8 @@ extension Configuration {
         
         guard let regionString = UserDefaultsManager.shared.string(.configurationRegionString),
               let region = TMAuthentication.TMXDeploymentRegion(rawValue: regionString) else { return nil }
+        
+        MessageLogger.currentLogLevel = .network
         
         let oldConfig = Configuration.defaultConfiguration()
         return Configuration(apiKey: apiKey,
