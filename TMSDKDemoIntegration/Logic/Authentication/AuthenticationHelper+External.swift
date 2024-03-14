@@ -86,7 +86,6 @@ extension AuthenticationHelper {
         
         // TODO: replace this code with your login system getUserInfo here
 
-        
         // FOR DEMO PURPOSES:
         // present a fake login UI using a UIAlertController
         let alert = UIAlertController(title: "Non-TM Login",
@@ -98,7 +97,7 @@ extension AuthenticationHelper {
         }))
         alert.addAction(UIAlertAction(title: "Bill Smith", style: .default, handler: { _ in
             // once login is completed, return uniqueUserId and email
-            success("someguynamedsmith", "bill.smith@email.com")
+            success("uniqueUserId", "name@email.com")
         }))
         alert.addAction(UIAlertAction(title: "None", style: .cancel, handler: { _ in
             // return error
@@ -121,31 +120,10 @@ extension AuthenticationHelper {
                                  failure: failure)
     }
     
-    private func getJWTToken(backend: TMAuthentication.BackendService,
-                             oldJwtToken: String,
-                             showLoginIfNeeded: Bool,
+    private func getJWTToken(oldJwtToken: String,
                              success: @escaping (_ jwtToken: String) -> Void,
-                             aborted: @escaping () -> Void,
                              failure: @escaping (_ error: Error) -> Void) {
-        
-        // TODO: do you need to show Login UI in order to refresh the JWT?
-        let yourLoginSystemNeedsToShowUI: Bool = false
-        
-        if yourLoginSystemNeedsToShowUI == true {
-            if showLoginIfNeeded == true {
-                // TODO: show your login UI first, before refreshing the JWT
                 
-            } else {
-                // oh no, Ignite is in a state where it doesn't want login shown
-                // just return this error
-                failure(TMAuthentication.AuthError.externalTokenRefreshRequiresUI)
-                return
-            }
-        } else {
-            // no need to show your login UI
-            // go ahead and try to refresh the JWT
-        }
-        
         // TODO: decide how to send oldJwtToken
         // we could parse these fields out of the oldJwtToken directly,
         // or send oldJwtToken to the backend to parse out directly (recommended),
@@ -157,8 +135,7 @@ extension AuthenticationHelper {
         // FOR DEMO PURPOSES:
         body["id"] = AuthenticationHelper.fakeUniqueID
         body["email"] = AuthenticationHelper.fakeEmail
-                
-        // FOR DEMO PURPOSES:
+        
         // present a UI asking for permission to fresh
         let alert = UIAlertController(title: "Auth SDK",
                                       message: "Asking for fresh jwt:",
@@ -167,10 +144,6 @@ extension AuthenticationHelper {
             self.fetchJWTTokenFromNetwork(body: body,
                                           success: success,
                                           failure: failure)
-        }))
-        alert.addAction(UIAlertAction(title: "Abort", style: .default, handler: { _ in
-            // once login is completed, return uniqueUserId and email
-            aborted()
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in
             // return error
@@ -216,6 +189,18 @@ extension AuthenticationHelper {
             }.resume()
         }
     }
+    
+    func showYourNonTMLogin(success: @escaping () -> Void,
+                            aborted: @escaping () -> Void,
+                            failure: @escaping (_ error: Error) -> Void) {
+        // TODO: show your login UI here
+        success()
+    }
+    
+    func systemNeedsReLogin() -> Bool {
+        // TODO: determine if you need to show Login UI in order to refresh the JWT?
+        false
+    }
 }
 
 
@@ -225,19 +210,57 @@ extension AuthenticationHelper {
 // TODO: make sure to set TMAuthentication.shared.externalTokenProviderDelegate = self
 extension AuthenticationHelper: TMAuthenticationExternalTokenProvider {
     
+    /// - Task: return fresh External Token
+    ///
+    /// assign on ``TMAuthentication/externalTokenProviderDelegate``
+    ///
+    ///  - Important: `showLoginIfNeeded = false` is used to try and refresh an external token without presenting any UI. This is important for certain networking calls and UI states where returning an error is actually preferrable to presenting UI that could break design flows or cause issues. The error returned should be ``TMAuthentication/AuthError/externalTokenRefreshRequiresUI``.
+    ///
+    /// - Parameters:
+    ///   - backend: specific ``TMAuthentication/BackendService`` that needs a fresh external token (``TMAuthentication/BackendService/TeamModernAccounts`` may also be used for ``TMAuthentication/BackendService/HostModernAccounts``)
+    ///   - oldExternalToken: previous, old external token that has expired
+    ///   - showLoginIfNeeded: `true` = show user login/refresh UI if needed, `false` = do not show login/refresh UI, return ``TMAuthentication/AuthError/externalTokenRefreshRequiresUI`` error in the `failure` block if external token cannot be refreshed without presenting login UI to the user
+    ///   - success: refresh success block
+    ///     - refreshedExternalToken: a fresh external token, must match same backend and user account as provided `oldExternalToken`
+    ///   - aborted: user aborted refresh block, call if login/refresh UI was presented to the user and the user aborted the login/refresh process
+    ///   - failure: refresh failure block
+    ///     - error: refresh/login error
     func refresh(backend: TMAuthentication.BackendService,
                  oldExternalToken: String,
                  showLoginIfNeeded: Bool,
                  success: @escaping (String) -> Void,
                  aborted: @escaping () -> Void,
                  failure: @escaping (Error) -> Void) {
-        // try to refresh JWT token
-        getJWTToken(backend: backend,
-                    oldJwtToken: oldExternalToken,
-                    showLoginIfNeeded: showLoginIfNeeded,
-                    success: success,
-                    aborted: aborted,
-                    failure: failure)
+        // determine if you need to show your Login UI in order to refresh the JWT?
+        let yourLoginSystemNeedsToShowUI: Bool = systemNeedsReLogin()
+        
+        if yourLoginSystemNeedsToShowUI {
+            // is it a good time to show login UI?
+            if showLoginIfNeeded {
+                // yes! show your login UI first, before refreshing the JWT
+                showYourNonTMLogin {
+                    // success! user re-logged into your UI
+                    self.getJWTToken(oldJwtToken: oldExternalToken,
+                                     success: success,
+                                     failure: failure)
+                } aborted: {
+                    // user aborted your login UI
+                    aborted()
+                } failure: { error in
+                    // error from your login UI
+                    failure(error)
+                }
+            } else {
+                // no! Ignite is in a state where it doesn't want login shown
+                // just return this error
+                failure(TMAuthentication.AuthError.externalTokenRefreshRequiresUI)
+            }
+        } else {
+            // no need to show your login UI
+            // go ahead and try to refresh the JWT
+            getJWTToken(oldJwtToken: oldExternalToken,
+                        success: success,
+                        failure: failure)
+        }
     }
-    
 }

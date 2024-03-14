@@ -24,6 +24,9 @@ struct Configuration: Codable, Hashable {
     /// main branding color (optional)
     let backgroundColor: UIColor?
     
+    /// text branding color (optional)
+    let foregroundColor: UIColor?
+    
     /// other text should be light (white) or dark (black)
     let textTheme: TMAuthentication.ColorTheme
     
@@ -34,12 +37,14 @@ struct Configuration: Codable, Hashable {
          region: TMAuthentication.TMXDeploymentRegion = .US,
          displayName: String,
          backgroundColor: UIColor? = nil,
+         foregroundColor: UIColor? = nil,
          textTheme: TMAuthentication.ColorTheme = .light,
          retailMarketDomain: MarketDomain = .US) {
         self.apiKey = apiKey
         self.region = region
         self.displayName = displayName
         self.backgroundColor = backgroundColor
+        self.foregroundColor = foregroundColor
         self.textTheme = textTheme
         self.retailMarketDomain = retailMarketDomain
     }
