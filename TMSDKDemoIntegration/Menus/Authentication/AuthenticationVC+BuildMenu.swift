@@ -14,6 +14,7 @@ extension AuthenticationViewController {
         case currentUserText
         
         case login
+        case loginExternal
         case validToken
         case memberInfo
         case logout
@@ -74,7 +75,13 @@ extension AuthenticationViewController {
         cellInfo = MenuBuilderCellInfo(cellType: .title,
                                        uniqueIdentifier: CellIdentifier.login.rawValue,
                                        accessoryType: .disclosureIndicator,
-                                       titleText: "Login")
+                                       titleText: "Login (TM Login)")
+        cellInfoArray.append(cellInfo)
+        
+        cellInfo = MenuBuilderCellInfo(cellType: .title,
+                                       uniqueIdentifier: CellIdentifier.loginExternal.rawValue,
+                                       accessoryType: .disclosureIndicator,
+                                       titleText: "Login (External Token)")
         cellInfoArray.append(cellInfo)
         
         cellInfo = MenuBuilderCellInfo(cellType: .title,

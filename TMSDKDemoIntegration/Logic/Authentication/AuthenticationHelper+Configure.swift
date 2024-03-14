@@ -16,7 +16,9 @@ extension AuthenticationHelper {
         }
         
         // set delegates (optional)
-        TMAuthentication.shared.delegate = self // be informed about Login state via delegate callbacks:
+        TMAuthentication.shared.delegate = self // be informed about Login state via delegate callbacks
+        
+        TMAuthentication.shared.externalTokenProviderDelegate = self // allow external token refresh
         
         // note that you can also register for a block to be called on Login state change
         //

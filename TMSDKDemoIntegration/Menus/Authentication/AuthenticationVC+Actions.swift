@@ -24,7 +24,11 @@ extension AuthenticationViewController: MenuBuilderDataSourceDelegate {
                 break
                 
             case .login:
-                authenticationHelper.loginIfNeeded(onViewController: self)
+                // login using external jwt token
+                authenticationHelper.loginWithExternalToken(onViewController: self)
+                
+            case .loginExternal:
+                break
                 
             case .validToken:
                 authenticationHelper.validToken { validToken, error in
