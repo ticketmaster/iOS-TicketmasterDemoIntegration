@@ -38,20 +38,6 @@
 		795D32EB2A567499001D0466 /* DiscoveryHelper+Present.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D32EA2A567499001D0466 /* DiscoveryHelper+Present.swift */; };
 		796D130B2BA26D7C00743907 /* AuthenticationHelper+External.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796D130A2BA26D7C00743907 /* AuthenticationHelper+External.swift */; };
 		796D130D2BA277EB00743907 /* Data+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796D130C2BA277EB00743907 /* Data+JSON.swift */; };
-		79783A182BA28A730009DEAA /* TicketmasterAuthentication.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79783A0A2BA28A1B0009DEAA /* TicketmasterAuthentication.xcframework */; };
-		79783A192BA28A730009DEAA /* TicketmasterAuthentication.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 79783A0A2BA28A1B0009DEAA /* TicketmasterAuthentication.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		79783A1B2BA28A740009DEAA /* TicketmasterDiscoveryAPI.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79783A0C2BA28A290009DEAA /* TicketmasterDiscoveryAPI.xcframework */; };
-		79783A1C2BA28A740009DEAA /* TicketmasterDiscoveryAPI.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 79783A0C2BA28A290009DEAA /* TicketmasterDiscoveryAPI.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		79783A1D2BA28A750009DEAA /* TicketmasterFoundation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79783A0E2BA28A330009DEAA /* TicketmasterFoundation.xcframework */; };
-		79783A1E2BA28A750009DEAA /* TicketmasterFoundation.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 79783A0E2BA28A330009DEAA /* TicketmasterFoundation.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		79783A1F2BA28A760009DEAA /* TicketmasterPrePurchase.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79783A102BA28A3B0009DEAA /* TicketmasterPrePurchase.xcframework */; };
-		79783A202BA28A760009DEAA /* TicketmasterPrePurchase.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 79783A102BA28A3B0009DEAA /* TicketmasterPrePurchase.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		79783A212BA28A770009DEAA /* TicketmasterPurchase.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79783A122BA28A470009DEAA /* TicketmasterPurchase.xcframework */; };
-		79783A222BA28A770009DEAA /* TicketmasterPurchase.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 79783A122BA28A470009DEAA /* TicketmasterPurchase.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		79783A232BA28A780009DEAA /* TicketmasterSecureEntry.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79783A142BA28A520009DEAA /* TicketmasterSecureEntry.xcframework */; };
-		79783A242BA28A780009DEAA /* TicketmasterSecureEntry.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 79783A142BA28A520009DEAA /* TicketmasterSecureEntry.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		79783A252BA28A790009DEAA /* TicketmasterTickets.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79783A162BA28A640009DEAA /* TicketmasterTickets.xcframework */; };
-		79783A262BA28A790009DEAA /* TicketmasterTickets.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 79783A162BA28A640009DEAA /* TicketmasterTickets.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		797BC4C12A5623A40031E4EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797BC4C02A5623A40031E4EE /* AppDelegate.swift */; };
 		797BC4C32A5623A40031E4EE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797BC4C22A5623A40031E4EE /* SceneDelegate.swift */; };
 		797BC4C82A5623A40031E4EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 797BC4C62A5623A40031E4EE /* Main.storyboard */; };
@@ -66,6 +52,13 @@
 		79BC56002A57457000E082E1 /* AuthenticationHelper+Present.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BC55FF2A57457000E082E1 /* AuthenticationHelper+Present.swift */; };
 		79BC56022A574BCE00E082E1 /* AuthenticationVC+Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BC56012A574BCE00E082E1 /* AuthenticationVC+Notifications.swift */; };
 		79CD14A72A8D4CFA00542D92 /* EmbeddedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CD14A62A8D4CFA00542D92 /* EmbeddedViewController.swift */; };
+		79D521A62BA530B8002171F9 /* TicketmasterAuthentication in Frameworks */ = {isa = PBXBuildFile; productRef = 79D521A52BA530B8002171F9 /* TicketmasterAuthentication */; };
+		79D521A82BA530B8002171F9 /* TicketmasterDiscoveryAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 79D521A72BA530B8002171F9 /* TicketmasterDiscoveryAPI */; };
+		79D521AA2BA530B8002171F9 /* TicketmasterFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 79D521A92BA530B8002171F9 /* TicketmasterFoundation */; };
+		79D521AC2BA530B9002171F9 /* TicketmasterPrePurchase in Frameworks */ = {isa = PBXBuildFile; productRef = 79D521AB2BA530B9002171F9 /* TicketmasterPrePurchase */; };
+		79D521AE2BA530B9002171F9 /* TicketmasterPurchase in Frameworks */ = {isa = PBXBuildFile; productRef = 79D521AD2BA530B9002171F9 /* TicketmasterPurchase */; };
+		79D521B02BA530B9002171F9 /* TicketmasterSecureEntry in Frameworks */ = {isa = PBXBuildFile; productRef = 79D521AF2BA530B9002171F9 /* TicketmasterSecureEntry */; };
+		79D521B22BA530B9002171F9 /* TicketmasterTickets in Frameworks */ = {isa = PBXBuildFile; productRef = 79D521B12BA530B9002171F9 /* TicketmasterTickets */; };
 		79E8C00A2A5627DE0054B340 /* BrandedNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E8C0082A5627DE0054B340 /* BrandedNavigationController.swift */; };
 		79E8C0202A56290F0054B340 /* MenuTextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79E8C00E2A56290F0054B340 /* MenuTextFieldTableViewCell.xib */; };
 		79E8C0212A56290F0054B340 /* MenuTextFieldWithTitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79E8C00F2A56290F0054B340 /* MenuTextFieldWithTitleTableViewCell.xib */; };
@@ -125,13 +118,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				79783A202BA28A760009DEAA /* TicketmasterPrePurchase.xcframework in Embed Frameworks */,
-				79783A262BA28A790009DEAA /* TicketmasterTickets.xcframework in Embed Frameworks */,
-				79783A242BA28A780009DEAA /* TicketmasterSecureEntry.xcframework in Embed Frameworks */,
-				79783A192BA28A730009DEAA /* TicketmasterAuthentication.xcframework in Embed Frameworks */,
-				79783A222BA28A770009DEAA /* TicketmasterPurchase.xcframework in Embed Frameworks */,
-				79783A1C2BA28A740009DEAA /* TicketmasterDiscoveryAPI.xcframework in Embed Frameworks */,
-				79783A1E2BA28A750009DEAA /* TicketmasterFoundation.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -172,13 +158,6 @@
 		796D13082BA268DD00743907 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
 		796D130A2BA26D7C00743907 /* AuthenticationHelper+External.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthenticationHelper+External.swift"; sourceTree = "<group>"; };
 		796D130C2BA277EB00743907 /* Data+JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+JSON.swift"; sourceTree = "<group>"; };
-		79783A0A2BA28A1B0009DEAA /* TicketmasterAuthentication.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = TicketmasterAuthentication.xcframework; path = TMSDKDemoIntegration/Frameworks/TicketmasterAuthentication.xcframework; sourceTree = "<group>"; };
-		79783A0C2BA28A290009DEAA /* TicketmasterDiscoveryAPI.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = TicketmasterDiscoveryAPI.xcframework; path = TMSDKDemoIntegration/Frameworks/TicketmasterDiscoveryAPI.xcframework; sourceTree = "<group>"; };
-		79783A0E2BA28A330009DEAA /* TicketmasterFoundation.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = TicketmasterFoundation.xcframework; path = TMSDKDemoIntegration/Frameworks/TicketmasterFoundation.xcframework; sourceTree = "<group>"; };
-		79783A102BA28A3B0009DEAA /* TicketmasterPrePurchase.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = TicketmasterPrePurchase.xcframework; path = TMSDKDemoIntegration/Frameworks/TicketmasterPrePurchase.xcframework; sourceTree = "<group>"; };
-		79783A122BA28A470009DEAA /* TicketmasterPurchase.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = TicketmasterPurchase.xcframework; path = TMSDKDemoIntegration/Frameworks/TicketmasterPurchase.xcframework; sourceTree = "<group>"; };
-		79783A142BA28A520009DEAA /* TicketmasterSecureEntry.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = TicketmasterSecureEntry.xcframework; path = TMSDKDemoIntegration/Frameworks/TicketmasterSecureEntry.xcframework; sourceTree = "<group>"; };
-		79783A162BA28A640009DEAA /* TicketmasterTickets.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = TicketmasterTickets.xcframework; path = TMSDKDemoIntegration/Frameworks/TicketmasterTickets.xcframework; sourceTree = "<group>"; };
 		797BC4BD2A5623A40031E4EE /* TMSDKDemoIntegration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMSDKDemoIntegration.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		797BC4C02A5623A40031E4EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		797BC4C22A5623A40031E4EE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -252,13 +231,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79783A212BA28A770009DEAA /* TicketmasterPurchase.xcframework in Frameworks */,
-				79783A252BA28A790009DEAA /* TicketmasterTickets.xcframework in Frameworks */,
-				79783A1D2BA28A750009DEAA /* TicketmasterFoundation.xcframework in Frameworks */,
-				79783A232BA28A780009DEAA /* TicketmasterSecureEntry.xcframework in Frameworks */,
-				79783A182BA28A730009DEAA /* TicketmasterAuthentication.xcframework in Frameworks */,
-				79783A1B2BA28A740009DEAA /* TicketmasterDiscoveryAPI.xcframework in Frameworks */,
-				79783A1F2BA28A760009DEAA /* TicketmasterPrePurchase.xcframework in Frameworks */,
+				79D521AA2BA530B8002171F9 /* TicketmasterFoundation in Frameworks */,
+				79D521AC2BA530B9002171F9 /* TicketmasterPrePurchase in Frameworks */,
+				79D521B02BA530B9002171F9 /* TicketmasterSecureEntry in Frameworks */,
+				79D521B22BA530B9002171F9 /* TicketmasterTickets in Frameworks */,
+				79D521AE2BA530B9002171F9 /* TicketmasterPurchase in Frameworks */,
+				79D521A82BA530B8002171F9 /* TicketmasterDiscoveryAPI in Frameworks */,
+				79D521A62BA530B8002171F9 /* TicketmasterAuthentication in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,13 +267,6 @@
 		797BC4B42A5623A40031E4EE = {
 			isa = PBXGroup;
 			children = (
-				79783A162BA28A640009DEAA /* TicketmasterTickets.xcframework */,
-				79783A142BA28A520009DEAA /* TicketmasterSecureEntry.xcframework */,
-				79783A122BA28A470009DEAA /* TicketmasterPurchase.xcframework */,
-				79783A102BA28A3B0009DEAA /* TicketmasterPrePurchase.xcframework */,
-				79783A0E2BA28A330009DEAA /* TicketmasterFoundation.xcframework */,
-				79783A0C2BA28A290009DEAA /* TicketmasterDiscoveryAPI.xcframework */,
-				79783A0A2BA28A1B0009DEAA /* TicketmasterAuthentication.xcframework */,
 				797BC4BF2A5623A40031E4EE /* TMSDKDemoIntegration */,
 				797BC4BE2A5623A40031E4EE /* Products */,
 			);
@@ -564,6 +536,13 @@
 			);
 			name = TMSDKDemoIntegration;
 			packageProductDependencies = (
+				79D521A52BA530B8002171F9 /* TicketmasterAuthentication */,
+				79D521A72BA530B8002171F9 /* TicketmasterDiscoveryAPI */,
+				79D521A92BA530B8002171F9 /* TicketmasterFoundation */,
+				79D521AB2BA530B9002171F9 /* TicketmasterPrePurchase */,
+				79D521AD2BA530B9002171F9 /* TicketmasterPurchase */,
+				79D521AF2BA530B9002171F9 /* TicketmasterSecureEntry */,
+				79D521B12BA530B9002171F9 /* TicketmasterTickets */,
 			);
 			productName = TMSDKDemoIntegration;
 			productReference = 797BC4BD2A5623A40031E4EE /* TMSDKDemoIntegration.app */;
@@ -594,6 +573,7 @@
 			);
 			mainGroup = 797BC4B42A5623A40031E4EE;
 			packageReferences = (
+				79D521A42BA530B8002171F9 /* XCRemoteSwiftPackageReference "iOS-TicketmasterSDK" */,
 			);
 			productRefGroup = 797BC4BE2A5623A40031E4EE /* Products */;
 			projectDirPath = "";
@@ -963,6 +943,55 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		79D521A42BA530B8002171F9 /* XCRemoteSwiftPackageReference "iOS-TicketmasterSDK" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ticketmaster/iOS-TicketmasterSDK.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.5.99;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		79D521A52BA530B8002171F9 /* TicketmasterAuthentication */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 79D521A42BA530B8002171F9 /* XCRemoteSwiftPackageReference "iOS-TicketmasterSDK" */;
+			productName = TicketmasterAuthentication;
+		};
+		79D521A72BA530B8002171F9 /* TicketmasterDiscoveryAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 79D521A42BA530B8002171F9 /* XCRemoteSwiftPackageReference "iOS-TicketmasterSDK" */;
+			productName = TicketmasterDiscoveryAPI;
+		};
+		79D521A92BA530B8002171F9 /* TicketmasterFoundation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 79D521A42BA530B8002171F9 /* XCRemoteSwiftPackageReference "iOS-TicketmasterSDK" */;
+			productName = TicketmasterFoundation;
+		};
+		79D521AB2BA530B9002171F9 /* TicketmasterPrePurchase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 79D521A42BA530B8002171F9 /* XCRemoteSwiftPackageReference "iOS-TicketmasterSDK" */;
+			productName = TicketmasterPrePurchase;
+		};
+		79D521AD2BA530B9002171F9 /* TicketmasterPurchase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 79D521A42BA530B8002171F9 /* XCRemoteSwiftPackageReference "iOS-TicketmasterSDK" */;
+			productName = TicketmasterPurchase;
+		};
+		79D521AF2BA530B9002171F9 /* TicketmasterSecureEntry */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 79D521A42BA530B8002171F9 /* XCRemoteSwiftPackageReference "iOS-TicketmasterSDK" */;
+			productName = TicketmasterSecureEntry;
+		};
+		79D521B12BA530B9002171F9 /* TicketmasterTickets */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 79D521A42BA530B8002171F9 /* XCRemoteSwiftPackageReference "iOS-TicketmasterSDK" */;
+			productName = TicketmasterTickets;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 797BC4B52A5623A40031E4EE /* Project object */;
 }

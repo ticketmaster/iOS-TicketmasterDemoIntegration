@@ -60,11 +60,7 @@ extension AuthenticationHelper {
             
         }
     }
-        
-    static let fakeUniqueID = "someCoolId721"
-    static let fakeEmail = "jonbackertm@gmail.com"
-    static let fakeError = NSError(domain: "AuthenticationHelper", code: -1)
-    
+            
     private func presentExternalLogin(onViewController viewController: UIViewController,
                                       success: @escaping (_ jwtToken: String) -> Void,
                                       failure: @escaping (_ error: Error) -> Void) {
@@ -91,14 +87,14 @@ extension AuthenticationHelper {
         let alert = UIAlertController(title: "Non-TM Login",
                                       message: "Select Login:",
                                       preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Jon Backer", style: .default, handler: { _ in
+        alert.addAction(UIAlertAction(title: "User1", style: .default, handler: { _ in
             // once login is completed, return uniqueUserId and email
             success(AuthenticationHelper.fakeUniqueID, AuthenticationHelper.fakeEmail)
         }))
-        alert.addAction(UIAlertAction(title: "Bill Smith", style: .default, handler: { _ in
-            // once login is completed, return uniqueUserId and email
-            success("uniqueUserId", "name@email.com")
-        }))
+//        alert.addAction(UIAlertAction(title: "Bill Smith", style: .default, handler: { _ in
+//            // once login is completed, return uniqueUserId and email
+//            success("uniqueUserIdForBillSmith", "bill@smith.com")
+//        }))
         alert.addAction(UIAlertAction(title: "None", style: .cancel, handler: { _ in
             // return error
             failure(AuthenticationHelper.fakeError)
@@ -106,6 +102,10 @@ extension AuthenticationHelper {
         
         viewController.present(alert, animated: true)
     }
+    
+    static let fakeUniqueID = "someCoolId"
+    static let fakeEmail = "name@email.com"
+    static let fakeError = NSError(domain: "AuthenticationHelper", code: -1)
     
     private func getJWTToken(uniqueUserID: String, email: String,
                              success: @escaping (_ jwtToken: String) -> Void,
@@ -152,7 +152,7 @@ extension AuthenticationHelper {
         
         self.authenticationMenuVC?.present(alert, animated: true)
     }
-    
+        
     private func fetchJWTTokenFromNetwork(body: [String: Any],
                                           success: @escaping (_ jwtToken: String) -> Void,
                                           failure: @escaping (_ error: Error) -> Void) {

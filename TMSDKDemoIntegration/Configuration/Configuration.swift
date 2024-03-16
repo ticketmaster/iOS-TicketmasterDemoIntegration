@@ -91,8 +91,6 @@ extension Configuration {
         guard let regionString = UserDefaultsManager.shared.string(.configurationRegionString),
               let region = TMAuthentication.TMXDeploymentRegion(rawValue: regionString) else { return nil }
         
-        MessageLogger.currentLogLevel = .network
-        
         let oldConfig = Configuration.defaultConfiguration()
         return Configuration(apiKey: apiKey,
                              region: region,
