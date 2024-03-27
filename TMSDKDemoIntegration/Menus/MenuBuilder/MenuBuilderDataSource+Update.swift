@@ -29,6 +29,13 @@ extension MenuBuilderDataSource {
                         cell.update(title: title)
                     }
                 }
+            case .titleSubtitle:
+                cellInfo.titleText = title
+                if let cell = loadedCell as? MenuTitleSubtitleTableViewCell {
+                    DispatchQueue.main.async {
+                        cell.update(title: title)
+                    }
+                }
             case .button:
                 cellInfo.titleText = title
                 if let cell = loadedCell as? MenuButtonTableViewCell {
@@ -95,6 +102,13 @@ extension MenuBuilderDataSource {
             case .title:
                 // no value
                 break
+            case .titleSubtitle:
+                cellInfo.valueText = value
+                if let cell = loadedCell as? MenuTitleSubtitleTableViewCell {
+                    DispatchQueue.main.async {
+                        cell.update(subtitle: value)
+                    }
+                }
             case .button:
                 if let value = value {
                     // no value, but we'll update the title instead

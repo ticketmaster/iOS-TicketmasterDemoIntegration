@@ -50,7 +50,7 @@ extension MenuBuilderDataSource: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: false)
         dismissKeyboard()
         if let cell = tableView.cellForRow(at: indexPath) as? MenuBuilderTableViewCell {
-        delegate?.menuBuilderDataSource(self, didAction: .backgroundTapped, forCell: cell)
+            delegate?.menuBuilderDataSource(self, didAction: .backgroundTapped(value: cell.cellInfo.valueText), forCell: cell)
     }
     }
     

@@ -40,7 +40,7 @@ class MenuBuilderCellInfo {
     /// for Text
     var titleText: String?
     var titleColor: UIColor?
-    /// for value of Button, TextField, or selected Segment
+    /// for value of Button, TextField, selected Segment, or Subtitle
     var valueText: String?
     var valueColor: UIColor?
     /// for UITextField
@@ -118,6 +118,7 @@ class MenuBuilderCellInfo {
 enum MenuBuilderCellType: String, CaseIterable {
     case blank
     case title
+    case titleSubtitle
     case button
     case buttonWithTitle
     case textField
@@ -132,6 +133,8 @@ enum MenuBuilderCellType: String, CaseIterable {
             return "MenuBlankTableViewCell"
         case .title:
             return "MenuTitleTableViewCell"
+        case .titleSubtitle:
+            return "MenuTitleSubtitleTableViewCell"
         case .button:
             return "MenuButtonTableViewCell"
         case .buttonWithTitle:

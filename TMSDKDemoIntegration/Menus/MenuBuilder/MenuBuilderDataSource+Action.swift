@@ -18,7 +18,7 @@ enum MenuBuilderAction {
     /// SwitchWithTitle
     case switchChanged(isOn: Bool)
     /// Cell Tapped
-    case backgroundTapped
+    case backgroundTapped(value: String?)
     
     var debugString: String {
         switch self {

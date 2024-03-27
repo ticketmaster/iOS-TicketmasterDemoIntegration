@@ -26,6 +26,12 @@ extension MenuBuilderDataSource {
             // no delegate since this cell is non-interactive
             cell = customCell
             
+        case .titleSubtitle:
+            let customCell = tableView.dequeueReusableCell(withIdentifier: cellInfo.cellType.rawValue) as! MenuTitleSubtitleTableViewCell
+            customCell.configure(withCellInfo: cellInfo)
+            // no delegate since this cell is non-interactive
+            cell = customCell
+            
         case .button:
             let customCell = tableView.dequeueReusableCell(withIdentifier: cellInfo.cellType.rawValue) as! MenuButtonTableViewCell
             customCell.configure(withCellInfo: cellInfo)

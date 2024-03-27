@@ -29,6 +29,7 @@ extension MenuDemoViewController {
     
     enum CellIdentifier: String {
         case title
+        case subtitle
         case option
         case button
         case buttonTitle
@@ -66,6 +67,12 @@ extension MenuDemoViewController {
         cellInfo = MenuBuilderCellInfo(cellType: .title,
                                        uniqueIdentifier: CellIdentifier.title.rawValue,
                                        titleText: "Title")
+        cellInfoArray.append(cellInfo)
+        
+        cellInfo = MenuBuilderCellInfo(cellType: .titleSubtitle,
+                                       uniqueIdentifier: CellIdentifier.title.rawValue,
+                                       titleText: "Subtitle Title",
+                                       valueText: "Subtitle Value")
         cellInfoArray.append(cellInfo)
         
         cellInfo = MenuBuilderCellInfo(cellType: .button,
@@ -126,6 +133,8 @@ extension MenuDemoViewController: MenuBuilderDataSourceDelegate {
             print("\(cellIdentifier.rawValue): \(action.debugString)")
             switch cellIdentifier {
             case .title:
+                break
+            case .subtitle:
                 break
             case .option:
                 break
