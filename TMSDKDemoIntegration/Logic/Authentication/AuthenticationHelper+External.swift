@@ -14,9 +14,11 @@ extension AuthenticationHelper {
     func loginWithExternalToken(onViewController viewController: UIViewController) {
         // present your own non-TM Login
         presentExternalLogin(onViewController: viewController) { jwtToken in
+            print("Token: \(jwtToken)")
             // use jwt OpenID token to login to TM
             TMAuthentication.shared.login(externalToken: jwtToken) { authToken in
                 // TM Login success!
+                print("TM Login Success")
                 // this authToken has already been saved,
                 // but it is provided here if you need it
                 
@@ -25,9 +27,11 @@ extension AuthenticationHelper {
             } aborted: { oldAuthToken, backend in
                 // TM Login aborted by user
                 // this happens if the user cancels the account binding login page
-                
+                print("TM Login Aborted")
+
             } failure: { oldAuthToken, error, backend in
                 // TM Login error
+                print("TM Login Error: \(error.localizedDescription)")
                 // common errors:
                 let nsError = error as NSError
                 switch nsError as NSError {
@@ -60,7 +64,7 @@ extension AuthenticationHelper {
 
         } failure: { error in
             // your non-TM login failed!
-        
+            print("Non-TM Login Error: \(error.localizedDescription)")
         }
     }
             
@@ -106,8 +110,8 @@ extension AuthenticationHelper {
         viewController.present(alert, animated: true)
     }
     
-    static let fakeUniqueID = "someCoolId"
-    static let fakeEmail = "name@email.com"
+    static let fakeUniqueID = "someSystemLoginID7"
+    static let fakeEmail = "jonathan.backer@livenation.com"
     static let fakeError = NSError(domain: "AuthenticationHelper", code: -1)
     
     private func getJWTToken(uniqueUserID: String, email: String,
@@ -234,6 +238,7 @@ extension AuthenticationHelper: TMAuthenticationExternalTokenProvider {
                  success: @escaping (String) -> Void,
                  aborted: @escaping () -> Void,
                  failure: @escaping (Error) -> Void) {
+        print("JWT Refresh requested...")
         // determine if you need to show your Login UI in order to refresh the JWT?
         let yourLoginSystemNeedsToShowUI: Bool = systemNeedsReLogin()
         
