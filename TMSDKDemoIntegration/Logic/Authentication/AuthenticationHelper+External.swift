@@ -29,21 +29,14 @@ extension AuthenticationHelper {
             } failure: { oldAuthToken, error, backend in
                 // TM Login error
                 // common errors:
-                switch error as NSError {
+                let nsError = error as NSError
+                switch nsError as NSError {
                 case TMAuthentication.AuthError.externalTokenExchangeDisabled:
                     // external token exchange is disabled in your Apigee Config
                     break
-                case TMAuthentication.AuthError.externalTokenNotAllowed:
-                    // external token provided has already expired and cannot be exchanged
-                    break
-                case TMAuthentication.AuthError.externalTokenInvalid:
-                    // external token provided has an invalid format and cannot be exchanged
-                    break
-                case TMAuthentication.AuthError.externalTokenExpired:
-                    // external token provided has already expired and cannot be exchanged
-                    break
-                case TMAuthentication.AuthError.externalTokenUserNotFound:
-                    // external token provided has been bound by login, but user is still not found
+                case TMAuthentication.AuthError.externalTokenProviderNil:
+                    // external token needs to be refreshed, but your code did not set
+                    // TMAuthentication.shared.externalTokenProviderDelegate = self
                     break
                 case TMAuthentication.AuthError.externalTokenAlreadyLoggedIn:
                     // External token login operation requires user to be logged out
@@ -51,13 +44,23 @@ extension AuthenticationHelper {
                     break
                 default:
                     // some other networking or TM backend error
-                    break
+                    // example backend error and values
+                    if nsError.code == 400,
+                       nsError.localizedDescription == "Invalid Request: Invalid Client Id token",
+                       // the "errorCode" is the TMX correlationID, that we can use to help debug certain issues
+                       nsError.userInfo["errorCode"] as? String == "psdk-ios_v3.2.5-541f9f5a-6c9a-48e2-9cc0-6ef443e6e241",
+                       nsError.userInfo["responseCode"] as? Int == 400,
+                       nsError.userInfo["errorType"] as? String == "Invalid Request",
+                       nsError.userInfo["message"] as? String == "Invalid Client Id token" {
+                        // the jwt token was minted incorrectly
+                        // maybe the format is wrong? or the client secret it wrong?
+                    }
                 }
             }
 
         } failure: { error in
             // your non-TM login failed!
-            
+        
         }
     }
             

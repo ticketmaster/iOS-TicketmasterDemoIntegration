@@ -63,7 +63,7 @@ private extension DictionaryExplorerTextView {
         if let font = UIFont(name: "Courier", size: 12.0) {
             outputText.addAttribute(NSAttributedString.Key.font,
                                     value: font,
-                                    range: NSMakeRange(0, outputText.string.count))
+                                    range: NSRange(location: 0, length: outputText.string.count))
         }
         
         let originalOffset = contentOffset
@@ -149,7 +149,7 @@ private extension DictionaryExplorerTextView {
         if let keyPath = keyPath {
             attributedTextString.addAttribute(NSAttributedString.Key.link,
                                               value: keyPath,
-                                              range: NSMakeRange(0, paddedString.count))
+                                              range: NSRange(location: 0, length: paddedString.count))
         }
         
         outputText.append(attributedTextString)

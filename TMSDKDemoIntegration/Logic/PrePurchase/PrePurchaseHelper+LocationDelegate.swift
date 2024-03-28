@@ -42,4 +42,10 @@ extension PrePurchaseHelper: TMPrePurchaseLocationDelegate {
             communicateLocationFetchError()
         }
     }
+    
+    /// Called when the user wants to change location in home for some markets.
+    ///
+    func openLocationSelector(_ viewController: TicketmasterPrePurchase.TMPrePurchaseViewController) {
+        print("prePurchaseViewControllerDidOpenLocationSelector")
+    }
 }
