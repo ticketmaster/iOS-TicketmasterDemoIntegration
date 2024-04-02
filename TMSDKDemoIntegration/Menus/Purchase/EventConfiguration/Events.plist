@@ -7,11 +7,6 @@
 		<key>identifier</key>
 		<string>09005ED6CA86368D</string>
 	</dict>
-	<key>Frozen (Broadway) - Aug 8, 2024</key>
-	<dict>
-		<key>identifier</key>
-		<string>10005D72BFC126DF</string>
-	</dict>
 	<key>MLB: Diamondbacks vs Cubs - Apr 17, 2024</key>
 	<dict>
 		<key>identifier</key>
@@ -21,6 +16,11 @@
 	<dict>
 		<key>identifier</key>
 		<string>22005F7DDD271693</string>
+	</dict>
+	<key>Raptors vs. Lakers - Dec 31, 2024</key>
+	<dict>
+		<key>identifier</key>
+		<string>10005D72BFC126DF</string>
 	</dict>
 </dict>
 </plist>

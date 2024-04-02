@@ -65,7 +65,7 @@ extension Configuration {
         let region: TMAuthentication.TMXDeploymentRegion = .US
         
         /// name of your App/Team/Artist/Venue
-        let displayName: String = "Arizona Diamondbacks"
+        let displayName: String = "Your Team"
         
         /// main branding color (optional)
         let backgroundColor: UIColor = UIColor(red: 35/255.0, green: 97/255.0, blue: 146/255.0, alpha: 1.0)

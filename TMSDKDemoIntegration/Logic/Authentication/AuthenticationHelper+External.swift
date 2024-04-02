@@ -52,7 +52,7 @@ extension AuthenticationHelper {
                     if nsError.code == 400,
                        nsError.localizedDescription == "Invalid Request: Invalid Client Id token",
                        // the "errorCode" is the TMX correlationID, that we can use to help debug certain issues
-                       nsError.userInfo["errorCode"] as? String == "psdk-ios_v3.2.5-541f9f5a-6c9a-48e2-9cc0-6ef443e6e241",
+                       nsError.userInfo["errorCode"] as? String == "psdk-ios_v3.5.0-541f9f5a-6c9a-48e2-9cc0-6ef443e6e241",
                        nsError.userInfo["responseCode"] as? Int == 400,
                        nsError.userInfo["errorType"] as? String == "Invalid Request",
                        nsError.userInfo["message"] as? String == "Invalid Client Id token" {
@@ -100,7 +100,7 @@ extension AuthenticationHelper {
         }))
 //        alert.addAction(UIAlertAction(title: "Bill Smith", style: .default, handler: { _ in
 //            // once login is completed, return uniqueUserId and email
-//            success("uniqueUserIdForBillSmith", "bill@smith.com")
+//            success("uniqueUserIdForBillSmith", "bill.smith@email.com")
 //        }))
         alert.addAction(UIAlertAction(title: "None", style: .cancel, handler: { _ in
             // return error
@@ -110,8 +110,8 @@ extension AuthenticationHelper {
         viewController.present(alert, animated: true)
     }
     
-    static let fakeUniqueID = "someSystemLoginID7"
-    static let fakeEmail = "jonathan.backer@livenation.com"
+    static let fakeUniqueID = "yourLoginSystemUniqueUserID1234"
+    static let fakeEmail = "john.smith@email.com"
     static let fakeError = NSError(domain: "AuthenticationHelper", code: -1)
     
     private func getJWTToken(uniqueUserID: String, email: String,
@@ -168,7 +168,7 @@ extension AuthenticationHelper {
 
         // THIS URL WON'T WORK OUTSIDE OF THE TM FIREWALL
         let apiKey = ConfigurationManager.shared.currentConfiguration.apiKey
-        if let url = URL(string: "http://livenation-test.apigee.net/tmx-prod/v1/admin/token/generate?apikey=\(apiKey)") {
+        if let url = URL(string: "http://someurl.com/token/generate") {
             var urlRequest = URLRequest(url: url)
             urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
             
