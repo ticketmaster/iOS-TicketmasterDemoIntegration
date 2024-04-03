@@ -167,7 +167,6 @@ extension AuthenticationHelper {
         // TODO: replace this code with your login system getJWT networking
 
         // THIS URL WON'T WORK OUTSIDE OF THE TM FIREWALL
-        let apiKey = ConfigurationManager.shared.currentConfiguration.apiKey
         if let url = URL(string: "http://someurl.com/token/generate") {
             var urlRequest = URLRequest(url: url)
             urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
