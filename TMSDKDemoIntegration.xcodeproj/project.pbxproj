@@ -61,6 +61,7 @@
 		79BC56002A57457000E082E1 /* AuthenticationHelper+Present.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BC55FF2A57457000E082E1 /* AuthenticationHelper+Present.swift */; };
 		79BC56022A574BCE00E082E1 /* AuthenticationVC+Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BC56012A574BCE00E082E1 /* AuthenticationVC+Notifications.swift */; };
 		79CD14A72A8D4CFA00542D92 /* EmbeddedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CD14A62A8D4CFA00542D92 /* EmbeddedViewController.swift */; };
+		79DC447E2BE98600001ABDDF /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 79DC447D2BE98600001ABDDF /* PrivacyInfo.xcprivacy */; };
 		79E8C00A2A5627DE0054B340 /* BrandedNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E8C0082A5627DE0054B340 /* BrandedNavigationController.swift */; };
 		79E8C0202A56290F0054B340 /* MenuTextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79E8C00E2A56290F0054B340 /* MenuTextFieldTableViewCell.xib */; };
 		79E8C0212A56290F0054B340 /* MenuTextFieldWithTitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79E8C00F2A56290F0054B340 /* MenuTextFieldWithTitleTableViewCell.xib */; };
@@ -178,6 +179,7 @@
 		79BC55FF2A57457000E082E1 /* AuthenticationHelper+Present.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthenticationHelper+Present.swift"; sourceTree = "<group>"; };
 		79BC56012A574BCE00E082E1 /* AuthenticationVC+Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthenticationVC+Notifications.swift"; sourceTree = "<group>"; };
 		79CD14A62A8D4CFA00542D92 /* EmbeddedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmbeddedViewController.swift; sourceTree = "<group>"; };
+		79DC447D2BE98600001ABDDF /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		79E8C0082A5627DE0054B340 /* BrandedNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandedNavigationController.swift; sourceTree = "<group>"; };
 		79E8C00E2A56290F0054B340 /* MenuTextFieldTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuTextFieldTableViewCell.xib; sourceTree = "<group>"; };
 		79E8C00F2A56290F0054B340 /* MenuTextFieldWithTitleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuTextFieldWithTitleTableViewCell.xib; sourceTree = "<group>"; };
@@ -305,6 +307,7 @@
 				797BC4CB2A5623A60031E4EE /* LaunchScreen.storyboard */,
 				797BC4CE2A5623A60031E4EE /* Info.plist */,
 				796D13082BA268DD00743907 /* .swiftlint.yml */,
+				79DC447D2BE98600001ABDDF /* PrivacyInfo.xcprivacy */,
 			);
 			path = TMSDKDemoIntegration;
 			sourceTree = "<group>";
@@ -606,6 +609,7 @@
 				79E8C0202A56290F0054B340 /* MenuTextFieldTableViewCell.xib in Resources */,
 				790B04792BB4B70C009BA193 /* MenuTitleSubtitleTableViewCell.xib in Resources */,
 				79E8C02D2A56290F0054B340 /* MenuButtonWithTitleTableViewCell.xib in Resources */,
+				79DC447E2BE98600001ABDDF /* PrivacyInfo.xcprivacy in Resources */,
 				797BC4CD2A5623A60031E4EE /* LaunchScreen.storyboard in Resources */,
 				797BC4CA2A5623A60031E4EE /* Assets.xcassets in Resources */,
 				79E8C0282A56290F0054B340 /* MenuSegmentedControlTableViewCell.xib in Resources */,
@@ -811,7 +815,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				MARKETING_VERSION = 1.6.3;
+				MARKETING_VERSION = 1.6.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -870,7 +874,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				MARKETING_VERSION = 1.6.3;
+				MARKETING_VERSION = 1.6.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -966,7 +970,7 @@
 			repositoryURL = "https://github.com/ticketmaster/iOS-TicketmasterSDK.git";
 			requirement = {
 				kind = exactVersion;
-				version = 1.6.3;
+				version = 1.6.4;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
