@@ -13,6 +13,7 @@ extension PrePurchaseHelper {
         
     func viewControllerForCurrentConfiguration(page: TMPrePurchaseViewController.PrePurchasePage) -> TMPrePurchaseViewController {
         let prePurchaseVC = TMPrePurchaseViewController(initialPage: page,
+                                                        marketDomain: forcedMarketDomain,
                                                         marketLocation: homepageMarketLocation, // if showing homepage
                                                         queryParameters: nil,
                                                         enclosingEnvironment: .navigationController,

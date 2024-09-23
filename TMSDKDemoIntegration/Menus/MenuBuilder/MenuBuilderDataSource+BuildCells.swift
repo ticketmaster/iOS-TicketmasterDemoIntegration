@@ -44,6 +44,12 @@ extension MenuBuilderDataSource {
             customCell.delegate = self
             cell = customCell
             
+        case .buttonWithTitleAndPopupMenu:
+            let customCell = tableView.dequeueReusableCell(withIdentifier: cellInfo.cellType.rawValue) as! MenuButtonWithTitleAndPopupTableViewCell
+            customCell.configure(withCellInfo: cellInfo)
+            customCell.delegate = self
+            cell = customCell
+            
         case .textField:
             let customCell = tableView.dequeueReusableCell(withIdentifier: cellInfo.cellType.rawValue) as! MenuTextFieldTableViewCell
             customCell.configure(withCellInfo: cellInfo)

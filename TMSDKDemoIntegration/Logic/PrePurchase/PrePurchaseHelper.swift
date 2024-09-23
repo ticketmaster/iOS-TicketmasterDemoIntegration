@@ -15,6 +15,7 @@ class PrePurchaseHelper: NSObject {
     
     weak var prePurchaseMenuVC: PrePurchaseViewController?
 
+    var forcedMarketDomain: MarketDomain = MarketDomain.US
     var homepageMarketLocation: MarketLocation = MarketLocation.California_LosAngeles()
     
     lazy var clLocationManager: CLLocationManager = {

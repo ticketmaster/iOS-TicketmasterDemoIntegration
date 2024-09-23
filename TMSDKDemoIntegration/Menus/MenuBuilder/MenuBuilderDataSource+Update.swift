@@ -50,6 +50,13 @@ extension MenuBuilderDataSource {
                         cell.update(title: title)
                     }
                 }
+            case .buttonWithTitleAndPopupMenu:
+                cellInfo.titleText = title
+                if let cell = loadedCell as? MenuButtonWithTitleAndPopupTableViewCell {
+                    DispatchQueue.main.async {
+                        cell.update(title: title)
+                    }
+                }
             case .textField:
                 // no title, but update placeholder text
                 cellInfo.placeholderText = title
@@ -123,6 +130,15 @@ extension MenuBuilderDataSource {
                 if let value = value {
                     cellInfo.valueText = value
                     if let cell = loadedCell as? MenuButtonWithTitleTableViewCell {
+                        DispatchQueue.main.async {
+                            cell.update(buttonTitle: value)
+                        }
+                    }
+                }
+            case .buttonWithTitleAndPopupMenu:
+                if let value = value {
+                    cellInfo.valueText = value
+                    if let cell = loadedCell as? MenuButtonWithTitleAndPopupTableViewCell {
                         DispatchQueue.main.async {
                             cell.update(buttonTitle: value)
                         }

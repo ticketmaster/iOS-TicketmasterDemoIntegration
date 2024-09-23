@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		59073DBD2C91C91C002597BF /* MenuButtonWithTitleAndPopupMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59073DBB2C91C91C002597BF /* MenuButtonWithTitleAndPopupMenuTableViewCell.swift */; };
+		59073DBE2C91C91C002597BF /* MenuButtonWithTitleAndPopupMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59073DBC2C91C91C002597BF /* MenuButtonWithTitleAndPopupMenuTableViewCell.xib */; };
+		59073DC02C931F65002597BF /* MarketLocation+AdditionalMarkets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59073DBF2C931F65002597BF /* MarketLocation+AdditionalMarkets.swift */; };
 		790B04782BB4B70C009BA193 /* MenuTitleSubtitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790B04762BB4B70C009BA193 /* MenuTitleSubtitleTableViewCell.swift */; };
 		790B04792BB4B70C009BA193 /* MenuTitleSubtitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 790B04772BB4B70C009BA193 /* MenuTitleSubtitleTableViewCell.xib */; };
 		792846102A57599000383C42 /* DiscoveryHelper+Configure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7928460F2A57599000383C42 /* DiscoveryHelper+Configure.swift */; };
@@ -128,6 +131,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		59073DBB2C91C91C002597BF /* MenuButtonWithTitleAndPopupMenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuButtonWithTitleAndPopupMenuTableViewCell.swift; sourceTree = "<group>"; };
+		59073DBC2C91C91C002597BF /* MenuButtonWithTitleAndPopupMenuTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuButtonWithTitleAndPopupMenuTableViewCell.xib; sourceTree = "<group>"; };
+		59073DBF2C931F65002597BF /* MarketLocation+AdditionalMarkets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MarketLocation+AdditionalMarkets.swift"; sourceTree = "<group>"; };
 		790B04762BB4B70C009BA193 /* MenuTitleSubtitleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTitleSubtitleTableViewCell.swift; sourceTree = "<group>"; };
 		790B04772BB4B70C009BA193 /* MenuTitleSubtitleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuTitleSubtitleTableViewCell.xib; sourceTree = "<group>"; };
 		7928460F2A57599000383C42 /* DiscoveryHelper+Configure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiscoveryHelper+Configure.swift"; sourceTree = "<group>"; };
@@ -456,6 +462,7 @@
 				795D32AD2A565EA7001D0466 /* PrePurchaseViewController.swift */,
 				795D32B22A565EA7001D0466 /* PrePurchaseVC+BuildMenu.swift */,
 				795D32B12A565EA7001D0466 /* PrePurchaseVC+Actions.swift */,
+				59073DBF2C931F65002597BF /* MarketLocation+AdditionalMarkets.swift */,
 			);
 			path = PrePurchase;
 			sourceTree = "<group>";
@@ -519,6 +526,8 @@
 				790B04772BB4B70C009BA193 /* MenuTitleSubtitleTableViewCell.xib */,
 				79E8C0122A56290F0054B340 /* MenuTitleTableViewCell.swift */,
 				79E8C0192A56290F0054B340 /* MenuTitleTableViewCell.xib */,
+				59073DBB2C91C91C002597BF /* MenuButtonWithTitleAndPopupMenuTableViewCell.swift */,
+				59073DBC2C91C91C002597BF /* MenuButtonWithTitleAndPopupMenuTableViewCell.xib */,
 			);
 			path = MenuCells;
 			sourceTree = "<group>";
@@ -621,6 +630,7 @@
 				79E8C0212A56290F0054B340 /* MenuTextFieldWithTitleTableViewCell.xib in Resources */,
 				79E8C02E2A56290F0054B340 /* MenuSwitchWithTitleTableViewCell.xib in Resources */,
 				79E8C0222A56290F0054B340 /* MenuBlankTableViewCell.xib in Resources */,
+				59073DBE2C91C91C002597BF /* MenuButtonWithTitleAndPopupMenuTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -657,6 +667,7 @@
 				79E8C0642A5631B70054B340 /* AuthenticationHelper.swift in Sources */,
 				79E8C03F2A56291F0054B340 /* MenuBuilderDataSource+Configure.swift in Sources */,
 				79E8C0252A56290F0054B340 /* MenuTextFieldTableViewCell.swift in Sources */,
+				59073DC02C931F65002597BF /* MarketLocation+AdditionalMarkets.swift in Sources */,
 				79E8C0702A563C380054B340 /* TicketsHelper+OrderDelegate.swift in Sources */,
 				79E8C02A2A56290F0054B340 /* MenuSwitchWithTitleTableViewCell.swift in Sources */,
 				79E8C0892A5656BF0054B340 /* DictionaryExplorerViewController.swift in Sources */,
@@ -688,6 +699,7 @@
 				79E8C0302A56290F0054B340 /* MenuBlankTableViewCell.swift in Sources */,
 				79CD14A72A8D4CFA00542D92 /* EmbeddedViewController.swift in Sources */,
 				79BC56022A574BCE00E082E1 /* AuthenticationVC+Notifications.swift in Sources */,
+				59073DBD2C91C91C002597BF /* MenuButtonWithTitleAndPopupMenuTableViewCell.swift in Sources */,
 				795D32EB2A567499001D0466 /* DiscoveryHelper+Present.swift in Sources */,
 				79E8C0782A563D310054B340 /* TicketsHelper+CustomModules.swift in Sources */,
 				79E8C06A2A5636170054B340 /* PrePurchaseHelper.swift in Sources */,

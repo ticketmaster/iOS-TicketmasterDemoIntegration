@@ -51,6 +51,18 @@ extension PrePurchaseViewController: MenuBuilderDataSourceDelegate {
                     prePurchaseHelper.presentPrePurchase(page: .attraction(identifier: attractionID),
                                                          onViewController: self)
                 }
+                
+            case .settingsDomain:
+                switch action {
+                case .valueChanged(let value):
+                    if let value = value, let market = MarketDomain(rawValue: value.lowercased()) {
+                        prePurchaseHelper.forcedMarketDomain = market
+                        prePurchaseHelper.homepageMarketLocation = MarketLocation.defaultLocationFor(market: market)
+                    }
+                    buildRefreshMenu()
+                default:
+                    break
+                }
             }
         }
     }

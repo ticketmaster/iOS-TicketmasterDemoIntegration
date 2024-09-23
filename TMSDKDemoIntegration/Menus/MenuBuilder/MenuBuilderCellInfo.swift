@@ -121,6 +121,7 @@ enum MenuBuilderCellType: String, CaseIterable {
     case titleSubtitle
     case button
     case buttonWithTitle
+    case buttonWithTitleAndPopupMenu
     case textField
     case textFieldWithTitle
     case segmentedControl
@@ -139,6 +140,8 @@ enum MenuBuilderCellType: String, CaseIterable {
             return "MenuButtonTableViewCell"
         case .buttonWithTitle:
             return "MenuButtonWithTitleTableViewCell"
+        case .buttonWithTitleAndPopupMenu:
+            return "MenuButtonWithTitleAndPopupMenuTableViewCell"
         case .textField:
             return "MenuTextFieldTableViewCell"
         case .textFieldWithTitle:
