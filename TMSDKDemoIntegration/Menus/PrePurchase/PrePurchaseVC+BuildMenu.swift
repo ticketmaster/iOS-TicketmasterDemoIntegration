@@ -7,10 +7,12 @@
 
 import Foundation
 import TicketmasterFoundation
+import TicketmasterDiscoveryAPI
 
 extension PrePurchaseViewController {
     
     enum CellIdentifier: String {
+        case settingsDomain
         case pageHome
         case pageSearch
         case pageVenue
@@ -26,17 +28,41 @@ extension PrePurchaseViewController {
                                       forUniqueIdentifier: CellIdentifier.pageVenue.rawValue)
             menuDataSource.updateCell(value: selectedAttractionIdentifier,
                                       forUniqueIdentifier: CellIdentifier.pageAttraction.rawValue)
+            if let prePurchaseHelper = ConfigurationManager.shared.prePurchaseHelper {
+                menuDataSource.updateCell(value: prePurchaseHelper.forcedMarketDomain.stringValue.uppercased(),
+                                          forUniqueIdentifier: CellIdentifier.settingsDomain.rawValue)
+            }
         }
     }
     
     private func buildMenuDataSource() {
         menuDataSource.configure(tableView: tableView)
         menuDataSource.cellInfoSectionArray = [
+            buildSectionSettings(),
             buildSectionPages(),
             MenuBuilderDataSource.buildSectionBlanksForKeyboard()
         ]
         menuDataSource.delegate = self
         tableView.reloadData()
+    }
+    
+    private func buildSectionSettings() -> MenuBuilderSectionInfo {
+        var cellInfoArray: [MenuBuilderCellInfo] = []
+        var cellInfo: MenuBuilderCellInfo
+        
+        cellInfo = MenuBuilderCellInfo(cellType: .buttonWithTitleAndPopupMenu,
+                                       uniqueIdentifier: CellIdentifier.settingsDomain.rawValue,
+                                       titleText: "Domain:",
+                                       valueText: ConfigurationManager.shared.prePurchaseHelper?.forcedMarketDomain.stringValue.uppercased(),
+                                       valueArray: MarketDomain.sampleKeys,
+                                       segmentTextArray: MarketDomain.sampleKeys.map({
+                (NSLocale.current as NSLocale).displayName(forKey: .countryCode, value: $0) ?? $0
+            })
+        )
+
+        cellInfoArray.append(cellInfo)
+        
+        return MenuBuilderSectionInfo(title: "Settings", cellInfoRowArray: cellInfoArray)
     }
     
     private func buildSectionPages() -> MenuBuilderSectionInfo {
@@ -73,5 +99,33 @@ extension PrePurchaseViewController {
         
         
         return MenuBuilderSectionInfo(title: "PrePurchase", cellInfoRowArray: cellInfoArray)
+    }
+}
+
+extension MarketDomain {
+    
+    static var sampleKeys: [String] {
+        return [MarketDomain.US.stringValue.uppercased(),
+                MarketDomain.CA.stringValue.uppercased(),
+                MarketDomain.AU.stringValue.uppercased(),
+                MarketDomain.NZ.stringValue.uppercased(),
+                MarketDomain.UK.stringValue.uppercased(),
+                MarketDomain.IE.stringValue.uppercased(),
+                MarketDomain.MX.stringValue.uppercased()]
+    }
+    
+    var defaultSampleLocale: DiscoveryLocale {
+        switch self {
+        case .US, .CA, .AU, .NZ:
+            return .EN_US
+        case .UK, .IE:
+            return .EN_GB
+        case .MX:
+            return .EN_MX
+        case .AT, .PL, .NO, .FI, .BE, .CZ, .SE, .ZA, .ES, .DE, .AE, .NL, .CH, .DK:
+            return .EN_US
+        @unknown default:
+            return .EN_US
+        }
     }
 }
