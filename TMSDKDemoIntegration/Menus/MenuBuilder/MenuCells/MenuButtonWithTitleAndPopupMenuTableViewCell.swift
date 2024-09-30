@@ -54,8 +54,7 @@ extension MenuButtonWithTitleAndPopupTableViewCell {
         for (index, value) in valueArray.enumerated() {
             var title: String
             if let titlesArray = cellInfo.segmentTextArray,
-               index < titlesArray.count
-            {
+               index < titlesArray.count {
                 title = titlesArray[index]
             } else {
                 title = value

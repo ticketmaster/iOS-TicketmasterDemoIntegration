@@ -13,11 +13,11 @@ extension MarketLocation {
     static func defaultLocationFor(market: MarketDomain) -> MarketLocation {
         switch market {
         case .CA: MarketLocation.Canada_BritishColumbia_Vancouver()
-        case .AU: MarketLocation.Australia_Sydney()
-        case .MX: MarketLocation.Mexico_MexicoCity()
-        case .NZ: MarketLocation.NewZealand_Auckland()
-        case .UK: MarketLocation.UK_London()
-        case .IE: MarketLocation.IE_Dublin()
+        case .AU: MarketLocation.australia_Sydney()
+        case .MX: MarketLocation.mexico_MexicoCity()
+        case .NZ: MarketLocation.newZealand_Auckland()
+        case .UK: MarketLocation.uk_London()
+        case .IE: MarketLocation.ie_Dublin()
         default: MarketLocation.California_LosAngeles()
         }
     }
@@ -25,7 +25,7 @@ extension MarketLocation {
 
 extension MarketLocation {
     
-    static func Australia_Sydney() -> MarketLocation {
+    static func australia_Sydney() -> MarketLocation {
         let domain: MarketDomain = .AU
         let marketID: Int = 307
         let marketName: String = "Sydney"
@@ -35,7 +35,7 @@ extension MarketLocation {
         return MarketLocation(domain: domain, identifier: "\(marketID)", name: marketName, localizedName: description, dmaId: nil, countryCode: domain.countryCode, userLocation: UserLocation(location: clLocation, source: .appMarketList), source: .appMarketList)
     }
     
-    static func Mexico_MexicoCity() -> MarketLocation {
+    static func mexico_MexicoCity() -> MarketLocation {
         let domain: MarketDomain = .MX
         let marketID: Int = 402
         let marketName: String = "Mexico City"
@@ -45,7 +45,7 @@ extension MarketLocation {
         return MarketLocation(domain: domain, identifier: "\(marketID)", name: marketName, localizedName: description, dmaId: nil, countryCode: domain.countryCode, userLocation: UserLocation(location: clLocation, source: .appMarketList), source: .appMarketList)
     }
     
-    static func NewZealand_Auckland() -> MarketLocation {
+    static func newZealand_Auckland() -> MarketLocation {
         let domain: MarketDomain = .NZ
         let marketID: Int = 351
         let marketName: String = "Auckland"
@@ -55,7 +55,7 @@ extension MarketLocation {
         return MarketLocation(domain: domain, identifier: "\(marketID)", name: marketName, localizedName: description, dmaId: nil, countryCode: domain.countryCode, userLocation: UserLocation(location: clLocation, source: .appMarketList), source: .appMarketList)
     }
     
-    static func UK_London() -> MarketLocation {
+    static func uk_London() -> MarketLocation {
         let domain: MarketDomain = .UK
         let marketID: Int = 202
         let marketName: String = "London"
@@ -65,7 +65,7 @@ extension MarketLocation {
         return MarketLocation(domain: domain, identifier: "\(marketID)", name: marketName, localizedName: description, dmaId: nil, countryCode: domain.countryCode, userLocation: UserLocation(location: clLocation, source: .appMarketList), source: .appMarketList)
     }
     
-    static func IE_Dublin() -> MarketLocation {
+    static func ie_Dublin() -> MarketLocation {
         let domain: MarketDomain = .IE
         let marketID: Int = 208
         let marketName: String = "Dublin"
