@@ -184,6 +184,7 @@
 		79BC55FD2A5741D100E082E1 /* AuthenticationVC+Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthenticationVC+Actions.swift"; sourceTree = "<group>"; };
 		79BC55FF2A57457000E082E1 /* AuthenticationHelper+Present.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthenticationHelper+Present.swift"; sourceTree = "<group>"; };
 		79BC56012A574BCE00E082E1 /* AuthenticationVC+Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthenticationVC+Notifications.swift"; sourceTree = "<group>"; };
+		79CA8DF42CB6FE3B00C193A6 /* TMSDKDemoIntegration.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TMSDKDemoIntegration.entitlements; sourceTree = "<group>"; };
 		79CD14A62A8D4CFA00542D92 /* EmbeddedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmbeddedViewController.swift; sourceTree = "<group>"; };
 		79DC447D2BE98600001ABDDF /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		79E8C0082A5627DE0054B340 /* BrandedNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandedNavigationController.swift; sourceTree = "<group>"; };
@@ -303,6 +304,7 @@
 		797BC4BF2A5623A40031E4EE /* TMSDKDemoIntegration */ = {
 			isa = PBXGroup;
 			children = (
+				79CA8DF42CB6FE3B00C193A6 /* TMSDKDemoIntegration.entitlements */,
 				79E8BFF92A5626160054B340 /* Documentation */,
 				79E8BFFA2A56262A0054B340 /* Configuration */,
 				79E8BFFB2A5626380054B340 /* Logic */,
@@ -902,6 +904,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TMSDKDemoIntegration/TMSDKDemoIntegration.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8A6W445CNR;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -918,8 +921,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ticketmaster.TMSDKDemoIntegration;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ticketmaster.ios.PresenceSDKDemoIntegration;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -930,8 +935,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TMSDKDemoIntegration/TMSDKDemoIntegration.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = H2QA9WU6GQ;
+				DEVELOPMENT_TEAM = 8A6W445CNR;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TMSDKDemoIntegration/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "TM SDK Demo";
@@ -946,8 +952,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ticketmaster.TMSDKDemoIntegration;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ticketmaster.ios.PresenceSDKDemoIntegration;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
