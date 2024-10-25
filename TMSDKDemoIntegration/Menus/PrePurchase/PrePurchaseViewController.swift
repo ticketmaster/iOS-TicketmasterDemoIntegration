@@ -45,6 +45,16 @@ class PrePurchaseViewController: UITableViewController {
         super.viewDidLoad()
         
         title = "PrePurchase"
+        
+        if let prePurchaseHelper = ConfigurationManager.shared.prePurchaseHelper {
+            if let value = UserDefaultsManager.shared.string(.prePurchaseDomainString), let market = MarketDomain(rawValue: value.lowercased()) {
+                prePurchaseHelper.forcedMarketDomain = market
+                prePurchaseHelper.homepageMarketLocation = MarketLocation.defaultLocationFor(market: market)
+            } else if let market = MarketDomain(rawValue: TMPrePurchase.shared.marketDomain.stringValue.lowercased()) {
+                prePurchaseHelper.forcedMarketDomain = market
+                prePurchaseHelper.homepageMarketLocation = MarketLocation.defaultLocationFor(market: market)
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

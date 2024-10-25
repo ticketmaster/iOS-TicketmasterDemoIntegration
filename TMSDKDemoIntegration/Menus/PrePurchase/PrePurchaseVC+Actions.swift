@@ -56,6 +56,7 @@ extension PrePurchaseViewController: MenuBuilderDataSourceDelegate {
                 switch action {
                 case .valueChanged(let value):
                     if let value = value, let market = MarketDomain(rawValue: value.lowercased()) {
+                        UserDefaultsManager.shared.set(value, forKey: .prePurchaseDomainString)
                         prePurchaseHelper.forcedMarketDomain = market
                         prePurchaseHelper.homepageMarketLocation = MarketLocation.defaultLocationFor(market: market)
                     }
