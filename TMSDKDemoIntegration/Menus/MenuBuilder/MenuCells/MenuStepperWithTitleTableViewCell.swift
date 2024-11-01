@@ -25,15 +25,14 @@ class MenuStepperWithTitleTableViewCell: MenuBuilderTableViewCell {
     weak var delegate: MenuTextWithValueStepperTableViewCellDelegate?
     
     // MARK: Constructors
-    func configure(withCellInfo cellInfo: MenuBuilderCellInfo) {
+    override func configure(withCellInfo cellInfo: MenuBuilderCellInfo) {
         guard cellInfo.cellType == .stepperWithTitle else { return }
-        self.cellInfo = cellInfo
-        
-        tintColor = cellInfo.titleColor ?? .label
-        setupAccessoryType()
+        super.configure(withCellInfo: cellInfo)
         
         titleLabel.text = cellInfo.titleText
-        
+        titleLabel.font = cellInfo.titleFont
+        titleLabel.textColor = cellInfo.titleColor
+
         if let valueArray = cellInfo.valueArray, cellInfo.stepperUsesValueArray {
             stepperUsesValueArray = true
             stepperValues = valueArray
@@ -44,10 +43,17 @@ class MenuStepperWithTitleTableViewCell: MenuBuilderTableViewCell {
         valueStepper.stepValue = cellInfo.stepperStepValue
         valueStepper.wraps = cellInfo.stepperWraps
         setupDefaultValues(string: cellInfo.valueText ?? "")
+        valueStepper.tintColor = cellInfo.valueColor
+        if cellInfo.valueColor != nil {
+            valueStepper.setDecrementImage(valueStepper.decrementImage(for: .normal), for: .normal)
+            valueStepper.setIncrementImage(valueStepper.incrementImage(for: .normal), for: .normal)
+        } else {
+            valueStepper.setDecrementImage(nil, for: .normal)
+            valueStepper.setIncrementImage(nil, for: .normal)
+        }
         
-        titleLabel.textColor = cellInfo.titleColor ?? .label
-        valueStepper.tintColor = cellInfo.valueColor ?? contentView.tintColor
-        backgroundColor = cellInfo.backgroundColor
+        valueButton.setTitleColor(cellInfo.valueColor, for: .normal)
+        valueButton.titleLabel?.font = cellInfo.valueFont
     }
     
     private func setupDefaultValues(string: String) {
@@ -77,7 +83,7 @@ class MenuStepperWithTitleTableViewCell: MenuBuilderTableViewCell {
     }
     
     // MARK: Updates
-    func update(title: String) {
+    func update(title: String?) {
         titleLabel.text = title
     }
     

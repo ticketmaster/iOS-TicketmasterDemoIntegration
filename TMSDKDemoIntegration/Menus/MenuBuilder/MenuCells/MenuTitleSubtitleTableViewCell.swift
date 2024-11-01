@@ -14,22 +14,21 @@ class MenuTitleSubtitleTableViewCell: MenuBuilderTableViewCell {
     @IBOutlet weak var subtitleLabel: UILabel!
         
     // MARK: Constructors
-    func configure(withCellInfo cellInfo: MenuBuilderCellInfo) {
+    override func configure(withCellInfo cellInfo: MenuBuilderCellInfo) {
         guard cellInfo.cellType == .titleSubtitle else { return }
-        self.cellInfo = cellInfo
-        self.accessoryType = cellInfo.accessoryType
+        super.configure(withCellInfo: cellInfo)
 
         titleLabel.text = cellInfo.titleText
-        titleLabel.textColor = cellInfo.titleColor ?? .label
+        titleLabel.font = cellInfo.titleFont
+        titleLabel.textColor = cellInfo.titleColor
         
         subtitleLabel.text = cellInfo.valueText
-        subtitleLabel.textColor = cellInfo.valueColor ?? .gray
-        
-        contentView.backgroundColor = cellInfo.backgroundColor
+        subtitleLabel.font = cellInfo.valueFont
+        subtitleLabel.textColor = cellInfo.valueColor
     }
     
     // MARK: Updates
-    func update(title: String) {
+    func update(title: String?) {
         titleLabel.text = title
     }
     

@@ -112,77 +112,53 @@ extension MenuBuilderDataSource {
             case .titleSubtitle:
                 cellInfo.valueText = value
                 if let cell = loadedCell as? MenuTitleSubtitleTableViewCell {
-                    DispatchQueue.main.async {
-                        cell.update(subtitle: value)
-                    }
+                    cell.update(subtitle: value)
                 }
             case .button:
-                if let value = value {
-                    // no value, but we'll update the title instead
-                    cellInfo.titleText = value
-                    if let cell = loadedCell as? MenuButtonTableViewCell {
-                        DispatchQueue.main.async {
-                            cell.update(title: value)
-                        }
-                    }
+                // no value, but we'll update the title instead
+                cellInfo.titleText = value
+                if let cell = loadedCell as? MenuButtonTableViewCell {
+                    cell.update(title: value)
                 }
             case .buttonWithTitle:
-                if let value = value {
-                    cellInfo.valueText = value
-                    if let cell = loadedCell as? MenuButtonWithTitleTableViewCell {
-                        DispatchQueue.main.async {
-                            cell.update(buttonTitle: value)
-                        }
-                    }
+                cellInfo.valueText = value
+                if let cell = loadedCell as? MenuButtonWithTitleTableViewCell {
+                    cell.update(buttonTitle: value)
                 }
             case .buttonWithTitleAndPopupMenu:
-                if let value = value {
-                    cellInfo.valueText = value
-                    if let cell = loadedCell as? MenuButtonWithTitleAndPopupTableViewCell {
-                        DispatchQueue.main.async {
-                            cell.update(buttonTitle: value)
-                        }
-                    }
+                cellInfo.valueText = value
+                if let cell = loadedCell as? MenuButtonWithTitleAndPopupTableViewCell {
+                    cell.update(buttonTitle: value)
                 }
             case .textField:
                 cellInfo.valueText = value
                 if let cell = loadedCell as? MenuTextFieldTableViewCell {
-                    DispatchQueue.main.async {
-                        cell.update(value: value)
-                    }
+                    cell.update(value: value)
                 }
             case .textFieldWithTitle:
                 cellInfo.valueText = value
                 if let cell = loadedCell as? MenuTextFieldWithTitleTableViewCell {
-                    DispatchQueue.main.async {
-                        cell.update(value: value)
-                    }
+                    cell.update(value: value)
                 }
             case .segmentedControl:
-                if let value = value {
+                if let value {
                     cellInfo.valueText = value
                     if let cell = loadedCell as? MenuSegmentedControlTableViewCell {
-                        DispatchQueue.main.async {
-                            cell.update(value: value)
-                        }
+                        cell.update(value: value)
                     }
                 }
             case .switchWithTitle:
                 if let value = value?.lowercased() {
                     cellInfo.switchIsOn = (value == "true" || value == "t" || value == "yes" || value == "y" || value == "1" || value == "on")
                     if let cell = loadedCell as? MenuSwitchWithTitleTableViewCell {
-                        DispatchQueue.main.async {
-                            cell.update(value: cellInfo.switchIsOn)
-                        }
+                        cell.update(value: cellInfo.switchIsOn)
                     }
                 }
             case .stepperWithTitle:
-                if let value = value {
+                if let value {
                     cellInfo.valueText = value
                     if let cell = loadedCell as? MenuStepperWithTitleTableViewCell {
-                        DispatchQueue.main.async {
-                            cell.update(value: value)
-                        }
+                        cell.update(value: value)
                     }
                 }
             }
@@ -192,18 +168,18 @@ extension MenuBuilderDataSource {
     func cellInfo(forUniqueIdentifier uniqueIdentifier: String) -> MenuBuilderCellInfo? {
         for section in cellInfoSectionArray {
             for cell in section.cellInfoRowArray where cell.uniqueIdentifier == uniqueIdentifier {
-                    return cell
-                }
+                return cell
             }
+        }
         return nil
     }
     
     func cell(forUniqueIdentifier uniqueIdentifier: String) -> MenuBuilderTableViewCell? {
         if let cellArray = tableView?.visibleCells as? [MenuBuilderTableViewCell] {
             for cell in cellArray where cell.cellInfo.uniqueIdentifier == uniqueIdentifier {
-                    return cell
-                }
+                return cell
             }
+        }
         return nil
     }
 }

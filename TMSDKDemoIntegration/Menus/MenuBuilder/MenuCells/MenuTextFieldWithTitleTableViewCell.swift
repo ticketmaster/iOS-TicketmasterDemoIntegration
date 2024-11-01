@@ -23,26 +23,25 @@ class MenuTextFieldWithTitleTableViewCell: MenuBuilderTableViewCell {
     private var returnPressedText: String?
     
     // MARK: Constructors
-    func configure(withCellInfo cellInfo: MenuBuilderCellInfo) {
+    override func configure(withCellInfo cellInfo: MenuBuilderCellInfo) {
         guard cellInfo.cellType == .textFieldWithTitle else { return }
-        self.cellInfo = cellInfo
-
-        tintColor = cellInfo.titleColor ?? .label
-        setupAccessoryType()
+        super.configure(withCellInfo: cellInfo)
         
         titleLabel.text = cellInfo.titleText
+        titleLabel.font = cellInfo.titleFont
+        titleLabel.textColor = cellInfo.titleColor
+
         valueTextField.placeholder = cellInfo.placeholderText
         valueTextField.text = cellInfo.valueText
+        valueTextField.font = cellInfo.valueFont
         valueTextField.returnKeyType = cellInfo.returnKeyType
+        valueTextField.textColor = cellInfo.valueColor
+
         returnPressedText = nil
-        
-        titleLabel.textColor = cellInfo.titleColor ?? .label
-        valueTextField.textColor = cellInfo.valueColor ?? .label
-        backgroundColor = cellInfo.backgroundColor
     }
     
     // MARK: Updates
-    func update(title: String) {
+    func update(title: String?) {
         titleLabel.text = title
     }
     

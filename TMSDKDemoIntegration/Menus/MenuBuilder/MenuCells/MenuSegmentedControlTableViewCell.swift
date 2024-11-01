@@ -20,28 +20,27 @@ class MenuSegmentedControlTableViewCell: MenuBuilderTableViewCell {
     weak var delegate: MenuSegmentedControlTableViewCellDelegate?
     
     // MARK: Constructors
-    func configure(withCellInfo cellInfo: MenuBuilderCellInfo) {
+    override func configure(withCellInfo cellInfo: MenuBuilderCellInfo) {
         guard cellInfo.cellType == .segmentedControl else { return }
-        self.cellInfo = cellInfo
-        
-        tintColor = cellInfo.valueColor ?? .label
-        setupAccessoryType()
+        super.configure(withCellInfo: cellInfo)
         
         guard let valueArray = cellInfo.valueArray,
               let segmentTextArray = cellInfo.segmentTextArray ?? cellInfo.valueArray else {
-            print("Please check the contents of segments for MenuSegmentedControlTableViewCell")
+                  logMessage("Please check the contents of segments for MenuSegmentedControlTableViewCell", level: .warning)
                   return
               }
 
         valueSegmentedControl.removeAllSegments()
         valueSegmentedControl.setValues(valueArray, displayTexts: segmentTextArray)
-
         if let selected = cellInfo.valueText {
             valueSegmentedControl.selectValue(selected)
         }
-        
-        valueSegmentedControl.tintColor = cellInfo.valueColor ?? contentView.tintColor
-        backgroundColor = cellInfo.backgroundColor
+        if let color = cellInfo.titleColor {
+            valueSegmentedControl.setTitleTextAttributes([.foregroundColor: color as Any], for: .normal)
+        } else {
+            valueSegmentedControl.setTitleTextAttributes(nil, for: .normal)
+        }
+        valueSegmentedControl.selectedSegmentTintColor = cellInfo.valueColor
     }
     
     // MARK: Updates
@@ -68,7 +67,7 @@ class MappedSegmentedControl: UISegmentedControl {
 
     func setValues(_ values: [String], displayTexts: [String]) {
         guard values.count == displayTexts.count else {
-            print("The number of values should be equal to display texts")
+            logMessage("The number of values should be equal to display texts", level: .warning)
             return
         }
 

@@ -11,16 +11,13 @@ import UIKit
 class MenuBlankTableViewCell: MenuBuilderTableViewCell {
 
     // MARK: Constructor
-    func configure(withCellInfo cellInfo: MenuBuilderCellInfo) {
+    override func configure(withCellInfo cellInfo: MenuBuilderCellInfo) {
         guard cellInfo.cellType == .blank else { return }
-        self.cellInfo = cellInfo
-
-        tintColor = cellInfo.titleColor ?? .label
-        setupAccessoryType()
+        super.configure(withCellInfo: cellInfo)
         
-        if let color = cellInfo.backgroundColor {
-            backgroundColor = color
-        }
+        tintColor = .clear
+        backgroundColor = .clear
+        contentView.backgroundColor = .clear
     }
 
     // MARK: Update

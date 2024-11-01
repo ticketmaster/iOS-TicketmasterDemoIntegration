@@ -13,20 +13,17 @@ class MenuTitleTableViewCell: MenuBuilderTableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
         
     // MARK: Constructors
-    func configure(withCellInfo cellInfo: MenuBuilderCellInfo) {
+    override func configure(withCellInfo cellInfo: MenuBuilderCellInfo) {
         guard cellInfo.cellType == .title else { return }
-        self.cellInfo = cellInfo
-        
-        tintColor = cellInfo.titleColor ?? .label
-        setupAccessoryType()
+        super.configure(withCellInfo: cellInfo)
         
         titleLabel.text = cellInfo.titleText
-        titleLabel.textColor = cellInfo.titleColor ?? .label
-        backgroundColor = cellInfo.backgroundColor
+        titleLabel.font = cellInfo.titleFont
+        titleLabel.textColor = cellInfo.titleColor
     }
     
     // MARK: Updates
-    func update(title: String) {
+    func update(title: String?) {
         titleLabel.text = title
     }
 

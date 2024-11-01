@@ -40,9 +40,11 @@ class MenuBuilderCellInfo {
     /// for Text
     var titleText: String?
     var titleColor: UIColor?
+    var titleFont: UIFont?
     /// for value of Button, TextField, selected Segment, or Subtitle
     var valueText: String?
     var valueColor: UIColor?
+    var valueFont: UIFont?
     /// for UITextField
     var placeholderText: String?
         
@@ -63,17 +65,18 @@ class MenuBuilderCellInfo {
     var stepperMaxValue: Double = 0.0
     var stepperStepValue: Double = 1.0
     var stepperWraps: Bool = false
-    
+        
     init(cellType: MenuBuilderCellType,
          uniqueIdentifier: String,
-         sectionTitle: String? = nil,
          accessoryType: UITableViewCell.AccessoryType? = nil,
          associatedItem: Any? = nil,
          backgroundColor: UIColor? = nil,
          titleText: String? = nil,
          titleColor: UIColor? = nil,
+         titleFont: UIFont? = nil,
          valueText: String? = nil,
          valueColor: UIColor? = nil,
+         valueFont: UIFont? = nil,
          placeholderText: String? = nil,
          valueArray: [String]? = nil,
          segmentTextArray: [String]? = nil,
@@ -87,7 +90,7 @@ class MenuBuilderCellInfo {
          stepperWraps: Bool = false) {
         self.cellType = cellType
         self.uniqueIdentifier = uniqueIdentifier
-        self.sectionTitle = sectionTitle
+        self.sectionTitle = nil // assigned by MenuBuilderSectionInfo
         self.accessoryType = accessoryType ?? .none
         
         self.associatedItem = associatedItem
@@ -95,8 +98,10 @@ class MenuBuilderCellInfo {
         self.backgroundColor = backgroundColor
         self.titleText = titleText
         self.titleColor = titleColor
+        self.titleFont = titleFont
         self.valueText = valueText
         self.valueColor = valueColor
+        self.valueFont = valueFont
         self.placeholderText = placeholderText
 
         self.valueArray = valueArray
@@ -124,8 +129,8 @@ enum MenuBuilderCellType: String, CaseIterable {
     case buttonWithTitleAndPopupMenu
     case textField
     case textFieldWithTitle
-    case segmentedControl
     case switchWithTitle
+    case segmentedControl
     case stepperWithTitle
     
     var nibName: String {
@@ -146,10 +151,10 @@ enum MenuBuilderCellType: String, CaseIterable {
             return "MenuTextFieldTableViewCell"
         case .textFieldWithTitle:
             return "MenuTextFieldWithTitleTableViewCell"
-        case .segmentedControl:
-            return "MenuSegmentedControlTableViewCell"
         case .switchWithTitle:
             return "MenuSwitchWithTitleTableViewCell"
+        case .segmentedControl:
+            return "MenuSegmentedControlTableViewCell"
         case .stepperWithTitle:
             return "MenuStepperWithTitleTableViewCell"
         }

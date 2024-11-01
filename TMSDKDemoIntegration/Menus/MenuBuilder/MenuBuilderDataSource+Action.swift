@@ -19,6 +19,8 @@ enum MenuBuilderAction {
     case switchChanged(isOn: Bool)
     /// Cell Tapped
     case backgroundTapped(value: String?)
+    /// Accessory Trapped
+    case accessoryTapped(value: String?)
     
     var debugString: String {
         switch self {
@@ -30,8 +32,10 @@ enum MenuBuilderAction {
             return ".returnPressed(value: \(value ?? "<nil>"))"
         case .switchChanged(let isOn):
             return ".switchChanged(isOn: \(isOn ? "true" : "false"))"
-        case .backgroundTapped:
-            return ".backgroundTapped()"
+        case .backgroundTapped(let value):
+            return ".backgroundTapped(value: \(value ?? "<nil>"))"
+        case .accessoryTapped(let value):
+            return ".accessoryTapped(value: \(value ?? "<nil>"))"
         }
     }
 }
@@ -65,15 +69,15 @@ extension MenuBuilderDataSource: MenuButtonTableViewCellDelegate {
     }
 }
 
-extension MenuBuilderDataSource: PopupMenuTableviewCellDelegate {
-    func valueChanged(_ cell: MenuButtonWithTitleAndPopupTableViewCell, value: String) {
-        delegate?.menuBuilderDataSource(self, didAction: .valueChanged(value: value), forCell: cell)
-    }
-}
-
 extension MenuBuilderDataSource: MenuTextWithButtonTableViewCellDelegate {
     func buttonPressed(_ cell: MenuButtonWithTitleTableViewCell) {
         delegate?.menuBuilderDataSource(self, didAction: .buttonPressed(title: cell.valueButton.title(for: .normal) ?? ""), forCell: cell)
+    }
+}
+
+extension MenuBuilderDataSource: PopupMenuTableviewCellDelegate {
+    func valueChanged(_ cell: MenuButtonWithTitleAndPopupTableViewCell, value: String) {
+        delegate?.menuBuilderDataSource(self, didAction: .valueChanged(value: value), forCell: cell)
     }
 }
 

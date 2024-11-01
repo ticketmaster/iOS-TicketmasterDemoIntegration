@@ -20,27 +20,25 @@ class MenuButtonWithTitleTableViewCell: MenuBuilderTableViewCell {
     weak var delegate: MenuTextWithButtonTableViewCellDelegate?
     
     // MARK: Constructors
-    func configure(withCellInfo cellInfo: MenuBuilderCellInfo) {
+    override func configure(withCellInfo cellInfo: MenuBuilderCellInfo) {
         guard cellInfo.cellType == .buttonWithTitle else { return }
-        self.cellInfo = cellInfo
-
-        tintColor = cellInfo.titleColor ?? .label
-        setupAccessoryType()
+        super.configure(withCellInfo: cellInfo)
         
         titleLabel.text = cellInfo.titleText
-        valueButton.setTitle(cellInfo.valueText, for: .normal)
+        titleLabel.font = cellInfo.titleFont
+        titleLabel.textColor = cellInfo.titleColor
         
-        titleLabel.textColor = cellInfo.titleColor ?? .label
-        valueButton.tintColor = cellInfo.valueColor ?? contentView.tintColor
-        backgroundColor = cellInfo.backgroundColor
+        valueButton.setTitle(cellInfo.valueText, for: .normal)
+        valueButton.titleLabel?.font = cellInfo.valueFont
+        valueButton.tintColor = cellInfo.valueColor
     }
 
     // MARK: Updates
-    func update(title: String) {
+    func update(title: String?) {
         titleLabel.text = title
     }
     
-    func update(buttonTitle: String) {
+    func update(buttonTitle: String?) {
         valueButton.setTitle(buttonTitle, for: .normal)
     }
 

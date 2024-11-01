@@ -2,10 +2,11 @@
 //  MenuButtonWithTitleAndPopupMenuTableViewCell.swift
 //  RetailDevApp
 //
-//  Created by Vishwak Reddy on 09/11/2024.
+//  Created by Andrew Rennard on 08/02/2024.
 //
 
 import UIKit
+import TicketmasterFoundation
 
 protocol PopupMenuTableviewCellDelegate: AnyObject {
     func valueChanged(_ cell: MenuButtonWithTitleAndPopupTableViewCell, value: String)
@@ -19,29 +20,27 @@ class MenuButtonWithTitleAndPopupTableViewCell: MenuBuilderTableViewCell {
     weak var delegate: PopupMenuTableviewCellDelegate?
     
     // MARK: Constructors
-    func configure(withCellInfo cellInfo: MenuBuilderCellInfo) {
+    override func configure(withCellInfo cellInfo: MenuBuilderCellInfo) {
         guard cellInfo.cellType == .buttonWithTitleAndPopupMenu else { return }
-        self.cellInfo = cellInfo
-        self.accessoryType = cellInfo.accessoryType
+        super.configure(withCellInfo: cellInfo)
 
         titleLabel.text = cellInfo.titleText
+        titleLabel.font = cellInfo.titleFont
+        titleLabel.textColor = cellInfo.titleColor
+
         valueButton.setTitle(cellInfo.valueText, for: .normal)
-        
-        titleLabel.textColor = cellInfo.titleColor ?? .label
-        valueButton.tintColor = cellInfo.valueColor ?? contentView.tintColor
-        contentView.backgroundColor = cellInfo.backgroundColor
-       
+        valueButton.titleLabel?.font = cellInfo.valueFont
+        valueButton.tintColor = cellInfo.valueColor
         valueButton.menu = UIMenu(title: "", children: menuActions())
         valueButton.showsMenuAsPrimaryAction = true
-
     }
 
     // MARK: Updates
-    func update(title: String) {
+    func update(title: String?) {
         titleLabel.text = title
     }
     
-    func update(buttonTitle: String) {
+    func update(buttonTitle: String?) {
         valueButton.setTitle(buttonTitle, for: .normal)
     }
 
@@ -49,12 +48,15 @@ class MenuButtonWithTitleAndPopupTableViewCell: MenuBuilderTableViewCell {
 
 extension MenuButtonWithTitleAndPopupTableViewCell {
     func menuActions() -> [UIMenuElement] {
-        guard let valueArray = cellInfo.valueArray else { return []}
+        guard let valueArray = cellInfo.valueArray else {
+            logMessage("Please check the contents of valueArray for MenuButtonWithTitleAndPopupTableViewCell", level: .warning)
+            return []
+        }
+        
         var actions = [UIMenuElement]()
         for (index, value) in valueArray.enumerated() {
             var title: String
-            if let titlesArray = cellInfo.segmentTextArray,
-               index < titlesArray.count {
+            if let titlesArray = cellInfo.segmentTextArray, index < titlesArray.count {
                 title = titlesArray[index]
             } else {
                 title = value

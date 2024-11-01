@@ -51,7 +51,15 @@ extension MenuBuilderDataSource: UITableViewDelegate {
         dismissKeyboard()
         if let cell = tableView.cellForRow(at: indexPath) as? MenuBuilderTableViewCell {
             delegate?.menuBuilderDataSource(self, didAction: .backgroundTapped(value: cell.cellInfo.valueText), forCell: cell)
+        }
     }
+    
+    func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
+        dismissKeyboard()
+        if let cell = tableView.cellForRow(at: indexPath) as? MenuBuilderTableViewCell {
+            delegate?.menuBuilderDataSource(self, didAction: .accessoryTapped(value: cell.cellInfo.valueText), forCell: cell)
+        }
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

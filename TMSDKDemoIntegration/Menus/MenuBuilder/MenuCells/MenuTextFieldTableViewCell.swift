@@ -22,12 +22,9 @@ class MenuTextFieldTableViewCell: MenuBuilderTableViewCell {
     private var returnPressedText: String?
     
     // MARK: Constructors
-    func configure(withCellInfo cellInfo: MenuBuilderCellInfo) {
+    override func configure(withCellInfo cellInfo: MenuBuilderCellInfo) {
         guard cellInfo.cellType == .textField else { return }
-        self.cellInfo = cellInfo
-
-        tintColor = cellInfo.valueColor ?? .label
-        setupAccessoryType()
+        super.configure(withCellInfo: cellInfo)
 
         if let placeholderText = cellInfo.placeholderText {
             valueTextField.placeholder = placeholderText
@@ -36,15 +33,15 @@ class MenuTextFieldTableViewCell: MenuBuilderTableViewCell {
             valueTextField.placeholder = cellInfo.titleText
         }
         valueTextField.text = cellInfo.valueText
+        valueTextField.font = cellInfo.valueFont
         valueTextField.returnKeyType = cellInfo.returnKeyType
+        valueTextField.tintColor = cellInfo.valueColor
+
         returnPressedText = nil
-        
-        valueTextField.tintColor = cellInfo.valueColor ?? contentView.tintColor
-        backgroundColor = cellInfo.backgroundColor
     }
     
     // MARK: Updates
-    func update(title: String) {
+    func update(title: String?) {
         // no title, but use it as the placeholder text
         valueTextField.placeholder = title
     }

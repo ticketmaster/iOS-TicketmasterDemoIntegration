@@ -55,6 +55,7 @@
 		797BC4C82A5623A40031E4EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 797BC4C62A5623A40031E4EE /* Main.storyboard */; };
 		797BC4CA2A5623A60031E4EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 797BC4C92A5623A60031E4EE /* Assets.xcassets */; };
 		797BC4CD2A5623A60031E4EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 797BC4CB2A5623A60031E4EE /* LaunchScreen.storyboard */; };
+		79811AFD2CD5394D0041AFFA /* MenuDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79811AFC2CD5394D0041AFFA /* MenuDemoViewController.swift */; };
 		79BC55E72A57225E00E082E1 /* PurchaseHelper+WebsiteConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BC55E62A57225E00E082E1 /* PurchaseHelper+WebsiteConfig.swift */; };
 		79BC55F62A57318000E082E1 /* PrePurchaseHelper+Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BC55F52A57318000E082E1 /* PrePurchaseHelper+Location.swift */; };
 		79BC55F82A5736EA00E082E1 /* TicketsHelper+PrePurchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BC55F72A5736EA00E082E1 /* TicketsHelper+PrePurchase.swift */; };
@@ -176,6 +177,7 @@
 		797BC4C92A5623A60031E4EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		797BC4CC2A5623A60031E4EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		797BC4CE2A5623A60031E4EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		79811AFC2CD5394D0041AFFA /* MenuDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuDemoViewController.swift; sourceTree = "<group>"; };
 		79BC55E62A57225E00E082E1 /* PurchaseHelper+WebsiteConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PurchaseHelper+WebsiteConfig.swift"; sourceTree = "<group>"; };
 		79BC55F52A57318000E082E1 /* PrePurchaseHelper+Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PrePurchaseHelper+Location.swift"; sourceTree = "<group>"; };
 		79BC55F72A5736EA00E082E1 /* TicketsHelper+PrePurchase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TicketsHelper+PrePurchase.swift"; sourceTree = "<group>"; };
@@ -500,6 +502,7 @@
 				79E8C0382A56291F0054B340 /* MenuBuilderDataSource+Configure.swift */,
 				79E8C0342A56291F0054B340 /* MenuBuilderDataSource+Update.swift */,
 				79E8C0372A56291F0054B340 /* MenuBuilderTableViewCell.swift */,
+				79811AFC2CD5394D0041AFFA /* MenuDemoViewController.swift */,
 				79E8C00D2A5628FB0054B340 /* MenuCells */,
 			);
 			path = MenuBuilder;
@@ -514,6 +517,8 @@
 				79E8C0112A56290F0054B340 /* MenuButtonTableViewCell.xib */,
 				79E8C0172A56290F0054B340 /* MenuButtonWithTitleTableViewCell.swift */,
 				79E8C01B2A56290F0054B340 /* MenuButtonWithTitleTableViewCell.xib */,
+				59073DBB2C91C91C002597BF /* MenuButtonWithTitleAndPopupMenuTableViewCell.swift */,
+				59073DBC2C91C91C002597BF /* MenuButtonWithTitleAndPopupMenuTableViewCell.xib */,
 				79E8C01F2A56290F0054B340 /* MenuSegmentedControlTableViewCell.swift */,
 				79E8C0162A56290F0054B340 /* MenuSegmentedControlTableViewCell.xib */,
 				79E8C01A2A56290F0054B340 /* MenuStepperWithTitleTableViewCell.swift */,
@@ -528,8 +533,6 @@
 				790B04772BB4B70C009BA193 /* MenuTitleSubtitleTableViewCell.xib */,
 				79E8C0122A56290F0054B340 /* MenuTitleTableViewCell.swift */,
 				79E8C0192A56290F0054B340 /* MenuTitleTableViewCell.xib */,
-				59073DBB2C91C91C002597BF /* MenuButtonWithTitleAndPopupMenuTableViewCell.swift */,
-				59073DBC2C91C91C002597BF /* MenuButtonWithTitleAndPopupMenuTableViewCell.xib */,
 			);
 			path = MenuCells;
 			sourceTree = "<group>";
@@ -677,6 +680,7 @@
 				79E8C0392A56291F0054B340 /* MenuBuilderCellInfo.swift in Sources */,
 				792846192A575A9100383C42 /* AuthenticationHelper+Configure.swift in Sources */,
 				792D38E62A589DBF001D5E5F /* PurchaseHelper+Tickets.swift in Sources */,
+				79811AFD2CD5394D0041AFFA /* MenuDemoViewController.swift in Sources */,
 				79E8C0242A56290F0054B340 /* MenuTitleTableViewCell.swift in Sources */,
 				795D32BB2A565EA7001D0466 /* PrePurchaseVC+Actions.swift in Sources */,
 				792846122A5759DE00383C42 /* PrePurchaseHelper+Configure.swift in Sources */,
