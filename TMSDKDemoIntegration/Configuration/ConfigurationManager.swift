@@ -12,6 +12,7 @@ import TicketmasterAuthentication
 import TicketmasterDiscoveryAPI
 import TicketmasterPrePurchase
 import TicketmasterPurchase
+import TicketmasterSwiftProtobuf
 import TicketmasterSecureEntry
 import TicketmasterTickets
 
@@ -211,6 +212,7 @@ extension ConfigurationManager {
         print("TMPurchase        : v\(TMPurchase.shared.version)")
         print("TMTickets         : v\(TMTickets.shared.version)")
         print(" - SecureEntryView: v\(SecureEntryView.version)")
+        print(" - SwiftProtobuf  : v\(TMSwiftProtobuf.version)")
         print("==========================================")
     }
 }
