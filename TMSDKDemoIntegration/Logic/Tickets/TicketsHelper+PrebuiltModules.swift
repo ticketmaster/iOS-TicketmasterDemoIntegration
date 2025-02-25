@@ -10,7 +10,7 @@ import TicketmasterTickets // for TMPurchasedEvent, TMTicketsModule and TMTicket
 
 extension TicketsHelper {
     
-    func addPreBuiltModules(event: TMPurchasedEvent) -> [TMTicketsModule] {
+    func buildPreBuiltModules(event: TMPurchasedEvent, completion: @escaping (_ prebuiltModules: [TMTicketsModule]) -> Void) {
         print(" - Adding Prebuilt Modules")
         var output: [TMTicketsModule] = []
         
@@ -64,6 +64,7 @@ extension TicketsHelper {
         }
         #endif
         
-        return output
+        // use an async completion in case any of these prebuilt modules need to make a network request
+        completion(output)
     }
 }

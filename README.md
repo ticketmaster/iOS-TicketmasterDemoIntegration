@@ -16,14 +16,6 @@ This is an example integration of the Ticketmaster Ignite SDK, Retail, Tickets, 
 * Retail SDK: https://ignite.ticketmaster.com/docs/ios-retail-change-log
 * Authentication SDK: https://ignite.ticketmaster.com/docs/ios-authentication-change-log
 
-## Demo App Screenshots
-
-<img src="Screenshots/MainMenu.jpg" alt="Main Menu" /> <img src="Screenshots/DiscoveryAPI.jpg" alt="DiscoveryAPI" /> 
-<img src="Screenshots/Homepage.jpg" alt="Homepage" /> <img src="Screenshots/AttractionEvents.jpg" alt="Attraction Details Page" /> <img src="Screenshots/VenueEvents.jpg" alt="Venue Details Page" />
- <img src="Screenshots/Purchase.jpg" alt="Event Details Page" />
- <img src="Screenshots/PurchasedEvents.jpg" alt="Purchased Events Listing Page" /> <img src="Screenshots/Tickets.jpg" alt="Purchased Tickets Listing Page" />
-
-
 ## Getting Started
 
 1. Open **TMSDKDemoIntegration.xcodeproj** using Swift 5.9+ (Xcode 15.0.1+ or Xcode 16.0+)
@@ -33,3 +25,17 @@ This is an example integration of the Ticketmaster Ignite SDK, Retail, Tickets, 
 4. Build and Run **TMSDKDemoIntegration** target
 
  <img src="Screenshots/Project.jpg" alt="Project Contents" />
+
+## Demo App Screenshots
+
+### Main Menu
+<img src="Screenshots/MainMenu.jpg" alt="Main Menu" /> <img src="Screenshots/DiscoveryAPI.jpg" alt="DiscoveryAPI" />
+
+### Retail SDK 
+<img src="Screenshots/Homepage.jpg" alt="Homepage" /> <img src="Screenshots/AttractionEvents.jpg" alt="Attraction Details Page" /> <img src="Screenshots/VenueEvents.jpg" alt="Venue Details Page" /> <img src="Screenshots/Purchase.jpg" alt="Event Details Page" />
+
+### Tickets SDK
+<img src="Screenshots/PurchasedEvents.jpg" alt="Purchased Events Listing Page" /> <img src="Screenshots/Tickets.jpg" alt="Purchased Tickets Listing Page" />
+
+### Tickets SDK: Custom Modules
+<img src="Screenshots/CustomModules.jpg" alt="Custom Modules" /> 

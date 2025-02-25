@@ -240,6 +240,7 @@
 		79E8C0852A5656BF0054B340 /* DictionaryExplorerTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryExplorerTextView.swift; sourceTree = "<group>"; };
 		79E8C0862A5656BF0054B340 /* DiscoveryVC+BuildMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DiscoveryVC+BuildMenu.swift"; sourceTree = "<group>"; };
 		79E8C08F2A56584C0054B340 /* DiscoveryHelper+APICalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiscoveryHelper+APICalls.swift"; sourceTree = "<group>"; };
+		79FE1DF32D6E54BF0070652F /* Screenshots */ = {isa = PBXFileReference; lastKnownFileType = text; path = Screenshots; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -327,6 +328,7 @@
 		79E8BFF92A5626160054B340 /* Documentation */ = {
 			isa = PBXGroup;
 			children = (
+				79FE1DF32D6E54BF0070652F /* Screenshots */,
 				795D32F22A56781C001D0466 /* README.md */,
 			);
 			path = Documentation;
@@ -997,7 +999,7 @@
 			repositoryURL = "https://github.com/ticketmaster/iOS-TicketmasterSDK.git";
 			requirement = {
 				kind = exactVersion;
-				version = 1.13.4;
+				version = 1.13.5;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

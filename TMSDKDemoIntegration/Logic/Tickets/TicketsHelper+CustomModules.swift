@@ -12,7 +12,8 @@ import TicketmasterDiscoveryAPI // for DiscoveryEventSearchCriteria
 
 extension TicketsHelper {
     
-    func addCustomModules(event: TMPurchasedEvent) -> [TMTicketsModule] {
+    /// see Documentation/Screenshots/CustomModules for examples
+    func buildCustomModules(event: TMPurchasedEvent, completion: @escaping (_ customModules: [TMTicketsModule]) -> Void) {
         print(" - Adding Custom Modules")
         var output: [TMTicketsModule] = []
         
@@ -51,18 +52,16 @@ extension TicketsHelper {
             output.append(module)
         }
         
-        return output
-    }
-    
-    func addCustomAsyncModules(event: TMPurchasedEvent, completion: @escaping (_ modules: [TMTicketsModule]) -> Void) {
-        print(" - Adding Custom Modules (async)")
-        var output: [TMTicketsModule] = []
-        
+        // build upcoming home games module (see Documentation/Screenshots/CustomModules for example)
+        // this module uses a network call to Discovery API to find home games
         nextHomeGameModule(event: event) { nextEventModule in
+            // this returns on the networking thread
             if let nextEventModule = nextEventModule {
                 output.append(nextEventModule)
             }
             
+            // use an async completion in case any of these custom modules need to make a network request
+            // like nextHomeGameModule
             completion(output)
         }
     }
@@ -398,7 +397,4 @@ extension TicketsHelper {
                                headerDisplay: headerDisplay,
                                actionButtons: [gamesActionButton]) // you can show 0 to 3 buttons
     }
-    
-    
-    
 }

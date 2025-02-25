@@ -21,17 +21,17 @@ extension TicketsHelper: TMTicketsModuleDelegate {
         print("Add Modules...")
         var modules: [TMTicketsModule] = []
         
-        // add prebuilt modules (optional)
-        modules.append(contentsOf: addPreBuiltModules(event: event))
-        
-        // add custom modules (optional)
-        modules.append(contentsOf: addCustomModules(event: event))
-        
-        addCustomAsyncModules(event: event) { asyncModules in
-            modules.append(contentsOf: asyncModules)
+        buildPreBuiltModules(event: event) { prebuiltModules in
+            // add prebuilt modules (optional)
+            modules.append(contentsOf: prebuiltModules)
             
-            // return list of modules (in the order you want them displayed)
-            completion(modules)
+            self.buildCustomModules(event: event) { customModules in
+                // add custom modules (optional)
+                modules.append(contentsOf: customModules)
+                
+                // return list of modules (in the order you want them displayed)
+                completion(modules)
+            }
         }
     }
     
