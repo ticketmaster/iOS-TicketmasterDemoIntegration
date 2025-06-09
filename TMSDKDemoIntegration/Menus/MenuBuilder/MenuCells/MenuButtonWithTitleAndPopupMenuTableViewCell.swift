@@ -65,6 +65,7 @@ extension MenuButtonWithTitleAndPopupTableViewCell {
             actions.append(
                 UIAction(title: title) { [weak self] action in
                     guard let self else { return }
+                    self.valueButton.setTitle(value, for: .normal)
                     self.delegate?.valueChanged(self, value: value)
                 }
             )

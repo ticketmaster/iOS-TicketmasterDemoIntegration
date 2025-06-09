@@ -39,6 +39,8 @@ class MenuStepperWithTitleTableViewCell: MenuBuilderTableViewCell {
         } else {
             stepperUsesValueArray = false
             stepperValues = []
+            valueStepper.minimumValue = cellInfo.stepperMinValue
+            valueStepper.maximumValue = cellInfo.stepperMaxValue
         }
         valueStepper.stepValue = cellInfo.stepperStepValue
         valueStepper.wraps = cellInfo.stepperWraps
@@ -61,7 +63,11 @@ class MenuStepperWithTitleTableViewCell: MenuBuilderTableViewCell {
             setupDefaultValues(value: Double(index))
             
         } else {
-            setupDefaultValues(value: 0.0)
+            if let double = Double(string) {
+                setupDefaultValues(value: double)
+            } else {
+                setupDefaultValues(value: 0.0)
+            }
         }
     }
     
