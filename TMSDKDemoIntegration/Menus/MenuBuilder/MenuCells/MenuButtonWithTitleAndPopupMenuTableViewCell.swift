@@ -31,7 +31,7 @@ class MenuButtonWithTitleAndPopupTableViewCell: MenuBuilderTableViewCell {
         valueButton.setTitle(cellInfo.valueText, for: .normal)
         valueButton.titleLabel?.font = cellInfo.valueFont
         valueButton.tintColor = cellInfo.valueColor
-        valueButton.menu = UIMenu(title: "", children: menuActions())
+        valueButton.menu = UIMenu(title: "", children: menuActions()) // iOS 14+
         valueButton.showsMenuAsPrimaryAction = true
     }
 
@@ -65,6 +65,9 @@ extension MenuButtonWithTitleAndPopupTableViewCell {
             actions.append(
                 UIAction(title: title) { [weak self] action in
                     guard let self else { return }
+                    // store value in the data model
+                    cellInfo.valueText = value
+                    // update text on UI
                     self.valueButton.setTitle(value, for: .normal)
                     self.delegate?.valueChanged(self, value: value)
                 }
