@@ -105,13 +105,7 @@ extension PrePurchaseViewController {
 extension MarketDomain {
     
     static var sampleKeys: [String] {
-        return [MarketDomain.US.stringValue.uppercased(),
-                MarketDomain.CA.stringValue.uppercased(),
-                MarketDomain.AU.stringValue.uppercased(),
-                MarketDomain.NZ.stringValue.uppercased(),
-                MarketDomain.UK.stringValue.uppercased(),
-                MarketDomain.IE.stringValue.uppercased(),
-                MarketDomain.MX.stringValue.uppercased()]
+        return MarketDomain.allCases.map { $0.stringValue.uppercased() }
     }
     
     var defaultSampleLocale: DiscoveryLocale {

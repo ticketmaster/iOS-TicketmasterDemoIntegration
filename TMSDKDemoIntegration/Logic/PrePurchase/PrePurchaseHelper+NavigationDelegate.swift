@@ -19,7 +19,8 @@ extension PrePurchaseHelper: TMPrePurchaseNavigationDelegate {
     ///
     /// - Parameters:
     ///   - eventIdentifier: Event identifier
-    func prePurchaseViewController(_ viewController: TMPrePurchaseViewController, navigateToEventDetailsPageWithIdentifier eventIdentifier: String) {
+    func prePurchaseViewController(_ viewController: TMPrePurchaseViewController, navigateToEventDetailsPageWithIdentifier eventIdentifier: String,
+                                   domain: MarketDomain?) {
         print("navigateToEventDetailsPageWithIdentifier: \(eventIdentifier)")
         // REQUIRED:
         // PrePurchase is asking us to present the Purchase SDK for this event
