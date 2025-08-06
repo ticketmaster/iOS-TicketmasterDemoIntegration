@@ -18,9 +18,9 @@ extension PrePurchaseHelper: TMPrePurchaseNavigationDelegate {
     /// A typical implementation of this function would use TicketmasterPurchase SDK to display an Event Details Page.
     ///
     /// - Parameters:
-    ///   - eventIdentifier: Event identifier
-    func prePurchaseViewController(_ viewController: TMPrePurchaseViewController, navigateToEventDetailsPageWithIdentifier eventIdentifier: String,
-                                   domain: MarketDomain?) {
+    ///   - eventIdentifier: Event's identifier
+    ///   - domain: Event's Market Domain (country)
+    func prePurchaseViewController(_ viewController: TicketmasterPrePurchase.TMPrePurchaseViewController, navigateToEventDetailsPageWithIdentifier eventIdentifier: String, domain: TicketmasterFoundation.MarketDomain?) {
         print("navigateToEventDetailsPageWithIdentifier: \(eventIdentifier)")
         // REQUIRED:
         // PrePurchase is asking us to present the Purchase SDK for this event
