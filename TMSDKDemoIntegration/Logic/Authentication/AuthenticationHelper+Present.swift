@@ -53,7 +53,7 @@ extension AuthenticationHelper {
     
     func logout() {
         // logout of ALL backends
-        TMAuthentication.shared.logout { backends in
+        TMAuthentication.shared.logoutAll { backends in
             // all done
             // you can also use the authDelegate to know when logout is completed
             //  or authNotifcations or registered state block

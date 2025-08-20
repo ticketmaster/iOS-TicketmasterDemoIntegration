@@ -110,7 +110,7 @@ extension DiscoveryHelper {
     // MARK: EVA Details
     func eventDetails(_ text: String, type: DetailsIdentifierType, onNavigationController navigationController: UINavigationController) {
         
-        let finish = { [weak self] (response: APIResponse<DiscoveryEvent>) in
+        let finish = { [weak self] (response: NetworkService.APIResponse<DiscoveryEvent>) in
             DispatchQueue.main.async {
                 guard let strongSelf = self else { return }
                 
@@ -144,7 +144,7 @@ extension DiscoveryHelper {
     
     func venueDetails(_ text: String, type: DetailsIdentifierType, onNavigationController navigationController: UINavigationController) {
         
-        let finish = { [weak self] (response: APIResponse<DiscoveryVenue>) in
+        let finish = { [weak self] (response: NetworkService.APIResponse<DiscoveryVenue>) in
             DispatchQueue.main.async {
                 guard let strongSelf = self else { return }
                 
@@ -178,7 +178,7 @@ extension DiscoveryHelper {
     
     func attractionDetails(_ text: String, type: DetailsIdentifierType, onNavigationController navigationController: UINavigationController) {
         
-        let finish = { [weak self] (response: APIResponse<DiscoveryAttraction>) in
+        let finish = { [weak self] (response: NetworkService.APIResponse<DiscoveryAttraction>) in
             DispatchQueue.main.async {
                 guard let strongSelf = self else { return }
 
@@ -212,7 +212,7 @@ extension DiscoveryHelper {
     
     func classificationDetails(_ text: String, type: DetailsIdentifierType, onNavigationController navigationController: UINavigationController) {
         
-        let finish = { [weak self] (response: APIResponse<DiscoveryClassification>) in
+        let finish = { [weak self] (response: NetworkService.APIResponse<DiscoveryClassification>) in
             DispatchQueue.main.async {
                 guard let strongSelf = self else { return }
 

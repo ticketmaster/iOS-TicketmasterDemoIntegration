@@ -117,22 +117,44 @@ extension MainMenuViewController {
         var cellInfoArray: [MenuBuilderCellInfo] = []
         var cellInfo: MenuBuilderCellInfo
         
+
+        let discoTitle: String
+        if let variant = TMDiscoveryAPI.shared.sdkBuildInfo?.stringNonEmpty("BuildVariant") {
+            discoTitle = "DiscoveryAPI v\(TMDiscoveryAPI.shared.version)-\(variant)"
+        } else {
+            discoTitle = "DiscoveryAPI v\(TMDiscoveryAPI.shared.version)"
+        }
+        
+        let prePurchTitle: String
+        if let variant = TMPrePurchase.shared.sdkBuildInfo?.stringNonEmpty("BuildVariant") {
+            prePurchTitle = "PrePurchase v\(TMPrePurchase.shared.version)-\(variant)"
+        } else {
+            prePurchTitle = "PrePurchase v\(TMPrePurchase.shared.version)"
+        }
+        
+        let purchTitle: String
+        if let variant = TMPurchase.shared.sdkBuildInfo?.stringNonEmpty("BuildVariant") {
+            purchTitle = "Purchase v\(TMPurchase.shared.version)-\(variant)"
+        } else {
+            purchTitle = "Purchase v\(TMPurchase.shared.version)"
+        }
+        
         cellInfo = MenuBuilderCellInfo(cellType: .title,
                                        uniqueIdentifier: CellIdentifier.discoveryAPIMenu.rawValue,
                                        accessoryType: .disclosureIndicator,
-                                       titleText: "DiscoveryAPI v\(TMDiscoveryAPI.shared.version)")
+                                       titleText: discoTitle)
         cellInfoArray.append(cellInfo)
         
         cellInfo = MenuBuilderCellInfo(cellType: .title,
                                        uniqueIdentifier: CellIdentifier.prePurchaseMenu.rawValue,
                                        accessoryType: .disclosureIndicator,
-                                       titleText: "PrePurchase v\(TMPrePurchase.shared.version)")
+                                       titleText: prePurchTitle)
         cellInfoArray.append(cellInfo)
 
         cellInfo = MenuBuilderCellInfo(cellType: .title,
                                        uniqueIdentifier: CellIdentifier.purchaseMenu.rawValue,
                                        accessoryType: .disclosureIndicator,
-                                       titleText: "Purchase v\(TMPurchase.shared.version)")
+                                       titleText: purchTitle)
         cellInfoArray.append(cellInfo)
 
         return MenuBuilderSectionInfo(title: "Retail Frameworks", cellInfoRowArray: cellInfoArray)
@@ -142,10 +164,17 @@ extension MainMenuViewController {
         var cellInfoArray: [MenuBuilderCellInfo] = []
         var cellInfo: MenuBuilderCellInfo
         
+        let ticketTitle: String
+        if let variant = TMTickets.shared.sdkBuildInfo?.stringNonEmpty("BuildVariant") {
+            ticketTitle = "Tickets v\(TMTickets.shared.version)-\(variant)"
+        } else {
+            ticketTitle = "Tickets v\(TMTickets.shared.version)"
+        }
+        
         cellInfo = MenuBuilderCellInfo(cellType: .title,
                                        uniqueIdentifier: CellIdentifier.ticketsMenu.rawValue,
                                        accessoryType: .disclosureIndicator,
-                                       titleText: "Tickets v\(TMTickets.shared.version)")
+                                       titleText: ticketTitle)
         cellInfoArray.append(cellInfo)
 
         return MenuBuilderSectionInfo(title: "Tickets Framework", cellInfoRowArray: cellInfoArray)
@@ -155,10 +184,17 @@ extension MainMenuViewController {
         var cellInfoArray: [MenuBuilderCellInfo] = []
         var cellInfo: MenuBuilderCellInfo
         
+        let authTitle: String
+        if let variant = TMAuthentication.shared.sdkBuildInfo?.stringNonEmpty("BuildVariant") {
+            authTitle = "Authentication v\(TMAuthentication.shared.version)-\(variant)"
+        } else {
+            authTitle = "Authentication v\(TMAuthentication.shared.version)"
+        }
+        
         cellInfo = MenuBuilderCellInfo(cellType: .title,
                                        uniqueIdentifier: CellIdentifier.authenticationMenu.rawValue,
                                        accessoryType: .disclosureIndicator,
-                                       titleText: "Authentication v\(TMAuthentication.shared.version)")
+                                       titleText: authTitle)
         cellInfoArray.append(cellInfo)
         
         cellInfo = MenuBuilderCellInfo(cellType: .title,

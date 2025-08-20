@@ -205,14 +205,55 @@ extension ConfigurationManager {
     
     func printVersions() {
         print("==========================================")
-        print("TMFoundation      : v\(TMFoundation.shared.version)")
-        print("TMAuthentication  : v\(TMAuthentication.shared.version)")
-        print("TMDiscoveryAPI    : v\(TMDiscoveryAPI.shared.version)")
-        print("TMPrePurchase     : v\(TMPrePurchase.shared.version)")
-        print("TMPurchase        : v\(TMPurchase.shared.version)")
-        print("TMTickets         : v\(TMTickets.shared.version)")
-        print(" - SecureEntryView: v\(SecureEntryView.version)")
-        print(" - SwiftProtobuf  : v\(TMSwiftProtobuf.version)")
+        
+        if let variant = TMFoundation.shared.sdkBuildInfo?.stringNonEmpty("BuildVariant") {
+            print("TMFoundation      : v\(TMFoundation.shared.version)-\(variant)")
+        } else {
+            print("TMFoundation      : v\(TMFoundation.shared.version)")
+        }
+        
+        if let variant = TMAuthentication.shared.sdkBuildInfo?.stringNonEmpty("BuildVariant") {
+            print("TMAuthentication  : v\(TMAuthentication.shared.version)-\(variant)")
+        } else {
+            print("TMAuthentication  : v\(TMAuthentication.shared.version)")
+        }
+
+        if let variant = TMDiscoveryAPI.shared.sdkBuildInfo?.stringNonEmpty("BuildVariant") {
+            print("TMDiscoveryAPI    : v\(TMDiscoveryAPI.shared.version)-\(variant)")
+        } else {
+            print("TMDiscoveryAPI    : v\(TMDiscoveryAPI.shared.version)")
+        }
+        
+        if let variant = TMPrePurchase.shared.sdkBuildInfo?.stringNonEmpty("BuildVariant") {
+            print("TMPrePurchase     : v\(TMPrePurchase.shared.version)-\(variant)")
+        } else {
+            print("TMPrePurchase     : v\(TMPrePurchase.shared.version)")
+        }
+        
+        if let variant = TMPurchase.shared.sdkBuildInfo?.stringNonEmpty("BuildVariant") {
+            print("TMPurchase        : v\(TMPurchase.shared.version)-\(variant)")
+        } else {
+            print("TMPurchase        : v\(TMPurchase.shared.version)")
+        }
+        
+        if let variant = TMTickets.shared.sdkBuildInfo?.stringNonEmpty("BuildVariant") {
+            print("TMTickets         : v\(TMTickets.shared.version)-\(variant)")
+        } else {
+            print("TMTickets         : v\(TMTickets.shared.version)")
+        }
+        
+        if let variant = SecureEntryView.sdkBuildInfo?.stringNonEmpty("BuildVariant") {
+            print(" - SecureEntryView: v\(SecureEntryView.version)-\(variant)")
+        } else {
+            print(" - SecureEntryView: v\(SecureEntryView.version)")
+        }
+        
+        if let variant = TMSwiftProtobuf.sdkBuildInfo?.stringNonEmpty("BuildVariant") {
+            print(" - SwiftProtobuf  : v\(TMSwiftProtobuf.version)-\(variant)")
+        } else {
+            print(" - SwiftProtobuf  : v\(TMSwiftProtobuf.version)")
+        }
+        
         print("==========================================")
     }
 }

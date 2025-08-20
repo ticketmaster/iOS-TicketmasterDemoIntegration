@@ -998,8 +998,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ticketmaster/iOS-TicketmasterSDK.git";
 			requirement = {
-				kind = exactVersion;
-				version = 1.16.2;
+				branch = "release/3.14.0-rc1";
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

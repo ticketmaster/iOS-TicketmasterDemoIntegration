@@ -30,18 +30,16 @@ extension DiscoveryHelper {
     // MARK: Present Errors
     
     func present(title: String, error: Error, onNavigationController navigationController: UINavigationController) {
-        if let connectionError = error as? ConnectionError {
+        if let connectionError = error as? ConnectionDriver.ConnectionError {
             let decodedErrorString: String
             
             switch connectionError {
-            case .logicError:
-                decodedErrorString = "Logic Error"
             case .missingData(let statusCode):
                 decodedErrorString = "Missing Data: HTTP Status Code: \(statusCode.rawValue)"
             case .missingDataUnknown(let statusCode):
                 decodedErrorString = "Missing Data: Unknown Status Code: \(statusCode)"
-            case .server(let serverError):
-                decodedErrorString = "Server Error: \(serverError.localizedDescription)"
+            case .urlSession(let sessionError):
+                decodedErrorString = "URLSession Error: \(sessionError.localizedDescription)"
             case .malformedResponse:
                 decodedErrorString = "Malformed Response"
             case .requestCanceled:

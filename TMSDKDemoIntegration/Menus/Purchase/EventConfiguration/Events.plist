@@ -2,25 +2,25 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Harry Potter Cursed - Jun 6, 2025</key>
-	<dict>
-		<key>identifier</key>
-		<string>0B006132C68F3360</string>
-	</dict>
-	<key>Backstreet Boys - Aug 16, 2025</key>
-	<dict>
-		<key>identifier</key>
-		<string>17006246B4091FB1</string>
-	</dict>
 	<key>Pantera - Sep 11, 2025</key>
 	<dict>
 		<key>identifier</key>
 		<string>2D006255CF2B6E63</string>
 	</dict>
-	<key>MLB: Dbcks vs Dgrs - Sep 25, 2025</key>
+	<key>Jonas Brothers - Nov 14, 2025</key>
 	<dict>
 		<key>identifier</key>
-		<string>1900622D7F90122C</string>
+		<string>1D006275E8FC341D</string>
+	</dict>
+	<key>WWE: RAW - Dec 1, 2025</key>
+	<dict>
+		<key>identifier</key>
+		<string>19006303D6B14A76</string>
+	</dict>
+	<key>NBA: Blzrs vs Clprs - Apr 10, 2026</key>
+	<dict>
+		<key>identifier</key>
+		<string>0F006305C92F3FFE</string>
 	</dict>
 </dict>
 </plist>

@@ -131,7 +131,7 @@ class EmbeddedViewController: UIViewController {
     }
     
     @objc func logoutButtonPressed(_ sender: Any) {
-        TMAuthentication.shared.logout { _ in
+        TMAuthentication.shared.logoutAll { _ in
             // list of all backends that were logged out
         }
     }
