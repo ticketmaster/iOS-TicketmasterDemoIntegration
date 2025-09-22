@@ -14,18 +14,18 @@ class SearchResultsTableViewController: UITableViewController {
     
     enum DiscoveryResponse {
         case searchSuggest(results: DiscoverySuggestResponse)
-        case eventSearch(results: PaginatedResponse<DiscoveryEvent>, criteria: DiscoveryEventSearchCriteria)
-        case venueSearch(results: PaginatedResponse<DiscoveryVenue>, criteria: DiscoveryVenueSearchCriteria)
-        case attractionSearch(results: PaginatedResponse<DiscoveryAttraction>, criteria: DiscoveryAttractionSearchCriteria)
-        case classificationSearch(results: PaginatedResponse<DiscoveryClassification>, criteria: DiscoveryClassificationSearchCriteria)
+        case eventSearch(results: ConnectionDriver.PaginatedResponse<DiscoveryEvent>, criteria: DiscoveryEventSearchCriteria)
+        case venueSearch(results: ConnectionDriver.PaginatedResponse<DiscoveryVenue>, criteria: DiscoveryVenueSearchCriteria)
+        case attractionSearch(results: ConnectionDriver.PaginatedResponse<DiscoveryAttraction>, criteria: DiscoveryAttractionSearchCriteria)
+        case classificationSearch(results: ConnectionDriver.PaginatedResponse<DiscoveryClassification>, criteria: DiscoveryClassificationSearchCriteria)
     }
     
     var discoveryResponse: DiscoveryResponse!
     
-    private var additionalEventSearchPages: [PaginatedResponse<DiscoveryEvent>] = []
-    private var additionalVenueSearchPages: [PaginatedResponse<DiscoveryVenue>] = []
-    private var additionalAttractionSearchPages: [PaginatedResponse<DiscoveryAttraction>] = []
-    private var additionalClassificationSearchPages: [PaginatedResponse<DiscoveryClassification>] = []
+    private var additionalEventSearchPages: [ConnectionDriver.PaginatedResponse<DiscoveryEvent>] = []
+    private var additionalVenueSearchPages: [ConnectionDriver.PaginatedResponse<DiscoveryVenue>] = []
+    private var additionalAttractionSearchPages: [ConnectionDriver.PaginatedResponse<DiscoveryAttraction>] = []
+    private var additionalClassificationSearchPages: [ConnectionDriver.PaginatedResponse<DiscoveryClassification>] = []
 
     //override func viewDidLoad() {
         //super.viewDidLoad()
