@@ -7,7 +7,8 @@ This is an example integration of the Ticketmaster Ignite SDK, Retail, Tickets, 
   * Retail: https://ignite.ticketmaster.com/docs/ios-retail-change-log
   * Authentication: https://ignite.ticketmaster.com/docs/ios-authentication-change-log
   * Tickets: https://ignite.ticketmaster.com/docs/ios-tickets-change-log
-* Documentation: https://ignite.ticketmaster.com/
+* General Documentation: https://ignite.ticketmaster.com/
+* API Documentation: https://code.ticketmaster.com/iOS-TicketmasterSDK/docs
 * Frameworks: https://github.com/ticketmaster/iOS-TicketmasterSDK
 
 ### Change Log
