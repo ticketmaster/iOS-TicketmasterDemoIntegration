@@ -19,8 +19,7 @@ This is an example integration of the Ticketmaster Ignite SDK, Retail, Tickets, 
 
 ## Getting Started
 
-1. Open **TMSDKDemoIntegration.xcodeproj** using Swift 5.9+ (Xcode 15.0.1+ or Xcode 16.0+)
-   1. This will also download the required .xcframeworks using Swift Package Manager
+1. Open **TMSDKDemoIntegration.xcodeproj** using Swift 5.9+ or Swift 6.0.3+ (Xcode 16.2+ or Xcode 26+) for development and iOS 17.0+ as your release target
 2. Update **Configuration.swift** with your own API key, available from [https://developer.ticketmaster.com/explore/](https://developer.ticketmaster.com/explore/)
 3. Update **TMSDKDemoIntegration** target's _Signing & Capabilities_ with your own Apple Developer certificate from [https://developer.apple.com/](https://developer.apple.com/)
 4. Build and Run **TMSDKDemoIntegration** target
