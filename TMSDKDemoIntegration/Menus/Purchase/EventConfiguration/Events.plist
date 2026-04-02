@@ -2,25 +2,25 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>WWE: Wrestlemania - April 18-19, 2026</key>
+	<key>LA Galaxy FC - Oct 25, 2026</key>
 	<dict>
 		<key>identifier</key>
-		<string>1700633087861E49</string>
+		<string>0A006373F37F942B</string>
 	</dict>
-	<key>GHOST - Feb 21, 2026</key>
+	<key>Shane Gillis - Jul 17, 2026</key>
 	<dict>
 		<key>identifier</key>
-		<string>09006337A7572E91</string>
+		<string>020063740112D43F</string>
 	</dict>
-	<key>MANÁ - Apr 04, 2026</key>
+	<key>J. Cole - Sep 20, 2026</key>
 	<dict>
 		<key>identifier</key>
-		<string>2D006264BCA738E4</string>
+		<string>0C00644AB5367FEA</string>
 	</dict>
-	<key>NBA: Clippers v GSW - Apr 12, 2026</key>
+	<key>Monster Jam - Jan 31, 2027</key>
 	<dict>
 		<key>identifier</key>
-		<string>0900630C3FBB5E4B</string>
+		<string>150062EB9E862CE9</string>
 	</dict>
 </dict>
 </plist>

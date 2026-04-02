@@ -44,9 +44,8 @@ extension PurchaseHelper {
 
         // MARK: OPTIONAL NAVBAR BUTTONS
         // show Event "Info" button in NavBar, enables presentADP and presentVDP User Navigation delegate methods
-        purchaseConfig.showInfoToolbarButton = true
         // show Event "Calendar" button in NavBar, button will only appear if Event has other performances at the same Venue
-        purchaseConfig.showCalendarToolbarButton = true
+        purchaseConfig.showEventFeaturesToolbarButton = true
         // show Event Social "Share" button in EDP NavBar enables Sharing delegate methods
         purchaseConfig.showShareToolbarButton = true
                 
